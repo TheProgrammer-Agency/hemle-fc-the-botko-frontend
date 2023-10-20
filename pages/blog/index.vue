@@ -113,7 +113,7 @@
       </div>
     </div>
 
-    <FooterTwo />
+    <FooterStyleFour/>
 
   </div>
 </template>
@@ -157,7 +157,7 @@ export default {
     SearchPopup: () => import('@/components/SearchPopup'),
     Breadcrumb: () => import('@/components/Breadcrumb'),
     BlogSidebar: () => import('@/components/BlogSidebar'),
-    FooterTwo: () => import('@/components/FooterTwo'),
+    FooterStyleFour: () => import('@/components/FooterStyleFour'),
   },
   computed:{
     ...mapGetters({
