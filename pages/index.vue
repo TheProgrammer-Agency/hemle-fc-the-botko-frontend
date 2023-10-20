@@ -21,7 +21,7 @@
 
 
     >
-      <div class="container-fluid plr--150 plr_md--50 plr_sm--50">
+      <div class="container-fluid plr--150 plr_md--50 plr_sm--50 mb_sm--30">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-inner text-left">
@@ -53,7 +53,7 @@
             </a>
           </div>
 
-          <div class="thumb">
+          <div class="thumb mt_sm--30">
             <img class="w--100" src="/img/home/boutique.jpg" :alt="$t('home.shop_title_2')"/>
           </div>
 

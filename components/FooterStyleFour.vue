@@ -1,5 +1,5 @@
 <template>
-    <footer class="page-footer bg_color--3 pl--150 pr--150 pl_lp--40 pr_lp--40 pl_lg--30 pr_lg--30 pl_md--30 pr_md--30 pl_sm--20 pr_sm--20 pl_mobile--20 pr_mobile--20">
+    <footer class="page-footer position-relative bg_color--3 pl--150 pr--150 pl_lp--40 pr_lp--40 pl_lg--30 pr_lg--30 pl_md--30 pr_md--30 pl_sm--20 pr_sm--20 pl_mobile--20 pr_mobile--20">
         <div class="bk-footer-inner pt--150 pb--100 pt_sm--80 pb_sm--40 pt_md--80 pb_md--40">
             <div class="row">
                 <div class="col-lg-6 col-xl-6">

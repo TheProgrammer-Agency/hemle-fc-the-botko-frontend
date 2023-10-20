@@ -17,12 +17,18 @@
     // res
     @media #{$lg-layout}{
         height: 650px;
+        background-position: center center;
+
     }
     @media #{$md-layout}{
         height: 500px;
+        background-position: center center;
+
     }
     @media #{$sm-layout}{
-        height: 450px;
+        /*height: 450px;*/
+
+        background-position: right;
     }
 }
 
