@@ -1,0 +1,35 @@
+.card-error{
+
+  gap:15px;
+  margin:auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  text-align: center;
+  flex-wrap: wrap;
+  .card-error-left{
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
+    margin:auto;
+    align-items: center;
+  }
+
+  img{
+
+    width: 70%;
+  }
+
+  @media #{$sm-layout}{
+    grid-template-columns: 1fr;
+
+  }
+  @media #{$md-layout}{
+    grid-template-columns: 1fr 1fr;
+
+  }
+}

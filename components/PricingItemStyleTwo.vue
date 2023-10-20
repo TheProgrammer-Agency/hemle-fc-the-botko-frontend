@@ -1,0 +1,405 @@
+<template>
+
+<!--  bg_color&#45;&#45;5-->
+  <div id="pricing" class="brook-pricing-table-area ptb--150 ptb-md--80 ptb-sm--80 "
+
+       data-aos="fade-up"
+       data-aos-offset="200"
+       data-aos-delay="50"
+       data-aos-duration="1000"
+       data-aos-easing="ease-in-out"
+       data-aos-mirror="true"
+       data-aos-once="false"
+       data-aos-anchor-placement="top-center"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="brook-section-title text-center mb--45">
+            <h6 class="heading-13 theme-color text-uppercase fw-500">{{ $t('pricing.become_member_subtitle') }}</h6>
+            <div class="bkseparator--25"></div>
+            <h2 class="heading-40 fw-200"><strong v-html="$t('pricing.pricing_title')"></strong>
+
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Start Single Pricing Table -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="procing-wrap price-style-3 pt--40 move-up wow">
+            <div class="pricing-box" style="border-bottom:2px solid var(--primary-color)">
+              <div class="header">
+                <div class="price-area">
+                  <h5 class="title  secondary-color"  style="font-weight: bold">{{ $t('pricing.pricing_1_title')}} </h5>
+                  <div class="price-wrap d-flex">
+                    <h3 class="">5 000 &nbsp; </h3>
+                    <h3 class="currenct">XAF </h3>
+                  </div>
+                  <h6 class="period">{{pricing.pricing_1_summary}}</h6>
+                </div>
+              </div>
+              <div class="content">
+                <!-- Start Single List -->
+                <div class="bk-list--2">
+
+                  <div class="list-header with-ckeck item-available" v-for="pricer in pricing[0]">
+                    <div class="marker"></div>
+                    <div class="title-wrap">
+                      <h6 class="heading heading-h5">{{
+                          pricer
+                        }}</h6>
+                    </div>
+                  </div>
+
+
+                </div>
+                <!-- End Single List -->
+              </div>
+              <div class="footer mt--40 d-flex mx-auto">
+                <button @click.prevent="requestPaymentLink(0)"
+                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">                  {{ $t('tools.btn.become_member') }}
+
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Single Pricing Table -->
+
+        <!-- Start Single Pricing Table -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="procing-wrap price-style-3 pt--40 move-up wow"  >
+            <div class="pricing-box" style="border-bottom:2px solid var(--secondary-color)">
+              <div class="header">
+                <div class="price-area">
+                  <div class="header-title">
+                    <div class="pricing-feature-mark"> {{ $t('pricing.pricing_popular') }}</div>
+                    <h5 class="title secondary-color">{{ $t('pricing.pricing_2_title') }}</h5>
+                  </div>
+                  <div class="price-wrap d-flex">
+                    <h3 class="">50 000 &nbsp; </h3>
+                    <h3 class="currenct">XAF</h3>
+
+                  </div>
+
+                  <h6 class="period">{{pricing.pricing_2_summary}}</h6>
+
+                </div>
+              </div>
+              <div class="content">
+                <!-- Start Single List -->
+                <div class="bk-list--2">
+                  <div class="list-header with-ckeck item-available" v-for="a in pricing[1]">
+                    <div class="marker"></div>
+                    <div class="title-wrap">
+                      <h6 class="heading heading-h5">{{
+                          a
+                        }}</h6>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- End Single List -->
+              </div>
+              <div class="footer mt--40 d-flex mx-auto">
+                <button @click.prevent="requestPaymentLink(1)"
+                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">                  {{ $t('tools.btn.become_member') }}
+
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Single Pricing Table -->
+
+        <!-- Start Single Pricing Table -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="procing-wrap price-style-3 pt--40 move-up wow">
+            <div class="pricing-box" style="border-bottom:2px solid var(--primary-color)">
+              <div class="header">
+                <div class="price-area">
+                  <h5 class="title secondary-color"> {{ $t('pricing.pricing_3_title') }} </h5>
+                  <div class="price-wrap d-flex">
+                    <h3 class="">500 000 &nbsp;</h3>
+                    <h3 class="currenct"> XAF</h3>
+                  </div>
+                  <h6 class="period">{{pricing.pricing_3_summary}}</h6>
+                </div>
+              </div>
+              <div class="content">
+                <!-- Start Single List -->
+                <div class="bk-list--2">
+                  <div class="list-header with-ckeck item-available" v-for="a in pricing[2]">
+                    <div class="marker"></div>
+                    <div class="title-wrap">
+                      <h6 class="heading heading-h5">{{ a }}</h6>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- End Single List -->
+              </div>
+              <div class="footer mt--40 d-flex mx-auto">
+                <button @click.prevent="requestPaymentLink(2)"
+                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">
+                  {{ $t('tools.btn.become_member') }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="procing-wrap price-style-3 pt--40 move-up wow">
+            <div class="pricing-box"  style="border-bottom:2px solid var(--secondary-color)">
+              <div class="header">
+                <div class="price-area">
+                  <h5 class="title  secondary-color">{{ $t('pricing.pricing_4_title') }}</h5>
+                  <div class="price-wrap d-flex">
+                    <h3 class="">1 000 000 &nbsp;</h3>
+                    <h3 class="currenct"> XAF</h3>
+                  </div>
+                  <h6 class="period">{{pricing.pricing_4_summary}}</h6>
+                </div>
+              </div>
+              <div class="content">
+                <!-- Start Single List -->
+                <div class="bk-list--2">
+                  <div class="list-header with-ckeck item-available" v-for="a in pricing[3]">
+                    <div class="marker"></div>
+                    <div class="title-wrap">
+                      <h6 class="heading heading-h5">{{
+                          a
+                        }}</h6>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- End Single List -->
+              </div>
+              <div class="footer mt--40 d-flex mx-auto">
+                <button @click.prevent="requestPaymentLink(3)"
+                        class="brook-btn bk-btn-secondary-border btn-sd-size space-between btn-essential">                  {{ $t('tools.btn.become_member') }}
+
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Single Pricing Table -->
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+import {v4 as uuidv4} from 'uuid';
+
+export default {
+
+
+  data() {
+
+    return {
+
+      pricing: [
+
+
+      ],
+
+      data_form: [
+
+        {
+          /*
+                    amount: "5 000",
+          */
+          amount: "5",
+
+          currency: "XAF",
+          from: "+237698305411",
+          description: "ÑÈM KÍÍ HIÉE",
+          external_reference: "",
+          external_user: "",
+          package_name:"ÑÈM KÍÍ HIÉE"
+
+        },
+
+
+        {
+          /*
+                    amount: "5",
+          */
+          amount: "5",
+
+          currency: "XAF",
+          from: "+237698305411",
+          description: "ÑEM KÍÍ HIAÑNGA'A",
+          external_reference: "",
+          external_user: "",
+          package_name:"ÑEM KÍÍ HIAÑNGA'A"
+
+        },
+
+
+        {
+          /*
+                    amount: "500 000",
+          */
+          amount: "5",
+
+          currency: "XAF",
+          from: "+237698305411",
+          description: "ÑÈM KÍÍ NGOCK",
+          external_reference: "",
+          external_user: "",
+          package_name:"ÑÈM KÍÍ NGOCK"
+        },
+
+        {
+          /*
+                    amount: "1000 000",
+          */
+          amount: "5",
+
+          currency: "XAF",
+          from: "+237698305411",
+          description: "ÑEM  KÍÍ  ÑJÉÉ",
+          external_reference: "",
+          external_user: "",
+          package_name:"ÑÈM KÍÍ ÑJÉÉ"
+
+        },
+
+
+      ]
+    }
+  },
+
+  mounted() {
+
+    this.pricing=[
+
+      [
+
+        this.$t('pricing.pricing_1_desc_1'),
+        this.$t('pricing.pricing_1_desc_2'),
+        this.$t('pricing.pricing_1_desc_3'),
+        this.$t('pricing.pricing_1_desc_4'),
+        this.$t('pricing.pricing_1_desc_5'),
+      ],
+
+      [
+
+        this.$t('pricing.pricing_2_desc_1'),
+        this.$t('pricing.pricing_2_desc_2'),
+        this.$t('pricing.pricing_2_desc_3'),
+        this.$t('pricing.pricing_2_desc_4'),
+        this.$t('pricing.pricing_2_desc_5'),
+        this.$t('pricing.pricing_2_desc_6'),
+        this.$t('pricing.pricing_2_desc_7'),
+        this.$t('pricing.pricing_2_desc_8'),
+        this.$t('pricing.pricing_2_desc_9'),
+      ],
+
+
+      [
+
+        this.$t('pricing.pricing_3_desc_1'),
+        this.$t('pricing.pricing_3_desc_2'),
+        this.$t('pricing.pricing_3_desc_3'),
+        this.$t('pricing.pricing_3_desc_4'),
+        this.$t('pricing.pricing_3_desc_5'),
+        this.$t('pricing.pricing_3_desc_6'),
+        this.$t('pricing.pricing_3_desc_7'),
+        this.$t('pricing.pricing_3_desc_8'),
+        this.$t('pricing.pricing_3_desc_9'),
+        this.$t('pricing.pricing_3_desc_10'),
+        this.$t('pricing.pricing_3_desc_11'),
+      ],
+
+
+      [
+
+        this.$t('pricing.pricing_4_desc_1'),
+        this.$t('pricing.pricing_4_desc_2'),
+        this.$t('pricing.pricing_4_desc_3'),
+        this.$t('pricing.pricing_4_desc_4'),
+        this.$t('pricing.pricing_4_desc_5'),
+        this.$t('pricing.pricing_4_desc_6'),
+        this.$t('pricing.pricing_4_desc_7'),
+        this.$t('pricing.pricing_4_desc_8'),
+        this.$t('pricing.pricing_4_desc_9'),
+        this.$t('pricing.pricing_4_desc_10'),
+        this.$t('pricing.pricing_4_desc_11'),
+        this.$t('pricing.pricing_4_desc_12'),
+        this.$t('pricing.pricing_4_desc_13'),
+      ],
+
+
+
+
+    ]
+  },
+  methods: {
+
+    async requestPaymentLink(numberInTag = 1) {
+
+      let myuuid = uuidv4();
+
+
+
+      //make order now
+      if (this.$auth.loggedIn) {
+
+        let payment_form = this.data_form[numberInTag]
+        payment_form.external_reference = myuuid
+        payment_form.user = this.$auth.user.user.uuid
+
+        let app = this
+
+        console.log("api  = ", this.$api)
+        //save order in our BD
+        await this.$axios.post('/payment/order', payment_form)
+
+            .then(async function (res) {
+
+
+              await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(function (response) {
+
+
+                console.log("response= ", response)
+
+
+                window.location.href = response.link;
+
+
+              }).catch(function (error) {
+
+                console.log("error", error)
+
+              });
+
+            })
+            .catch(function (error) {
+
+
+              console.log("error save in database",error)
+            })
+
+
+        console.log("data", this.data_form[numberInTag])
+
+
+      } else {
+
+        this.$toast.open('Bonjour !' + "veuillez tout d'abord créer un compte  ou vous connecter 😊")
+        this.$router.push('/auth/register')
+
+
+      }
+
+    }
+  }
+}
+</script>
