@@ -71,7 +71,6 @@
       async fetch() {
 
         try {
-          console.log("sdfsdf vneedsfsdfsd ")
 
           await this.$store.dispatch('user/allUser')
 

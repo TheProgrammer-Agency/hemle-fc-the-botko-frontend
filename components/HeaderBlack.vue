@@ -3,12 +3,12 @@
         <header class="br_header header-default  header-transparent black-logo--version haeder-fixed-width header-mega-menu clearfix" :class="addClass">
 
 
-          <div class="message-box move-up wow bg_cat--2 " v-if="$auth.loggedIn">
+          <div class="message-box move-up wow bg_cat--2 " v-if="$auth.loggedIn && !($auth.user.user.is_member) ">
 
             <div class="icon">
               <i class=" fas fa-bell "></i>
             </div>
-            <div class="content"> Hey {{$auth.user.user.first_name}}  ! Votre compte est inactif car vous n'êtes pas encore membre. Souscrivez à un abonnement pour finaliser votre inscription
+            <div class="content" > Hey {{$auth.user.user.first_name}}  ! Votre compte est inactif car vous n'êtes pas encore membre. Souscrivez à un abonnement pour finaliser votre inscription
               <nuxt-link to="/user/orders"  style="color:#ac0404;text-decoration: underline"> ici !</nuxt-link></div>
           </div>
 

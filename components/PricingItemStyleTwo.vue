@@ -196,6 +196,8 @@
 <script>
 import {v4 as uuidv4} from 'uuid';
 
+import data_form from "../data/package.json"
+
 export default {
 
 
@@ -208,71 +210,7 @@ export default {
 
       ],
 
-      data_form: [
 
-        {
-          /*
-                    amount: "5 000",
-          */
-          amount: "5",
-
-          currency: "XAF",
-          from: "+237698305411",
-          description: "ÑÈM KÍÍ HIÉE",
-          external_reference: "",
-          external_user: "",
-          package_name:"ÑÈM KÍÍ HIÉE"
-
-        },
-
-
-        {
-          /*
-                    amount: "5",
-          */
-          amount: "5",
-
-          currency: "XAF",
-          from: "+237698305411",
-          description: "ÑEM KÍÍ HIAÑNGA'A",
-          external_reference: "",
-          external_user: "",
-          package_name:"ÑEM KÍÍ HIAÑNGA'A"
-
-        },
-
-
-        {
-          /*
-                    amount: "500 000",
-          */
-          amount: "5",
-
-          currency: "XAF",
-          from: "+237698305411",
-          description: "ÑÈM KÍÍ NGOCK",
-          external_reference: "",
-          external_user: "",
-          package_name:"ÑÈM KÍÍ NGOCK"
-        },
-
-        {
-          /*
-                    amount: "1000 000",
-          */
-          amount: "5",
-
-          currency: "XAF",
-          from: "+237698305411",
-          description: "ÑEM  KÍÍ  ÑJÉÉ",
-          external_reference: "",
-          external_user: "",
-          package_name:"ÑÈM KÍÍ ÑJÉÉ"
-
-        },
-
-
-      ]
     }
   },
 
@@ -352,7 +290,7 @@ export default {
       //make order now
       if (this.$auth.loggedIn) {
 
-        let payment_form = this.data_form[numberInTag]
+        let payment_form = data_form[numberInTag]
         payment_form.external_reference = myuuid
         payment_form.user = this.$auth.user.user.uuid
 
@@ -388,13 +326,13 @@ export default {
             })
 
 
-        console.log("data", this.data_form[numberInTag])
+        console.log("data", data_form[numberInTag])
 
 
       } else {
 
         this.$toast.open('Bonjour !' + "veuillez tout d'abord créer un compte  ou vous connecter 😊")
-        this.$router.push('/auth/register')
+        this.$router.push('/auth/register?package='+numberInTag)
 
 
       }

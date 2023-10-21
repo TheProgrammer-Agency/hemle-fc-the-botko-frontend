@@ -13,7 +13,7 @@
       <ValidationObserver v-slot="{ invalid }">
 
 
-        <h2 class="text-center">{{$t('auth.register_title')}}</h2>
+        <h2 class="text-center">{{ $t('auth.register_title') }}</h2>
 
 
         <br><br>
@@ -21,7 +21,7 @@
 
         <div class="text-center">
 
-            <span class="error" >
+            <span class="error">
 
               {{ error_message }}
 
@@ -36,7 +36,7 @@
 
             <div class="form-group">
 
-              <label>{{$t('auth.your_name')}}</label>
+              <label>{{ $t('auth.your_name') }}</label>
 
               <ValidationProvider :name="$t('auth.first_name')" rules="required|min:3" v-slot="{ errors }">
                 <input v-model="form.first_name" type="text">
@@ -47,7 +47,7 @@
 
             <div class="form-group">
 
-              <label>{{$t('auth.your_first_name')}}</label>
+              <label>{{ $t('auth.your_first_name') }}</label>
 
               <ValidationProvider :name="$t('auth.last_name')" rules="required|min:3" v-slot="{ errors }">
                 <input v-model="form.last_name" type="text">
@@ -102,21 +102,20 @@
                 <span>{{ errors[0] }}</span>
 
 
-
                 <div class="flex align-center login-phone">
 
-                 <client-only placeholder="loading..." class="flex">
+                  <client-only placeholder="loading..." class="flex">
 
-                   <vue-country-code
+                    <vue-country-code
 
-                       @onSelect="onSelect"
-                       :onlyCountries="['cm']"
+                        @onSelect="onSelect"
+                        :onlyCountries="['cm']"
 
-                   >
-                   </vue-country-code>
+                    >
+                    </vue-country-code>
 
-                 </client-only>
-                  <input v-model="form.tel"  type="number"  >
+                  </client-only>
+                  <input v-model="form.tel" type="number">
 
                 </div>
 
@@ -127,7 +126,7 @@
 
             <div class="form-group">
 
-              <label>{{$t('auth.password')}}</label>
+              <label>{{ $t('auth.password') }}</label>
 
               <ValidationProvider :name="$t('auth.password')" rules="required|min:4" v-slot="{ errors }">
                 <input v-model="form.password" type="password">
@@ -138,7 +137,7 @@
 
             <div class="form-group">
 
-              <label>{{$t('auth.confirm_password')}}</label>
+              <label>{{ $t('auth.confirm_password') }}</label>
 
               <ValidationProvider :name="$t('auth.password')" rules="required|min:4" v-slot="{ errors }">
                 <input v-model="form.password_confirmation" type="password">
@@ -152,7 +151,7 @@
 
             <div class="form-group">
 
-              <label>{{$t('auth.referral_code')}} </label>
+              <label>{{ $t('auth.referral_code') }} </label>
 
               <ValidationProvider :name="$t('auth.code')" rules="min:4" v-slot="{ errors }">
                 <input v-model="form.referral_code" type="text">
@@ -168,13 +167,14 @@
           <div class="form-group mx-auto">
 
 
-            <button type="submit" class="bk-btn theme-btn" :disabled="invalid">{{$t('tools.btn.become_member')}}</button>
+            <button type="submit" class="bk-btn theme-btn" :disabled="invalid">{{ $t('tools.btn.become_member') }}
+            </button>
 
           </div>
 
           <br>
 
-          <p class="mx-auto">{{$t('auth.already_member')}}
+          <p class="mx-auto">{{ $t('auth.already_member') }}
             <nuxt-link to="/auth/login" class="text-primary">{{ $t('auth.log_in') }}</nuxt-link>
           </p>
         </form>
@@ -189,9 +189,12 @@
 <script>
 
 import {mapGetters} from "vuex";
+import packages from "../../data/package.json"
 
 export default {
   auth: "guest",
+
+  middleware: 'checkParam',
 
 
   data() {
@@ -212,7 +215,8 @@ export default {
         password_confirmation: '',
         referral_code: ''
       },
-      phone_number_code:''
+      phone_number_code: '',
+      package: ''
     }
   },
   computed: {
@@ -223,8 +227,7 @@ export default {
   methods: {
 
     onSelect({name, iso2, dialCode}) {
-      console.log(name, iso2, dialCode);
-      this.phone_number_code=dialCode;
+      this.phone_number_code = dialCode;
     },
     async onSubmit() {
 
@@ -234,108 +237,114 @@ export default {
 
 
       let payment_form = {
-        amount: "5",
-        currency: "XAF",
-        from: '+'+this.phone_number_code+app.form.tel,
-        description: "theprogrammer",
-        package_name: "ÑÈM KÍÍ ÑJÉÉ",
-        external_user: "",
+        amount: this.package.amount,
+        currency: this.package.currency,
+        from: '+' + this.phone_number_code + app.form.tel,
+        description: this.package.description,
+        package_name: this.package.package_name,
+        external_user: this.package.external_user,
 
 
       }
 
 
+      let formRegister = app.form
 
-
-      let formRegister =app.form
-
-      formRegister= {
+      formRegister = {
         first_name: app.form.first_name,
         last_name: app.form.last_name,
-        city:  app.form.city,
+        city: app.form.city,
         country: app.form.country,
-        tel:  '+'+this.phone_number_code+app.form.tel,
-        email:  app.form.email,
-        password:  app.form.password,
+        tel: '+' + this.phone_number_code + app.form.tel,
+        email: app.form.email,
+        password: app.form.password,
         password_confirmation: app.form.password_confirmation,
-        referral_code:  app.form.referral_code
+        referral_code: app.form.referral_code,
+        redirect_url: ''
       }
 
 
-      console.log("form register",formRegister,app.form)
-          await app.$axios.$post('auth/register', formRegister).then(async function (response) {
+      console.log("form register", formRegister, app.form)
+      await app.$axios.$post('auth/register', formRegister).then(async function (response) {
 
 
-    /*    app.$swal.fire({
-          icon: 'success',
-          title: 'Félicitation ! ' + app.form.last_name,
-          text: "Veuillez compléter votre inscription , en effectuant le paiement pour  votre plan",
-          footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">Besoin de nous contacter  ? </a>'
-        })
-        */
+        /*    app.$swal.fire({
+              icon: 'success',
+              title: 'Félicitation ! ' + app.form.last_name,
+              text: "Veuillez compléter votre inscription , en effectuant le paiement pour  votre plan",
+              footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">Besoin de nous contacter  ? </a>'
+            })
+            */
 
-            payment_form.user = response.data.uuid
-            await app.$api.$post(process.env.PAYMENT_API_URL + 'collect/', payment_form).then(async function (response) {
+        payment_form.user = response.data.uuid
+        payment_form.external_reference = response.data.uuid
 
+        payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + response.data.uuid
 
-          //save order in database
-
-          payment_form.external_reference = response.reference
-          payment_form.operator = response.operator
+        await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(async function (response) {
 
 
-          await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(async function (response) {
+          let $payment_link = response.link
 
 
-            let $payment_link=response.link
+
+          console.log("proceed to paymentOrder")
+          //log in
+
+          await app.$auth.loginWith('local', {
+            data: {
+              email: formRegister.email,
+              password: formRegister.password
+            }
+          }).then(async function () {
 
 
-            await app.$axios.post('/payment/order', payment_form)
+            await app.$auth.fetchUser().then(async function(res){
 
-                .then(async function (res) {
+              await app.$axios.post('/payment/order', payment_form)
 
-                  app.$nuxt.$loading.finish()
+                  .then(async function (res) {
 
-
-                  app.$swal.fire({
-                    icon: 'success',
-                    title: app.$t('auth.register_order_success') + app.form.last_name,
-                    text: app.$t('auth.register_order_success_desc'),
-                    footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">'+ app.$t("tools.btn.need_to_contact_us")+'</a>'
-                  })
+                    app.$nuxt.$loading.finish()
 
 
-                  setTimeout(() => {    window.location.href = $payment_link; }, 8000);
+                    app.$swal.fire({
+                      icon: 'success',
+                      title: app.$t('auth.register_order_success') + app.form.last_name,
+                      text: app.$t('auth.register_order_success_desc'),
+                      footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
+                    })
 
 
-                }).catch(function (error) {
-                  app.$nuxt.$loading.finish()
+                    setTimeout(() => {
+                      window.location.href = $payment_link;
+                    }, 8000);
 
 
-                });
+                  }).catch(function (error) {
+                    app.$nuxt.$loading.finish()
 
 
-          }).catch(function (error) {
-            app.$nuxt.$loading.finish()
-
-            console.log("error", error)
-
-          });
+                  });
 
 
-        }).catch(function (error) {
+            }).catch(function (error) {
+              app.$nuxt.$loading.finish()
 
-          app.$nuxt.$loading.finish()
+              console.log("error", error)
+
+            });
+              app.$nuxt.$loading.finish()
+
+            })
+
+
 
 
         })
 
 
         app.$nuxt.$loading.finish()
-
-
-
-
 
 
       })
@@ -346,20 +355,20 @@ export default {
           })
 
 
-
-
-
     }
   },
 
   mounted() {
 
 
-
+    this.package = packages[this.$route.query.package]
 
     this.contact = process.env.wa_contact
 
-  }
+
+  },
+
+
 }
 </script>
 

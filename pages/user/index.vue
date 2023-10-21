@@ -278,6 +278,60 @@ export default {
 
   },
 
+
+  fetchOnServer: false,
+
+  async fetch() {
+
+    let app=this
+
+
+    if(this.$route.query.reference){
+
+
+       await this.$axios.get('/payment/verify/status/ ' + this.$route.query.reference).then(async function($res){
+
+        await app.$auth.fetchUser().then(function(res){
+
+             app.$swal.fire({
+                title: 'Félicitation ! pour ton paiement !',
+                width: 600,
+                text: "Tu es désormais membre de Hèmlé, et nous sommes extrêmement fiers de toi. Profite dès maintenant de tous les avantages exceptionnels inclus dans ton pack. 😊" +
+                    "\n 🫡",
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(/img/home/trees.png)',
+                backdrop: `
+    rgba(0,0,123,0.4)
+    url("/img/home/success.gif")
+    left top
+    no-repeat
+  `
+              })
+
+          app.$router.push('/user')
+        })
+
+
+      }).catch(function(){
+
+        app.$swal.fire({
+          icon: 'error',
+          title: "Une erreur s'est produite" +app.$auth.user.user.last_name,
+          text: "Nous n'avons pas pu mettre à jour vos données de paiment, veuillez réessayer, si cela persiste, contactez-nous !" +
+              "\n 🫡",
+          footer: '<a href="/pricing" style="margin:auto;">Payez votre abonnement Hèmlé ICI !!</a>'
+        })
+
+
+      })
+
+    }
+
+
+
+
+  },
   data() {
     return {
       data,
@@ -312,7 +366,7 @@ export default {
     this.data=new FormData()
 
 
-    console.log("this data", this.data)
+
     this.form = {
 
       first_name: this.$auth.user.user.first_name,
@@ -325,7 +379,6 @@ export default {
       password_confirmation: '',
       avatar: this.$auth.user.user.avatar? this.$auth.user.user.avatar :'/img/home/avatar.svg'
     }
-    console.log("this data", this.$auth.user.user)
 
 
     document.body.classList.add('template-color-1', 'template-font-2')
@@ -337,7 +390,6 @@ export default {
 
       let app = this;
 
-      console.log(this.$auth.user.user.is_member)
       if(this.$auth.user.user.is_member){
 
         //generate
@@ -348,6 +400,7 @@ export default {
         } catch (e) {
           console.error(e);
         }
+
       }
       else{
         this.$swal.fire({
@@ -364,7 +417,6 @@ export default {
 
     generateMyCard(){
 
-      console.log(this.$auth.user.user.is_member)
       if(this.$auth.user.user.is_member){
 
         //generate

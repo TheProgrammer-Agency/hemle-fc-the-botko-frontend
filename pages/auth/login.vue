@@ -48,14 +48,15 @@
               <button type="submit" class="bk-btn theme-btn" :disabled="invalid">{{ $t('auth.identifier') }}</button>
 
 
-            <nuxt-link to="/auth/register">
+            <nuxt-link :to="localePath('/pricing')">
               <button type="submit" class="bk-btn theme-btn" >{{$t('auth.create_account')}}</button>
             </nuxt-link>
           </div>
 
           <br>
 
-          <p>{{$t('auth.lost_account')}}  <nuxt-link to="/auth/forgot-password" class="text-primary">{{$t('auth.find_my_account')}}</nuxt-link></p>
+          <p>{{$t('auth.lost_account')}}  <nuxt-link :to="localePath('/auth/forgot-password')" class="text-primary">{{$t('auth.find_my_account')}}</nuxt-link></p>
+
         </form>
       </ValidationObserver>
 

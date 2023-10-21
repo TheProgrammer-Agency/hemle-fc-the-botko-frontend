@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import { ValidationProvider, extend,ValidationObserver } from 'vee-validate';
-import { alpha } from "vee-validate/dist/rules";
 import * as rules from 'vee-validate/dist/rules';
 import { messages } from 'vee-validate/dist/locale/en.json';
 import {
@@ -15,7 +14,7 @@ import en from 'vee-validate/dist/locale/en.json';
 import fr from 'vee-validate/dist/locale/fr.json';
 import validationMessagesEn from 'vee-validate/dist/locale/en.json';
 import validationMessagesFr from 'vee-validate/dist/locale/fr.json';
-import { required, email, min,integer,max } from "vee-validate/dist/rules";
+import { required, email, min,integer,max,alpha } from "vee-validate/dist/rules";
 
 /*
 
@@ -120,6 +119,7 @@ extend("email", email);
 extend("min", min);
 extend("integer", integer);
 extend("max", max);
+extend("alpha", alpha);
 
 
 // Register it globally
