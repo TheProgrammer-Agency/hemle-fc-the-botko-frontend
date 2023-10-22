@@ -95,7 +95,7 @@ export default {
                 endpoints: {
                     login: {url: '/auth/login', method: 'post'},
                     logout: {url: '/auth/logout', method: 'post'},
-                    user: {url: '/user/me/', method: 'get'}
+                    user: {url: '/user/me', method: 'get'}
 
                 },
                 autoFetchUser: false
