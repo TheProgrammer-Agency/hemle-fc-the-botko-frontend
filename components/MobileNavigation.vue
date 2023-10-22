@@ -22,6 +22,15 @@
           <n-link :to="localePath('/contact-us-with-map')">{{ $t('header.contact') }}</n-link>
         </li>
 
+        <li class="menu-item-has-children" v-if="$auth.loggedIn" >
+          <n-link :to="localePath('/user')">
+
+             {{ $t('header.my_account') }}
+
+          </n-link>
+        </li>
+
+
       </ul>
     </nav>
   </div>

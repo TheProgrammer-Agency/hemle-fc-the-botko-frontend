@@ -9,7 +9,7 @@
 
     <div class="brook-portfolio-details bg_color--1">
       <div class="container">
-        <div class="row pt--100 pt_md--5 pt_sm--5 pb--80">
+        <div class="row pt--170 pt_md--170 pt_sm--170 pb--80">
 
           <!-- Portfolio Left -->
           <div class="col-lg-6 col-md-6 col-12 order-2 mt--40 order-lg-1 mt_md--40 mt_sm--40" id="is_stuck_inner">

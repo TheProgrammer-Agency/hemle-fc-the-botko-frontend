@@ -1,7 +1,7 @@
 <template>
 
 <!--  bg_color&#45;&#45;5-->
-  <div id="pricing" class="brook-pricing-table-area ptb--150 ptb-md--80 ptb-sm--80 "
+  <div id="pricing" class="brook-pricing-table-area ptb--170 ptb-md--170 ptb-sm--170 "
 
        data-aos="fade-up"
        data-aos-offset="200"

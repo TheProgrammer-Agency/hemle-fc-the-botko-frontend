@@ -19,7 +19,7 @@ export default {
         equip: 'Equipes',
         actus: 'Actualités',
         become_member: 'Devenir membre',
-        contact: 'Contactez-nous',
+        contact: 'Contact',
         shop: 'Boutique',
         login: 'Connexion',
         my_account: 'Mon compte',

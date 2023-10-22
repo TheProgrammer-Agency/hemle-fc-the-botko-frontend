@@ -37,7 +37,7 @@
                 data,
                 swiperOption: {
                     spaceBetween: 60,
-                    loop: false,
+                    loop: true,
                     speed: 1000,
                     navigation: {
                         nextEl: '.swiper-btn-next',

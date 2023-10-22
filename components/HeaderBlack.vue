@@ -44,9 +44,9 @@
                                 <!-- End Popup Search Wrap -->
                               <div class="header-to-hide">
 
-                                <a href="https://wa.me/691129524" target="_blank" class="white d-flex">Boutique  <img src="/img/home/boutique-blackd.png" alt="" width="25" height="25"></a>
-                                <nuxt-link v-if="!$auth.loggedIn" to="/auth/login" class="white d-flex">Connexion <img src="/img/home/user-black.png" alt="" width="25" height="25"></nuxt-link>
-                                <nuxt-link v-if="$auth.loggedIn" to="/user" class="white d-flex">Mon compte <img src="/img/home/user-black.png" alt="" width="25" height="25"></nuxt-link>
+                                <a href="https://wa.me/691129524" target="_blank" class="white d-flex">{{ $t('header.shop') }}  <img src="/img/home/boutique-blackd.png" alt="" width="25" height="25"></a>
+                                <nuxt-link v-if="!$auth.loggedIn" to="/auth/login" class="white d-flex">{{ $t('header.login') }} <img src="/img/home/user-black.png" alt="" width="25" height="25"></nuxt-link>
+                                <nuxt-link v-if="$auth.loggedIn" to="/user" class="white d-flex">{{ $t('header.my_account') }} <img src="/img/home/user-black.png" alt="" width="25" height="25"></nuxt-link>
 
                               </div>
                                 <!-- Start Hamberger -->

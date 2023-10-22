@@ -47,7 +47,7 @@
 
 
                                 <nuxt-link v-if="!$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">{{ $t('header.login') }} <img src="/img/home/user.png" alt="" width="25" height="25"></nuxt-link>
-                                <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">M{{ $t('header.my_account') }}<img src="/img/home/user.png" alt="" width="25" height="25"></nuxt-link>
+                                <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">{{ $t('header.my_account') }}<img src="/img/home/user.png" alt="" width="25" height="25"></nuxt-link>
 
                               </div>
 

@@ -8,7 +8,7 @@
     <SearchPopup :class="{'search-popup-open' : searchOpen}" @toggleSearch="searchOpen = !searchOpen"/>
 
 
-    <div class="blog-creative-area pt--120 pb--100">
+    <div class="blog-creative-area pt--170 pb--100">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
@@ -217,7 +217,7 @@
       </div>
     </div>
 
-    <FooterTwo/>
+    <FooterStyleFour/>
 
   </div>
 </template>
@@ -226,9 +226,16 @@
 import data from '~/data/blog.json';
 import {slugify} from '~/mixins/slugify'
 import moment from "moment";
+import FooterStyleFour from "../../components/FooterStyleFour";
 
 export default {
-  auth:false,
+  auth: false,
+
+  components: {
+    FooterStyleFour
+
+  },
+
   async asyncData({app, params}) {
 
 
@@ -261,7 +268,9 @@ export default {
   mounted() {
 
 
+/*
     document.body.classList.add('template-color-1', 'template-font-1')
+*/
   },
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="google-map-area" id="support">
+    <div class="google-map-area pt_sm--130  pt_md--100  pt_lg--40 pt--40 " id="support">
         <GmapMap
             :center="{lat:52.482900, lng:-1.893460}"
             :zoom="15"
