@@ -2,7 +2,7 @@
 
 <!--  bg_color&#45;&#45;5-->
   <div id="pricing"  :class="is_came_from_home ?
-   'brook-pricing-table-area ptb--50 ptb-md--50 ptb-sm--50' : 'brook-pricing-table-area ptb--170 ptb-md--170 ptb-sm--170'"
+   'brook-pricing-table-area pricing ptb--50 ptb-md--50 ptb-sm--50' : 'brook-pricing-table-area ptb--170 ptb-md--170 ptb-sm--170'"
 
        data-aos="fade-up"
        data-aos-offset="10"

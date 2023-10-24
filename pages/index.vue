@@ -14,7 +14,7 @@
 
 
 
-    <div class="brook-breadcrumb-area pt--100 pb--70 bg_color--1 breadcrumb-title-bar"
+    <div class="brook-breadcrumb-area pt--100 bg_color--1 breadcrumb-title-bar"
 
          data-aos-offset="50"
          data-aos-delay="50"
@@ -25,11 +25,12 @@
          data-aos-anchor-placement="top-center"
 
     >
-      <div class="container-fluid plr--150 plr_md--50 plr_sm--50 mb_sm--30">
+      <div class="container  mb_sm--30">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-inner text-left">
-              <h1 class="heading heading-h1 line-height-1-5" v-html="$t('home.shop_title')">
+
+              <h1 class="heading heading-h1 line-height-1-5 text-center" v-html="$t('home.shop_title')">
 
 
 
@@ -40,12 +41,16 @@
       </div>
 
 
-      <div class="brook-service-list-area"
+      <br>
+      <br>
+      <br>
+
+      <div class="brook-service-list-area "
 
 
       >
 
-        <div class="bk-service-list d-block d-md-flex mb--20 align-items-center wow move-up">
+        <div class="bk-service-list justify-content-center d-block d-md-flex align-items-center wow move-up">
 
           <div class="content plr--130 plr_md--50 plr_sm--40">
             <h3 class="heading heading-h3">{{$t('home.shop_title_2')}} </h3>
