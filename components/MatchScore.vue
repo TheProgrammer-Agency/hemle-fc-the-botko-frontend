@@ -10,7 +10,7 @@
         <div class="brook-element-carousel swiper-custom-arrow swiper-arrow-hover">
           <swiper :options="swiperOption">
 
-            <nuxt-link v-for="teamMember in 7" :key="teamMember" :to="'/teams/'"
+            <div v-for="teamMember in 7" :key="teamMember"
                        class="swiper-slide">
               <div class="card-new-match">
 
@@ -58,7 +58,7 @@
 
               </div>
 
-            </nuxt-link>
+            </div>
           </swiper>
 
           <!-- slider arrow navigation -->
