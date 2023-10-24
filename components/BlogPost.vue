@@ -1,5 +1,5 @@
 <template>
-    <div class="blog blog-style--1">
+    <nuxt-link class="blog blog-style--1"  :to="localePath('/blog/'+ blog.uuid)">
         <div class="thumb">
             <n-link :to="`/blog/${blog.uuid}`">
                 <img 
@@ -16,11 +16,11 @@
                 </ul>
                 <h3 class="the-title">
 
-                    <n-link :to="'/blog/'+ blog.uuid">{{ blog.title[$i18n.locale]}}</n-link>
+                    <n-link :to="localePath('/blog/'+ blog.uuid)">{{ blog.title[$i18n.locale]}}</n-link>
                 </h3>
             </div>
         </div>
-    </div>
+    </nuxt-link>
 </template>
 
 

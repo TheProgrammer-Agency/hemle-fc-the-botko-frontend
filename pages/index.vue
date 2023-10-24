@@ -99,7 +99,7 @@
 
          </div>-->
 
-    <div class="brook-team-area bg_color--1"   data-aos="fade-up"
+    <div class="brook-team-area bg_color--1  mt-50"   data-aos="fade-up"
          data-aos-offset="10"
          data-aos-delay="50"
          data-aos-duration="1000"
