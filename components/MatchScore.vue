@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid p-0  mb--50" data-aos="fade-in" id="teams"
+  <div class="container-fluid p-0  mb--50"  id="teams"
 
 
   >
