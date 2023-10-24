@@ -10,11 +10,11 @@
 <!--    <HeroDigitalAgency  />-->
     <HeroEssential></HeroEssential>
 
-    <PricingItemStyleTwo  />
+    <PricingItemStyleTwo :is_came_from_home="true"  />
 
 
 
-    <div class="brook-breadcrumb-area pt--130 pb--70 bg_color--1 breadcrumb-title-bar"
+    <div class="brook-breadcrumb-area pt--100 pb--70 bg_color--1 breadcrumb-title-bar"
 
          data-aos-offset="50"
          data-aos-delay="50"

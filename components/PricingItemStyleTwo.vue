@@ -1,7 +1,8 @@
 <template>
 
 <!--  bg_color&#45;&#45;5-->
-  <div id="pricing" class="brook-pricing-table-area ptb--170 ptb-md--170 ptb-sm--170 "
+  <div id="pricing"  :class="is_came_from_home ?
+   'brook-pricing-table-area ptb--50 ptb-md--50 ptb-sm--50' : 'brook-pricing-table-area ptb--170 ptb-md--170 ptb-sm--170'"
 
        data-aos="fade-up"
        data-aos-offset="10"
@@ -201,6 +202,8 @@ import data_form from "../data/package.json"
 export default {
 
 
+
+  props:['is_came_from_home'],
   data() {
 
     return {
