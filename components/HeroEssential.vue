@@ -8,8 +8,9 @@
                             <div class="col-12">
                                 <div class="hero-content hero-essential">
                                     <h2 class="hero-title" v-html="slider.heading"></h2>
-                                    <h5>{{ slider.subHeading }}</h5>
-                                    <n-link to="/about-us-01" class="btn-essential">Explore Now</n-link>
+                                    <p>{{ slider.description }}</p>
+                                  <n-link to="#pricing" class="bk-btn theme-btn">{{ $t('tools.btn.become_member') }}</n-link>
+
                                 </div>
                             </div>
                         </div>
@@ -33,7 +34,7 @@
             return {
                 swiperOption: {
                     loop: true,
-                    speed: 1000,
+                    speed: 8000,
                     autoplay: true,
                     effect: "fade",
                     fadeEffect: { 
@@ -48,36 +49,75 @@
                     {
                         id: 1,
                         heading: "We're here to level <br> up your online <br> presence.",
-                        subHeading: "A Creative Agency like no other.",
+                        subHeading: "Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
                         bgImage: "/img/home/hero1.jpg"
                     },
                     {
                         id: 2,
                         heading: "We're here to level <br> up your online <br> presence.",
-                        subHeading: "A Creative Agency like no other.",
+                        subHeading: "Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
                       bgImage: "/img/home/hero1.jpg"
                     }
                 ]
             }
-        }
+        },
+
+      mounted() {
+        this.sliders=[
+
+          {
+            id: 1,
+            heading: this.$t('home.banner_title_1'),
+            heading_completed:"",
+            description:"Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
+
+            bgImage: "/img/home/hero1.jpg"
+          },
+          {
+            id: 2,
+            heading: this.$t('home.banner_title_2'),
+            bgImage: "/img/home/hero1.jpg",
+            description:"Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
+
+          },
+          {
+            id: 3,
+            heading: this.$t('home.banner_title_3'),
+            bgImage: "/img/home/hero1.jpg",
+            description:"Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
+
+          }
+        ]
+      }
     };
 </script>
 
 <style lang="scss" scoped>
     .hero-essential-slide {
-        height: 650px;
+        height:100vh;
         display: flex;
         align-items: center;
         position: relative;
+
+      h2{
+        color:var(--text-color-inversed)
+      }
+
+      p{
+        color:var(--text-color-inversed);
+        font-size: var(--normal-font);
+
+
+      }
         // res
         @media #{$md-layout}{
-            height: 600px;
+            height: 100vh;
         }
         @media #{$sm-layout}{
-            height: 550px;
+          height: 100vh;
         }
         @media #{$small-mobile}{
-            height: 450px;
+          height: 100vh;
         }
         .hero-content {
             max-width: 500px;

@@ -3,11 +3,11 @@
          data-aos-offset="200"
          data-aos-delay="50"
          data-aos-duration="1000"
-         data-aos-easing="ease-in-out"
+         data-aos-easing="ease-in"
          data-aos-mirror="true"
-         data-aos-once="false"
+         data-aos-once="true"
          data-aos-anchor-placement="top-center" >
-        <div class="black-bg-wrapper bg_image--4 section-pt-xl pb--320" :style="{ backgroundImage: `url('/img/home/team5.jpeg')` }">
+        <div class="black-bg-wrapper bg_image--4 section-pt-xl pb--320" :style="{ backgroundImage: `url('/img/home/ballon1.jpg')` }">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

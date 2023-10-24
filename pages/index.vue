@@ -7,7 +7,8 @@
 
     <SearchPopup :class="{'search-popup-open' : searchOpen}" @toggleSearch="searchOpen = !searchOpen"/>
 
-    <HeroDigitalAgency  />
+<!--    <HeroDigitalAgency  />-->
+    <HeroEssential></HeroEssential>
 
     <PricingItemStyleTwo  />
 
@@ -15,10 +16,13 @@
 
     <div class="brook-breadcrumb-area pt--130 pb--70 bg_color--1 breadcrumb-title-bar"
 
-         data-aos="fade-up"
-         data-aos-offset="200"
+         data-aos-offset="50"
          data-aos-delay="50"
-
+         data-aos-duration="1000"
+         data-aos-easing="ease-in"
+         data-aos-mirror="true"
+         :data-aos-once="true"
+         data-aos-anchor-placement="top-center"
 
     >
       <div class="container-fluid plr--150 plr_md--50 plr_sm--50 mb_sm--30">
@@ -40,6 +44,7 @@
 
 
       >
+
         <div class="bk-service-list d-block d-md-flex mb--20 align-items-center wow move-up">
 
           <div class="content plr--130 plr_md--50 plr_sm--40">
@@ -61,6 +66,9 @@
       </div>
     </div>
 
+
+
+   <MatchScore></MatchScore>
 
 
     <!--     <div class="container">
@@ -92,13 +100,15 @@
          </div>-->
 
     <div class="brook-team-area bg_color--1"   data-aos="fade-up"
-         data-aos-offset="200"
+         data-aos-offset="10"
          data-aos-delay="50"
          data-aos-duration="1000"
-         data-aos-easing="ease-in-out"
+         data-aos-easing="ease-in"
          data-aos-mirror="true"
-         data-aos-once="false"
-         data-aos-anchor-placement="top-center" >
+         :data-aos-once="true"
+         data-aos-anchor-placement="top-center"
+
+    >
       <TeamCarouselFull/>
     </div>
 
@@ -147,17 +157,29 @@ import FooterTwo from "../components/FooterTwo";
 import FooterStyleThree from "../components/FooterStyleThree";
 import FooterAgency from "../components/FooterAgency";
 import FooterStyleFour from "../components/FooterStyleFour";
+import HeroMinimalAgency from "../components/HeroMinimalAgency";
+import HeroIndieMusician from "../components/HeroIndieMusician";
+import HeroOnepage from "../components/HeroOnepage";
+import HeroProductLanding from "../components/HeroProductLanding";
+import HeroEssential from "../components/HeroEssential";
+import MatchScore from "../components/MatchScore";
 
 export default {
   mixins: [slugify],
 auth:false,
 
   components: {
+    HeroEssential,
+    HeroProductLanding,
+    HeroOnepage,
+    HeroIndieMusician,
+    HeroMinimalAgency,
     FooterStyleFour,
     FooterAgency,
     FooterStyleThree,
     FooterTwo,
-    PricingItemStyleTwo
+    PricingItemStyleTwo,
+    MatchScore
 
   },
 

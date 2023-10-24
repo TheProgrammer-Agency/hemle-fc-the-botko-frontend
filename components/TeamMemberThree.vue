@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="team-info text-center">
-            <div class="info">
+            <nuxt-link :to="'/teams/'+teamMember.uuid"  class="info">
 
                 <h5>{{ teamMember.first_name }} {{ teamMember.last_name  }}</h5>
 
@@ -30,7 +30,7 @@
               -->
 
 
-            </div>
+            </nuxt-link>
         </div>
     </div>
 </template>

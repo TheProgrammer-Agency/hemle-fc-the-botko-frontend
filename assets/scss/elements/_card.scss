@@ -1,3 +1,75 @@
+.card-new-match{
+
+
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+
+  max-width: 550px;
+
+  .card-new-match-header{
+
+    display: flex;
+    gap: 15px;
+    background: var(--primary-color);
+    color:var(--white);
+    padding:15px;
+
+    h3{
+
+      padding: 0;
+      margin:0;
+    }
+  }
+
+  .card-new-match-body{
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+
+    img{
+
+      width: 60px;
+      height: 60px;
+    }
+
+    span{
+
+      font-size: var(--normal-font-small);
+      text-align: right;
+      color:var(--text-color)
+
+    }
+    .score{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .wrapper-score{
+
+
+      background: var(--primary-color);
+      padding:5px 30px;
+      color:var(--white);
+
+      h2{
+
+        margin:0;
+        padding: 0;
+      }
+    }
+  }
+
+  .card-new-match-footer{
+
+    text-align: center;
+    color:var(--text-color)
+  }
+}
+
 .card-error{
 
   gap:15px;

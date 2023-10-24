@@ -165,6 +165,7 @@ export default {
       this.$nuxt.$loading.start()
 
       let app=this;
+
       await this.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', order).then(function (response) {
 
         window.location.href = response.link;
