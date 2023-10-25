@@ -166,6 +166,9 @@ export default {
 
       let app=this;
 
+      order.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.user.uuid
+
+
       await this.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', order).then(function (response) {
 
         window.location.href = response.link;

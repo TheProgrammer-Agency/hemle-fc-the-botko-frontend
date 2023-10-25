@@ -301,6 +301,8 @@ export default {
         payment_form.external_reference = myuuid
         payment_form.user = this.$auth.user.user.uuid
 
+        payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.user.uuid
+
         let app = this
 
         console.log("api  = ", this.$api)
