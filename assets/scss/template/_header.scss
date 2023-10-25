@@ -33,7 +33,7 @@
     .page_nav {
         ul {
             &.mainmenu {
-                justify-content: center;
+                justify-content: left;
                 padding: 0;
                 margin: 0;
 
@@ -55,7 +55,6 @@
                             line-height: 1.18;
                             font-size:17px !important;
                             font-family:var(--primary-font)  !important;
-                            color: $theme-color;
                             padding-top: 10px;
                             padding-bottom: 10px;
                             padding-left: 3px;
@@ -204,7 +203,7 @@ header.br_header.header-default.vertical-slide-portfolio {
 
     // Header Transparent
     &.header-transparent {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
@@ -253,14 +252,14 @@ header.br_header.header-default.vertical-slide-portfolio {
 
             .logo {
 
-                padding: 15px 0;
+                padding: 1px 0;
                 a {
                     img {
 
 
                         /* padding-bottom: 15px; */
-                        width: 63px;
-                        height: 50px;
+                        width: 90px;
+                        height: 78px;
                         max-width: 100%;
 
                         @media #{$lg-layout} {
@@ -270,8 +269,8 @@ header.br_header.header-default.vertical-slide-portfolio {
                         }
 
                         @media #{$sm-layout} {
-                            width: 68px !important;
-                            height: 60px !important;
+                            width: 90px !important;
+                            height: 78px !important;
 
                         }
                     }
@@ -309,7 +308,7 @@ header.br_header.header-default.vertical-slide-portfolio {
         // Header Right
         .header-right {
             flex-shrink: 0;
-            flex-basis: 27%;
+            flex-basis: 35%;
             display: flex;
             margin: 0 -12px;
             align-items: center;
@@ -324,7 +323,6 @@ header.br_header.header-default.vertical-slide-portfolio {
 
                 a{
 
-                    color:white;
                 }
             }
             // Not Flex Header
@@ -401,10 +399,10 @@ header.br_header.header-default.vertical-slide-portfolio {
                     &.mainmenu {
                         li {
                             a {
-                                color: var(--white);
+                                color: inherit;
 
                                 &::after {
-                                    background: var(--white);
+                                    background: var(--text-color);
                                 }
                             }
 

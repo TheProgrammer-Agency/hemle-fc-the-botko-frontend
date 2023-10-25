@@ -138,7 +138,11 @@ a:visited {
   color: var(--red)
 }
 
+.score{
 
+  background: var(--background-secondary-transparent);
+
+}
 .container {
 
   @media #{$sm-layout}{
@@ -158,12 +162,25 @@ a:visited {
 }
 
 
+.hr-text{
+
+  background-size: 4px 4px;
+  border: 1px solid var(--text-color);
+  /* height: 1px; */
+  margin:10px ;
+  width: 15%;
+  height: 1px;
+  background: var(--text-color);
+
+}
+
 .select-language {
   background: var(--white);
-  padding: 5px;
+  padding: 1px 0px;
   height: 25px;
-  border: none;
+  border: 1px solid var(--text-color);
   cursor: pointer;
+  border-radius: 7px;
 }
 
 /*====================================

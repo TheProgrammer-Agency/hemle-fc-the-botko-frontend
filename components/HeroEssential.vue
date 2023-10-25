@@ -2,7 +2,7 @@
     <div class="hero-essential-area swiper-arrow-hover">
         <swiper :options="swiperOption">
             <div class="swiper-slide" v-for="slider in sliders" :key="slider.id">
-                <div class="hero-essential-slide bg-cover" :style="{backgroundImage: `url(${slider.bgImage})`}">
+                <div class="hero-essential-slide bg-cover" :style="{background: `url(${slider.bgImage})` +' center center /cover'}">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
@@ -44,18 +44,7 @@
                     },
                 },
                 sliders: [
-                    {
-                        id: 1,
-                        heading: "We're here to level <br> up your online <br> presence.",
-                        subHeading: "Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
-                        bgImage: "/img/home/hero1.jpg"
-                    },
-                    {
-                        id: 2,
-                        heading: "We're here to level <br> up your online <br> presence.",
-                        subHeading: "Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
-                      bgImage: "/img/home/hero1.jpg"
-                    }
+
                 ]
             }
         },
@@ -75,14 +64,14 @@
             id: 2,
             heading: this.$t('home.banner_title_2'),
             bgImage: "/img/home/hero1.jpg",
-            description:"Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
+            description:"",
 
           },
           {
             id: 3,
             heading: this.$t('home.banner_title_3'),
             bgImage: "/img/home/hero1.jpg",
-            description:"Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
+            description:"",
 
           }
         ]

@@ -23,11 +23,13 @@
       </li>
 
       <li class="lavel-1  slide--megamenu">
-        <n-link :to="localePath('/pricing')">
-          <span>{{ $t('header.become_member') }}</span>
-        </n-link>
+        <a href="https://wa.me/691129524"  >
+          <span>{{ $t('header.shop') }}</span>
+        </a>
 
       </li>
+
+
       <li class="lavel-1  slide--megamenu">
         <n-link :to="localePath('/contact-us-with-map')">
           <span>{{ $t('header.contact') }}</span>

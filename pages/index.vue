@@ -30,11 +30,16 @@
           <div class="col-lg-12">
             <div class="breadcrumb-inner text-left">
 
-              <h1 class="heading heading-h1 line-height-1-5 text-center" v-html="$t('home.shop_title')">
+              <h1 class="heading heading-h1 line-height-1-5 text-center d-flex justify-content-center  align-items-center">
 
 
+                <hr class="hr-text">
+                  BOUTIQUE
+                <hr class="hr-text">
 
               </h1>
+
+
             </div>
           </div>
         </div>
@@ -45,7 +50,7 @@
       <br>
       <br>
 
-      <div class="brook-service-list-area "
+      <div class="brook-service-list-area  mb--150 "
 
 
       >
@@ -53,7 +58,9 @@
         <div class="bk-service-list justify-content-center d-block d-md-flex align-items-center wow move-up">
 
           <div class="content plr--130 plr_md--50 plr_sm--40">
-            <h3 class="heading heading-h3">{{$t('home.shop_title_2')}} </h3>
+
+            <h3 class="heading heading-h3" v-html="$t('home.shop_title_2')"></h3>
+
             <div class="bkseparator--35"></div>
 
             <p class="bk_pra">{{$t('home.shop_description')}}</p>
@@ -61,6 +68,7 @@
 
             <a href="https://wa.me/691129524"  target="_blank" class="bk-btn theme-btn">{{ $t('tools.btn.see_our_shop') }}
             </a>
+
           </div>
 
           <div class="thumb mt_sm--30">
@@ -103,7 +111,12 @@
 
          </div>-->
 
-    <div class="brook-team-area bg_color--1  mt--50 mb--50 "   data-aos="fade-up"
+
+
+
+    <MatchScore></MatchScore>
+
+    <div class="brook-team-area bg_color--1  mt--150 mb--150 "   data-aos="fade-up"
          data-aos-offset="10"
          data-aos-delay="50"
          data-aos-duration="1000"
@@ -115,9 +128,6 @@
     >
       <TeamCarouselFull/>
     </div>
-
-
-    <MatchScore></MatchScore>
 
     <!--      <ServiceOne id="service" />
 

@@ -1,13 +1,14 @@
 <template>
-  <div class="container-fluid p-0  mb--50"  id="teams"
+  <div class="container-fluid mt--150 mb--150"  id="teams"  style="padding:150px 0; background:var(--background-secondary-transparent)"
+
 
 
   >
-    <div class="row no-gutters">
+    <div class="row no-gutters ">
 
 
-      <div class="col-12">
-        <div class="brook-element-carousel swiper-custom-arrow swiper-arrow-hover">
+      <div class="col-12 ">
+        <div class="brook-element-carousel  swiper-custom-arrow swiper-arrow-hover">
           <swiper :options="swiperOption">
 
             <div v-for="teamMember in 7" :key="teamMember"

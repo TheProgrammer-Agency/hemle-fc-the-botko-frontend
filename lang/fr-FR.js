@@ -3,7 +3,7 @@ export default {
     tools: {
         btn: {
 
-            'become_member': 'Devenir membre',
+            'become_member': 'Devenez membre',
             'see_our_shop':'Voir notre boutique',
             'return_to_home':"Revenir à l'accueil",
             im_checking:"Je vérifies",
@@ -18,7 +18,7 @@ export default {
         home: 'Accueil',
         equip: 'Equipes',
         actus: 'Actualités',
-        become_member: 'Devenir membre',
+        become_member: 'Devenez membre',
         contact: 'Contact',
         shop: 'Boutique',
         login: 'Connexion',
@@ -32,15 +32,15 @@ export default {
 
     home: {
         title_page: 'Home',
-        banner_title_1: "Osez l'impossible avec Hémlè ! ",
-        banner_title_2: "Ensemble avec Hémlè , <strong class='secondary-color'>tentons l’absurde</strong> ",
-        banner_title_3: "Vivez l'expérience Hémlè : <strong class='secondary-color'>Défiez les limites du rationnel !</strong> ",
+        banner_title_2: "<strong class='secondary-color'> Osez l'impossible  </strong> avec Hémlè !",
+        banner_title_1: "Ensemble avec Hémlè, <strong class='secondary-color'>tentons l’absurde</strong> ",
+        banner_title_3: "<strong class='secondary-color'> Vivez une expérience unique  </strong>  en devenant Hémléen(e)! ",
 
         shop_title:" C'est Incontournable ! <br>\n" +
             "                <span class=\"theme-color\"> Parcourez notre catalogue soigneusement\n" +
             "                  </span><br> sélectionné de produits irrésistibles<br> juste pour vous .\n",
 
-        shop_title_2:"DECOUVREZ NOS PRODUITS ",
+        shop_title_2:"DECOUVREZ   <strong class='secondary-color'>NOS PRODUITS</strong>",
         shop_description:"Découvrez notre boutique officielle regorgeant d'articles de qualité pour les passionnés  pour les vrais Hèmléens. Des maillots, casquettes, polos, survêtements et bien plus encore, tous ornés de nos  couleurs  et de notre logo emblématique. Exprimez votre passion pour le football avec notre sélection complète  d'articles  incontournables. Parcourez notre collection dès maintenant et trouvez l'accessoire parfait pour afficher votre soutien au club.",
 
 
@@ -48,8 +48,8 @@ export default {
 
     pricing: {
 
-        become_member_subtitle: 'Devenez membre',
-        pricing_title: "Adhérez au pack qui correspond à votre niveau de Hémlè et <br><span class='primary-color'> ensemble réalisons <span class='secondary-color' >l’impossible</span></span>",
+        become_member_subtitle: "<strong class='primary-color'> <b>Explorez</b> </strong> nos formules d'adhésion",
+        pricing_title: "Adhérez au pack qui correspond à votre niveau de Hémlè et <br><span > ensemble réalisons <span class='secondary-color' >l’impossible</span></span>",
 
 
 

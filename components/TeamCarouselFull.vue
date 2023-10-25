@@ -1,6 +1,17 @@
 <template>
     <div class="container-fluid p-0" data-aos="fade-in"  id="teams" >
+
+      <h1 class="heading heading-h1 line-height-1-5 text-center d-flex justify-content-center  align-items-center">
+
+
+        <hr class="hr-text">
+        Nos joueurs
+        <hr class="hr-text">
+
+      </h1>
         <div class="row no-gutters">
+
+
 
 
             <div class="col-12">

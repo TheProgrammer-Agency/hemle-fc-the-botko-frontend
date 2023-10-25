@@ -41,13 +41,12 @@
 
                               <div class="header-to-hide">
 
-                                <a href="https://wa.me/691129524" target="_blank" class="white d-flex">{{ $t('header.shop') }} <img src="/img/home/boutique2.png" alt="" width="25" height="25"></a>
 
 
+                                <nuxt-link :to="localePath('/pricing')"  class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
+                                <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">{{ $t('header.login') }} </nuxt-link>
+                                <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">{{ $t('header.my_account') }}</nuxt-link>
 
-
-                                <nuxt-link v-if="!$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">{{ $t('header.login') }} <img src="/img/home/user.png" alt="" width="25" height="25"></nuxt-link>
-                                <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">{{ $t('header.my_account') }}<img src="/img/home/user.png" alt="" width="25" height="25"></nuxt-link>
 
                               </div>
 
@@ -69,7 +68,7 @@
                                      <option v-for="locale in availableLocales"
                                              :key="locale.code"
                                              :value="locale.code">
-                                       {{locale.name}}
+                                       <img src="/img/home/eng.png" alt=""> {{locale.name}}
                                      </option>
 
                                    </select>
@@ -181,5 +180,7 @@
         background-color: rgba($black, 0.9);
         box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2);
         animation: 900ms cubic-bezier(0.2, 1, 0.22, 1) 0s normal none 1 running fadeInDown;
+
+          color:var(--text-color-inversed);
     }
 </style>

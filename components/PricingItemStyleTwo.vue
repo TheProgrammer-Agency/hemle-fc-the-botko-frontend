@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-12">
           <div class="brook-section-title text-center mb--45">
-            <h6 class="heading-13 theme-color text-uppercase fw-500">{{ $t('pricing.become_member_subtitle') }}</h6>
+            <h6 class=" theme-color text-uppercase fw-500" v-html="$t('pricing.become_member_subtitle')"></h6>
             <div class="bkseparator--25"></div>
             <h2 class="heading-40 fw-200"><strong v-html="$t('pricing.pricing_title')"></strong>
 
@@ -29,10 +29,10 @@
         <!-- Start Single Pricing Table -->
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="procing-wrap price-style-3 pt--40 move-up wow">
-            <div class="pricing-box" style="border-bottom:2px solid var(--primary-color)">
+            <div class="pricing-box" style="border-top:3px solid var(--primary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h5 class="title  secondary-color"  style="font-weight: bold">{{ $t('pricing.pricing_1_title')}} </h5>
+                  <h4 class="title font-weight-bold secondary-color"  style="font-weight: bold">{{ $t('pricing.pricing_1_title')}} </h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">5 000 &nbsp; </h3>
                     <h3 class="currenct">XAF </h3>
@@ -71,12 +71,14 @@
         <!-- Start Single Pricing Table -->
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="procing-wrap price-style-3 pt--40 move-up wow"  >
-            <div class="pricing-box" style="border-bottom:2px solid var(--secondary-color)">
+            <div class="pricing-box" style="border-top:3px solid var(--secondary-color)">
               <div class="header">
                 <div class="price-area">
                   <div class="header-title">
                     <div class="pricing-feature-mark"> {{ $t('pricing.pricing_popular') }}</div>
-                    <h5 class="title secondary-color">{{ $t('pricing.pricing_2_title') }}</h5>
+
+                    <h4 class="title font-weight-bold secondary-color"  style="font-weight: bold">{{ $t('pricing.pricing_2_title') }} </h4>
+
                   </div>
                   <div class="price-wrap d-flex">
                     <h3 class="">50 000 &nbsp; </h3>
@@ -117,10 +119,10 @@
         <!-- Start Single Pricing Table -->
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="procing-wrap price-style-3 pt--40 move-up wow">
-            <div class="pricing-box" style="border-bottom:2px solid var(--primary-color)">
+            <div class="pricing-box" style="border-bottom:3px solid var(--primary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h5 class="title secondary-color"> {{ $t('pricing.pricing_3_title') }} </h5>
+                  <h4 class="title font-weight-bold secondary-color"> {{ $t('pricing.pricing_3_title') }} </h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">500 000 &nbsp;</h3>
                     <h3 class="currenct"> XAF</h3>
@@ -152,10 +154,10 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="procing-wrap price-style-3 pt--40 move-up wow">
-            <div class="pricing-box"  style="border-bottom:2px solid var(--secondary-color)">
+            <div class="pricing-box"  style="border-bottom:3px solid var(--secondary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h5 class="title  secondary-color">{{ $t('pricing.pricing_4_title') }}</h5>
+                  <h4 class="title  font-weight-bold secondary-color">{{ $t('pricing.pricing_4_title') }}</h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">1 000 000 &nbsp;</h3>
                     <h3 class="currenct"> XAF</h3>
