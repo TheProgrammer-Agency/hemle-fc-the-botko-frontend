@@ -34,12 +34,10 @@
             return {
                 swiperOption: {
                     loop: true,
-                    speed: 5000,
+                    speed: 8000,
                     autoplay: true,
                     effect: "fade",
-                    fadeEffect: { 
-                        crossFade: true 
-                    },
+
                     navigation: {
                         nextEl: '.ht-swiper-button-next',
                         prevEl: '.ht-swiper-button-prev'
