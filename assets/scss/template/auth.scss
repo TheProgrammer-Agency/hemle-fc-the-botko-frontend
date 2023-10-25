@@ -7,6 +7,7 @@
 
   display: grid;
 
+  overflow: auto;
   grid-template-columns: 1fr 1fr;
   align-items: center;
 
@@ -24,7 +25,23 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:20px
+    gap:20px;
+
+    @media #{$sm-layout}{
+      grid-template-columns: 1fr;
+
+
+    }
+    @media #{$md-layout}{
+      grid-template-columns: 1fr 1fr;
+
+    }
+     @media #{$lg-layout}{
+      grid-template-columns: 1fr 1fr;
+
+    }
+
+
   }
 
   .auth-form{

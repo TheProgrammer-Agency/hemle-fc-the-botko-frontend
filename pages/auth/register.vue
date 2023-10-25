@@ -16,7 +16,7 @@
         <h2 class="text-center">{{ $t('auth.register_title') }}</h2>
 
 
-        <br><br>
+
 
 
         <div class="text-center">
