@@ -53,7 +53,7 @@
                                 <!-- End Popup Search Wrap -->
 
                                 <!-- Start Hamberger -->
-                                <div class="manu-hamber popup-mobile-click d-block d-lg-none light-version d-block d-xl-none" @click="$emit('togglenav')">
+                                <div class="manu-hamber popup-mobile-click d-block d-lg-none black-version d-block d-xl-none" @click="$emit('togglenav')">
                                     <div>
                                         <i></i>
                                     </div>

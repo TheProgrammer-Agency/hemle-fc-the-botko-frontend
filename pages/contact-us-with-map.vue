@@ -7,7 +7,7 @@
 
         <SearchPopup :class="{'search-popup-open' : searchOpen}" @toggleSearch="searchOpen = !searchOpen" />
 
-        <GoogleMap  style="margin-top: 80px" />
+        <GoogleMap   />
 
         <ContactUsTwo />
 

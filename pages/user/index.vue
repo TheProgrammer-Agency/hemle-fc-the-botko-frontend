@@ -2,7 +2,7 @@
   <div class="main-container user-profil">
 
 
-    <HeaderBlack @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
+    <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
 
 
     <div class="container header-user-profil ">
