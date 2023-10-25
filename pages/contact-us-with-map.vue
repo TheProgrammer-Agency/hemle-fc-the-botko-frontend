@@ -1,7 +1,7 @@
 <template>
     <div class="main-container">
 
-      <HeaderBlack @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
+      <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
 
         <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @togglenav="navOpen = !navOpen" />
 
@@ -19,12 +19,14 @@
 
 <script>
 
+    import HeaderElement from "../components/HeaderElement";
     export default {
 
       auth:false,
 
 
       components: {
+        HeaderElement,
             HeaderAbout: () => import('@/components/HeaderAbout'),
             OffCanvasMobileMenu: () => import('@/components/OffCanvasMobileMenu'),
             SearchPopup: () => import('@/components/SearchPopup'),

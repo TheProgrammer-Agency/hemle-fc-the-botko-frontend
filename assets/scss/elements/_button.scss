@@ -4,19 +4,20 @@
 a,
 button {
     &.bk-btn {
-        padding: 7px 36px;
+        padding: 7px 15px;
         height: 47px;
         line-height: 34px;
         border-width: 0;
         border-radius: 6px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, .07);
-        color: #fff;
+        color: var(--white);
         display: inline-block;
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0em;
         font-family: $body-font;
 
+        width: max-content;
         &.theme-btn {
             background-color: $theme-color;
         }

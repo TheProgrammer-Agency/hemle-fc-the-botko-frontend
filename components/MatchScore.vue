@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mt--150 mb--150"  id="teams"  style="padding:150px 0; background:var(--background-secondary-transparent)"
+  <div class="container-fluid mt--50 mb--50"  id="teams"  style="padding:150px 0; background:var(--background-secondary-transparent)"
 
 
 

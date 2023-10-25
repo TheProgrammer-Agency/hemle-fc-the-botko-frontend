@@ -34,7 +34,7 @@
 
 
                 <hr class="hr-text">
-                  BOUTIQUE
+                  Boutique
                 <hr class="hr-text">
 
               </h1>
@@ -116,17 +116,18 @@
 
     <MatchScore></MatchScore>
 
-    <div class="brook-team-area bg_color--1  mt--150 mb--150 "   data-aos="fade-up"
+    <div class="brook-team-area bg_color--1  mt--50 mb--150 "   data-aos="fade-up"
          data-aos-offset="10"
          data-aos-delay="50"
          data-aos-duration="1000"
          data-aos-easing="ease-in"
          data-aos-mirror="true"
-         :data-aos-once="true"
+         data-aos-once="true"
          data-aos-anchor-placement="top-center"
 
     >
       <TeamCarouselFull/>
+
     </div>
 
     <!--      <ServiceOne id="service" />

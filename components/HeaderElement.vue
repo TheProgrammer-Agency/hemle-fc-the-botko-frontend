@@ -44,8 +44,10 @@
 
 
                                 <nuxt-link :to="localePath('/pricing')"  class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
-                                <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">{{ $t('header.login') }} </nuxt-link>
-                                <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">{{ $t('header.my_account') }}</nuxt-link>
+                                <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">
+                                  <img src="/" alt=""> {{ $t('header.login') }} </nuxt-link>
+                                <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">
+                                  <img src="/img/home/avatar.svg" alt="" width="0px"></nuxt-link>
 
 
                               </div>
@@ -59,8 +61,7 @@
                                     </div>
                                 </div>
 
-                              <span  style="cursor: pointer;color: var(--white)"
-                              >
+                              <span  style="cursor: pointer;color: var(--white)">
 
 
                                    <select name="" id="" v-model="localeSelected"  @change="switchLocale"  class="select-language">

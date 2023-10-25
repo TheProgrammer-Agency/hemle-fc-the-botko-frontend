@@ -377,8 +377,10 @@ export default {
       email: this.$auth.user.user.email,
       password: '',
       password_confirmation: '',
-      avatar: this.$auth.user.user.avatar? this.$auth.user.user.avatar :'/img/home/avatar.svg'
+      avatar: this.$auth.user.user.image? this.$auth.user.user.image :'/img/home/avatar.svg'
     }
+
+    console.log(this.$auth.user.user)
 
 
     document.body.classList.add('template-color-1', 'template-font-2')

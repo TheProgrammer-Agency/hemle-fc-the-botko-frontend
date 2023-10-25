@@ -52,8 +52,10 @@
                             <li>
                                 <n-link :to="localePath('contact-us-with-map')">{{ $t('header.contact') }}</n-link>
                             </li>
+
+
                             <li>
-                                <n-link :to="localePath('blog')">{{ $t('header.equip') }}</n-link>
+                                <n-link :to="localePath('/#teams')">{{ $t('header.equip') }}</n-link>
                             </li>
                             <li>
                                 <a href="https://wa.me/691129524"   target="_blank" >{{ $t('header.shop') }}</a>
