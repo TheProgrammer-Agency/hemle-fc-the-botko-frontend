@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container user-orders" style="margin-top: 220px">
+  <div class="main-container user-orders">
 
 
     <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>

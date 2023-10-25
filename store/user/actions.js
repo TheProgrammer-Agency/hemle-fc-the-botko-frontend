@@ -20,5 +20,18 @@ export default {
 
        await this.$axios.post('/contact')
 
-    }
+    },
+   async  getTestimonies({commit}){
+
+      let $testimonies= (await this.$axios.get('/testimonies')).data
+
+
+
+       console.log("yo "+$testimonies);
+
+
+       commit('SET_TESTIMONIES',$testimonies)
+
+
+   }
 }

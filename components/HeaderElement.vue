@@ -47,7 +47,7 @@
                                 <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">
                                   <img src="/" alt=""> {{ $t('header.login') }} </nuxt-link>
                                 <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">
-                                  <img src="/img/home/avatar.svg" alt="" width="0px"></nuxt-link>
+                                  <img src="/img/home/avatar.svg" alt="" width="30px"></nuxt-link>
 
 
                               </div>

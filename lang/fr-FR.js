@@ -57,11 +57,11 @@ export default {
 
         pricing_1_summary:'',
         pricing_1_title:'ÑÈM KÍÍ HIÉE',
-        pricing_1_desc_1: "Obtenez une carte de membre numérique gratuite\n",
+        pricing_1_desc_1: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
         pricing_1_desc_2: "Profitez d'une augmentation de 5% de vos gains par membre recommandé.",
         pricing_1_desc_3: "Accédez gratuitement à Hémlè TV, notre plateforme de contenu exclusive.",
         pricing_1_desc_4: "Assistez gratuitement à tous les concerts organisés à Botko, une expérience unique réservée à nos membres.",
-        pricing_1_desc_5: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
+        pricing_1_desc_5: "Obtenez une carte de membre numérique gratuite\n",
 
 
         pricing_2_summary:'',
@@ -73,10 +73,10 @@ export default {
         pricing_2_desc_4: "Recevez un maillot officiel du club, arborant fièrement nos couleurs.",
         pricing_2_desc_5: "Recevez une écharpe du club, symbole de votre soutien indéfectible.",
         pricing_2_desc_6:"Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
-        pricing_2_desc_7: "Assistez gratuitement à tous les concerts organisés à Botko",
+        pricing_2_desc_7: "Bénéficiez d'une réduction de  5% sur toutes vos factures dans notre boutique.",
         pricing_2_desc_8: "Participez activement à la Tombola Hémléenne et augmentez vos chances de gagner des prix exceptionnels."
         ,
-        pricing_2_desc_9:  "Bénéficiez d'une réduction de  5% sur toutes vos factures dans notre boutique.",
+        pricing_2_desc_9:  "Assistez gratuitement à tous les concerts organisés à Botko",
 
         pricing_3_summary:'',
         pricing_3_title:'ÑÈM KÍÍ NGOCK',
@@ -85,12 +85,12 @@ export default {
         pricing_3_desc_3: "Accédez gratuitement à Hémlè TV, notre plateforme de contenu exclusive.\n",
         pricing_3_desc_4: "Recevez un maillot officiel du club, arborant fièrement nos couleurs.",
         pricing_3_desc_5: "Recevez une écharpe du club, symbole de votre soutien indéfectible.",
-        pricing_3_desc_6: "Obtenez un Sac à dos du club",
+        pricing_3_desc_6: "Bénéficiez d'une réduction de  10% sur toutes vos factures dans notre boutique.",
         pricing_3_desc_7: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
         pricing_3_desc_8: "Assistez gratuitement à tous les concerts organisés à Botko",
-        pricing_3_desc_9: "Obtenez une casquette  du club\n",
-        pricing_3_desc_10: "Bénéficiez d'une réduction de  10% sur toutes vos factures dans notre boutique.",
-        pricing_3_desc_11: "Profitez d'un jogging complet du club, alliant confort et style pour vos activités sportives. ",
+        pricing_3_desc_9: "Profitez d'un jogging complet du club, alliant confort et style pour vos activités sportives. ",
+        pricing_3_desc_10: "Obtenez un Sac à dos du club",
+        pricing_3_desc_11: "Obtenez une casquette  du club\n",
 
         pricing_4_summary:'',
         pricing_4_title:'ÑEM KÍÍ ÑJÉÉ ',

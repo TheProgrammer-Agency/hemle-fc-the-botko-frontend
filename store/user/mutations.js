@@ -10,6 +10,10 @@ export default {
         state.contact=contact;
     },
 
+    SET_TESTIMONIES(state,testimonies){
+        state.testimonies=testimonies;
+    },
+
 
 
 }
