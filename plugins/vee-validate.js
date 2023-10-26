@@ -108,7 +108,7 @@ configure({
 configure({
     // Use custom default message handler.
     defaultMessage: (field, values) => {
-        values._field_ = i18n._(`${field}`);
+        values._field_ = i18n._(field);
 
         return i18n._(`validation.${values._rule_}`, values);
     }
