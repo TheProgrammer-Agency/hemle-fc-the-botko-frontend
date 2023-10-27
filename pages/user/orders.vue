@@ -30,7 +30,7 @@
 
             <div class="right">
 
-              <h5>Commande <span class="reference">#{{ order.external_reference.slice(1,8) }}</span>  </h5>
+              <h5>Commande  <span class="reference">#{{ order.external_reference.slice(1,8) }}</span>  </h5>
 
               <span class="primary-color">
               {{order.package_name }}
@@ -109,6 +109,7 @@ import FooterAgency from "../../components/FooterAgency";
 import FooterStyleFour from "../../components/FooterStyleFour";
 import HeaderBlack from "../../components/HeaderBlack";
 import {mapGetters} from "vuex";
+import packages from "../../data/package.json";
 
 export default {
   mixins: [slugify],
@@ -153,7 +154,6 @@ export default {
     } catch (errors) {
       // Set validation errors on a form
 
-      console.log("une errror se produit", errors.data)
     }
 
   },
@@ -161,25 +161,15 @@ export default {
   methods:{
 
 
-    async paid(order){
+     paid(order){
       this.$nuxt.$loading.start()
 
-      let app=this;
+      let getPackage =packages.filter((p)=>p.package_name===order.package_name)[0]
 
-      order.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.user.uuid
+      this.$router.push('/payment?package='+(getPackage.id-1))
 
 
-      await this.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', order).then(function (response) {
 
-        window.location.href = response.link;
-
-      }).catch(function (error) {
-
-        app.$nuxt.$loading.stop()
-
-        console.log("error", error)
-
-      });
     }
   },
 

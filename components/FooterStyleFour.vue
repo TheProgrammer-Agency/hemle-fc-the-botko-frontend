@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="copyright-right text-md-right text-center">
-                        <p>&copy; 2023 <b></b> <span v-html="$t('footer.made_with_by')"> </span> <a href="https://josuenguimatio.com"><b>Josué Nguimatio</b></a></p>
+                        <p>&copy; 2023 <b></b> <span v-html="$t('footer.made_with_by')"> </span> <a href="https://josuenguimatio.com"><b>TheProgrammer</b></a></p>
                     </div>
                 </div>
             </div>

@@ -2,9 +2,7 @@ import Vue from 'vue';
 import { ValidationProvider, extend,ValidationObserver } from 'vee-validate';
 import * as rules from 'vee-validate/dist/rules';
 import { messages } from 'vee-validate/dist/locale/en.json';
-import {
-    configure,setInteractionMode
-} from 'vee-validate'
+
 import { i18n } from "./i18n";
 
 import { localize } from 'vee-validate';
@@ -15,6 +13,9 @@ import fr from 'vee-validate/dist/locale/fr.json';
 import validationMessagesEn from 'vee-validate/dist/locale/en.json';
 import validationMessagesFr from 'vee-validate/dist/locale/fr.json';
 import { required, email, min,integer,max,alpha } from "vee-validate/dist/rules";
+import {
+    configure
+} from 'vee-validate/dist/vee-validate.full.esm'
 
 /*
 
@@ -105,14 +106,28 @@ configure({
 */
 
 
-configure({
+/*configure({
     // Use custom default message handler.
     defaultMessage: (field, values) => {
         values._field_ = i18n._(field);
 
         return i18n._(`validation.${values._rule_}`, values);
     }
+});*/
+
+
+
+configure({
+    defaultMessage: (field, values) => {
+        // override the field name.
+        values._field_ = i18n.t(`fields.${field}`);
+
+        return i18n.t(`validation.${values._rule_}`, values);
+    }
 });
+
+
+
 extend("required", required);
 
 extend("email", email);

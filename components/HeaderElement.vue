@@ -43,13 +43,17 @@
 
 
 
-                                <nuxt-link :to="localePath('/pricing')"  class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
+                                <nuxt-link :to="localePath('/pricing')"  v-if="!$auth.user?.user?.is_member" class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
                                 <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">
                                   <img src="/" alt=""> {{ $t('header.login') }} </nuxt-link>
                                 <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">
-                                  <img src="/img/home/avatar.svg" alt="" width="30px"></nuxt-link>
+                                  <img :src="$auth.user.user.avatar" style="object-fit: cover" alt="" width="30px"></nuxt-link>
 
+                                <div @click="logout"  v-if="$auth.loggedIn" class="white d-flex">
 
+                                  <img src="/img/home/logout.png" style="object-fit: contain;cursor:pointer" alt="" width="25px">
+
+                                </div>
                               </div>
 
                                 <!-- End Popup Search Wrap -->
@@ -129,6 +133,11 @@
       },
       methods:{
 
+
+       async    logout(){
+
+            await this.$auth.logout();
+          },
         async switchLocale() {
 
 

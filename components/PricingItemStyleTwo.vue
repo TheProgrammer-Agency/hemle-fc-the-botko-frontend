@@ -1,7 +1,7 @@
 <template>
 
-<!--  bg_color&#45;&#45;5-->
-  <div id="pricing"  :class="is_came_from_home ?
+  <!--  bg_color&#45;&#45;5-->
+  <div id="pricing" :class="is_came_from_home ?
    'brook-pricing-table-area pricing pt--20 pb--50 pb-md--50 pb-sm--50' : 'brook-pricing-table-area pt--20 pb-md--170 pb-sm--170'"
 
        data-aos="fade-in"
@@ -32,12 +32,13 @@
             <div class="pricing-box" style="border-top:3px solid var(--primary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h4 class="title font-weight-bold secondary-color"  style="font-weight: bold">{{ $t('pricing.pricing_1_title')}} </h4>
+                  <h4 class="title font-weight-bold secondary-color" style="font-weight: bold">
+                    {{ $t('pricing.pricing_1_title') }} </h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">5 000 &nbsp; </h3>
                     <h3 class="currenct">XAF </h3>
                   </div>
-                  <h6 class="period">{{pricing.pricing_1_summary}}</h6>
+                  <h6 class="period">{{ pricing.pricing_1_summary }}</h6>
                 </div>
               </div>
               <div class="content">
@@ -59,7 +60,8 @@
               </div>
               <div class="footer mt--40 d-flex mx-auto">
                 <button @click.prevent="requestPaymentLink(0)"
-                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">                  {{ $t('tools.btn.become_member') }}
+                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">
+                  {{ $t('tools.btn.become_member') }}
 
                 </button>
               </div>
@@ -70,14 +72,15 @@
 
         <!-- Start Single Pricing Table -->
         <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="procing-wrap price-style-3 pt--40 move-up wow"  >
+          <div class="procing-wrap price-style-3 pt--40 move-up wow">
             <div class="pricing-box" style="border-top:3px solid var(--secondary-color)">
               <div class="header">
                 <div class="price-area">
                   <div class="header-title">
                     <div class="pricing-feature-mark"> {{ $t('pricing.pricing_popular') }}</div>
 
-                    <h4 class="title font-weight-bold secondary-color"  style="font-weight: bold">{{ $t('pricing.pricing_2_title') }} </h4>
+                    <h4 class="title font-weight-bold secondary-color" style="font-weight: bold">
+                      {{ $t('pricing.pricing_2_title') }} </h4>
 
                   </div>
                   <div class="price-wrap d-flex">
@@ -86,7 +89,7 @@
 
                   </div>
 
-                  <h6 class="period">{{pricing.pricing_2_summary}}</h6>
+                  <h6 class="period">{{ pricing.pricing_2_summary }}</h6>
 
                 </div>
               </div>
@@ -107,7 +110,8 @@
               </div>
               <div class="footer mt--40 d-flex mx-auto">
                 <button @click.prevent="requestPaymentLink(1)"
-                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">                  {{ $t('tools.btn.become_member') }}
+                        class="brook-btn  mx-auto bk-btn-secondary-border btn-sd-size space-between btn-essential">
+                  {{ $t('tools.btn.become_member') }}
 
                 </button>
               </div>
@@ -127,7 +131,7 @@
                     <h3 class="">500 000 &nbsp;</h3>
                     <h3 class="currenct"> XAF</h3>
                   </div>
-                  <h6 class="period">{{pricing.pricing_3_summary}}</h6>
+                  <h6 class="period">{{ pricing.pricing_3_summary }}</h6>
                 </div>
               </div>
               <div class="content">
@@ -154,7 +158,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="procing-wrap price-style-3 pt--40 move-up wow">
-            <div class="pricing-box"  style="border-bottom:3px solid var(--secondary-color)">
+            <div class="pricing-box" style="border-bottom:3px solid var(--secondary-color)">
               <div class="header">
                 <div class="price-area">
                   <h4 class="title  font-weight-bold secondary-color">{{ $t('pricing.pricing_4_title') }}</h4>
@@ -162,7 +166,7 @@
                     <h3 class="">1 000 000 &nbsp;</h3>
                     <h3 class="currenct"> XAF</h3>
                   </div>
-                  <h6 class="period">{{pricing.pricing_4_summary}}</h6>
+                  <h6 class="period">{{ pricing.pricing_4_summary }}</h6>
                 </div>
               </div>
               <div class="content">
@@ -182,7 +186,8 @@
               </div>
               <div class="footer mt--40 d-flex mx-auto">
                 <button @click.prevent="requestPaymentLink(3)"
-                        class="brook-btn bk-btn-secondary-border btn-sd-size space-between btn-essential">                  {{ $t('tools.btn.become_member') }}
+                        class="brook-btn bk-btn-secondary-border btn-sd-size space-between btn-essential">
+                  {{ $t('tools.btn.become_member') }}
 
                 </button>
               </div>
@@ -202,20 +207,17 @@
 import {v4 as uuidv4} from 'uuid';
 
 import data_form from "../data/package.json"
+import packages from "../data/package.json";
 
 export default {
 
 
-
-  props:['is_came_from_home'],
+  props: ['is_came_from_home'],
   data() {
 
     return {
 
-      pricing: [
-
-
-      ],
+      pricing: [],
 
 
     }
@@ -223,7 +225,7 @@ export default {
 
   mounted() {
 
-    this.pricing=[
+    this.pricing = [
 
       [
 
@@ -282,66 +284,22 @@ export default {
       ],
 
 
-
-
     ]
   },
   methods: {
 
     async requestPaymentLink(numberInTag = 1) {
 
-      let myuuid = uuidv4();
 
-
-
-      //make order now
       if (this.$auth.loggedIn) {
 
-        let payment_form = data_form[numberInTag]
-        payment_form.external_reference = myuuid
-        payment_form.user = this.$auth.user.user.uuid
-
-        payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.user.uuid
-
-        let app = this
-
-        console.log("api  = ", this.$api)
-        //save order in our BD
-        await this.$axios.post('/payment/order', payment_form)
-
-            .then(async function (res) {
-
-
-              await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(function (response) {
-
-
-                console.log("response= ", response)
-
-
-                window.location.href = response.link;
-
-
-              }).catch(function (error) {
-
-                console.log("error", error)
-
-              });
-
-            })
-            .catch(function (error) {
-
-
-              console.log("error save in database",error)
-            })
-
-
-        console.log("data", data_form[numberInTag])
+        this.$router.push('/payment?package=' + numberInTag)
 
 
       } else {
 
         this.$toast.open('Bonjour !' + "veuillez tout d'abord créer un compte  ou vous connecter 😊")
-        this.$router.push('/auth/register?package='+numberInTag)
+        this.$router.push('/auth/register?package=' + numberInTag)
 
 
       }

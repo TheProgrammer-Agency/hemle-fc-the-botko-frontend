@@ -5,9 +5,11 @@ export default {
 
             'become_member': 'Devenez membre',
             'see_our_shop':'Voir notre boutique',
-            'return_to_home':"Revenir à l'accueil",
+            return_to_home:"Revenir à l'accueil",
             im_checking:"Je vérifies",
-            need_to_contact_us:"Besoin de nous contacter  ?"
+            need_to_contact_us:"Besoin de nous contacter  ?",
+            understood: "J'ai compris"
+
 
         },
 
@@ -96,16 +98,16 @@ export default {
         pricing_4_title:'ÑEM KÍÍ ÑJÉÉ ',
         pricing_4_desc_1: "Obtenez une carte de membre numérique gratuite",
         pricing_4_desc_2: "Dinner traditionel avec le Président-Fondateur et des invités spéciaux",
-        pricing_4_desc_3: "Profitez d'un bonus de parrainage exceptionnel  de 35% ",
+        pricing_4_desc_3: "Bénéficiez d'une réduction de  15% sur toutes vos factures dans notre boutique.",
         pricing_4_desc_4: "Accédez gratuitement à Hémlè TV, notre plateforme de contenu exclusive.",
         pricing_4_desc_5: "Recevez un maillot officiel du club, arborant fièrement nos couleurs.",
         pricing_4_desc_6: "Recevez une écharpe du club, symbole de votre soutien indéfectible.",
-        pricing_4_desc_7: "Obtenez un Sac à dos du club",
+        pricing_4_desc_7: "Profitez d'un jogging complet du club, alliant confort et style pour vos activités sportives.",
         pricing_4_desc_8: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
         pricing_4_desc_9: "Assistez gratuitement à tous les concerts organisés à Botko\n",
-        pricing_4_desc_10: "Obtenez une casquette  du club\n",
-        pricing_4_desc_11: "Bénéficiez d'une réduction de  15% sur toutes vos factures dans notre boutique.",
-        pricing_4_desc_12: "Profitez d'un jogging complet du club, alliant confort et style pour vos activités sportives.",
+        pricing_4_desc_10: "Profitez d'un bonus de parrainage exceptionnel  de 35% ",
+        pricing_4_desc_11: "Obtenez une casquette  du club\n",
+        pricing_4_desc_12: "Obtenez un Sac à dos du club ",
         pricing_4_desc_13: "Obtenez l’accès au magazine numérique du club"
     },
 
@@ -169,8 +171,11 @@ export default {
         confirm_password:"Confirmez votre mot de passe",
         referral_code:"Code de parrainage ?",
         already_member:"Déjà membre ?",
-        register_order_success:"Tu y es presque 💪 !",
-        register_order_success_desc:"Dans un instant tu sera redirigé vers notre page de paiement !",
+        register_order_success:"Tu y es presque au bout ! 💪 !",
+        register_order_success_desc:"Maintenant la dernière , procède à ton paiement , et deviens Hémléen(e) ! ",
+
+        register_success:"Tu as validé la première étape 💪 ! ",
+        register_success_desc:"Maintenant choisis un mode de paiemnet avant de continuer",
 
         code:"Code",
         message:"message",
@@ -183,8 +188,16 @@ export default {
         accept_terms:"J'accepte les termes et conditions",
 
 
+        success_account_deleted_desc:"Votre compte a été supprimé avec succès. Nous regrettons de voir partir, mais nous respectons votre décision. Si vous changez d'avis à l'avenir, n'hésitez pas à revenir et à recréer votre compte." +
+            "Nous vous remercions de votre participation et espérons vous revoir bientôt.",
+
+        success_account_deleted_title: "Désolé 😔 !",
+
+        an_error_occured:"Une erreur s'est produite  "
+
 
     },
+
 
 
 }

@@ -212,11 +212,27 @@
 
 
             </div>
-            <div class="form-group ml-auto">
 
-              <button type="submit" class="bk-btn theme-btn" @click.prevent="updatePassword">Mettre à jour</button>
+
+            <br><br>
+            <div class="wrapper-wrapper-info">
+
+              <h4 class="error"><img src="/img/home/delete.png" alt="">  &nbsp; ZONE DE DANGER</h4>
+
+
+              <p>
+                Vous n’etes pas satisfait du club Hémlè FC de Botko ? ou vous souhaitez supprimer toutes les informations associés à ce compte ?
+              </p>
+
 
             </div>
+            <div class="form-group ml-auto">
+
+              <button type="submit" class="bk-btn  btn-error " @click.prevent="deleteUser">Supprimer mon compte</button>
+
+            </div>
+
+
 
 
             <!--            <div class="wrapper-wrapper-info">
@@ -377,7 +393,7 @@ export default {
       email: this.$auth.user.user.email,
       password: '',
       password_confirmation: '',
-      avatar: this.$auth.user.user.image? this.$auth.user.user.image :'/img/home/avatar.svg'
+      avatar: this.$auth.user.user.avatar? this.$auth.user.user.avatar :'/img/home/avatar.svg'
     }
 
     console.log(this.$auth.user.user)
@@ -448,6 +464,35 @@ export default {
 
 
     },
+    async deleteUser(){
+
+      let app = this;
+
+      app.$nuxt.$loading.start()
+
+
+      await this.$axios.$delete('user/delete').then(async function (response) {
+
+        await app.$auth.logout();
+
+        app.$router.push('/')
+
+        app.$nuxt.$loading.finish()
+
+        app.$swal.fire({
+          position: 'Center',
+          icon: 'info',
+          title: app.$t('auth.success_account_deleted_title'),
+          text:app.$t('auth.success_account_deleted_desc'),
+          showConfirmButton: true,
+          confirmButtonText: app.$t('tools.btn.understood'),
+        })
+
+      })
+    },
+
+
+
     async execUpdate() {
 
       let app = this
@@ -554,7 +599,7 @@ export default {
             title: 'Image trop grande ! 😯 ',
             text: "Vous devez insérer une image ayant une taille inférieur à 1MO",
             showConfirmButton: true,
-            confirmButtonText: "J'ai compris",
+            confirmButtonText: app.$t('tools.btn.understood'),
             timer: 10000
           })
         }

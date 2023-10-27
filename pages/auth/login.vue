@@ -8,7 +8,7 @@
 
     </div>
 
-    <div class="auth-right container">
+    <div class="auth-right container"  style="  width: 400px;">
 
 
       <ValidationObserver v-slot="{ invalid }">
@@ -24,8 +24,13 @@
             <label >Email</label>
 
             <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
-              <input v-model="email" type="email" >
-              <span>{{ errors[0] }}</span>
+
+              <div class="wrapper-input-icon">
+                <img src="/img/home/mail.svg" alt="">
+
+                <input v-model="email" type="email" >
+              </div>
+              <span class="error">{{ errors[0] }}</span>
             </ValidationProvider>
 
           </div>
@@ -36,8 +41,14 @@
            <label >{{$t('auth.password')}}</label>
 
            <ValidationProvider name="Mot de passe" rules="required|min:3" v-slot="{ errors }">
-             <input v-model="password" type="text">
-             <span>{{ errors[0] }}</span>
+
+
+             <div class="wrapper-input-icon">
+               <img src="/img/home/password.svg" alt="">
+
+               <input v-model="password" type="text">
+             </div>
+             <span class="error">{{ errors[0] }}</span>
            </ValidationProvider>
          </div>
 

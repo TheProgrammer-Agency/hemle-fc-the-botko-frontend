@@ -30,6 +30,12 @@
           </n-link>
         </li>
 
+        <li class="menu-item-has-children"  @click="logout"  v-if="$auth.loggedIn"  >
+          <img src="/img/home/logout.png" style="object-fit: contain;cursor:pointer" alt="" width="25px">
+
+        </li>
+
+
 
       </ul>
     </nav>
@@ -39,8 +45,18 @@
 <script>
 export default{
   name: 'MobileNavMenu',
+
+
+  methods:{
+
+
+    async    logout(){
+
+      await this.$auth.logout();
+    },
+  },
   mounted() {
-    const offCanvasNav = document.querySelector('#offcanvas-navigation');
+  /*  const offCanvasNav = document.querySelector('#offcanvas-navigation');
     const offCanvasNavSubMenu = offCanvasNav.querySelectorAll('.sub-menu');
     const anchorLinks = offCanvasNav.querySelectorAll('a');
 
@@ -65,7 +81,8 @@ export default{
     const closeMobileMenu = () => {
       const offcanvasMobileMenu = document.querySelector('#offcanvas-mobile-menu');
       offcanvasMobileMenu?.classList.remove('active');
-    }
+    }*/
+
   }
 };
 </script>
