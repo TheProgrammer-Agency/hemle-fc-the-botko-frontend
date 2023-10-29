@@ -92,7 +92,7 @@
       width: $treeSize;
       height: $treeSize;
       position: absolute;
-      top: calc(-$treeSize/4);
+      top: -$treeSize/4;
 
       z-index: -1;
       background: transparent;
