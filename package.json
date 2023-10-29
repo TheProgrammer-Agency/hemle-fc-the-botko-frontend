@@ -1,8 +1,8 @@
 {
-    "name": "brook",
+    "name": "HEMLE",
     "version": "1.0.0",
-    "description": "Creative Multipurpose Vue Nuxt JS Template",
-    "author": "uzzal",
+    "description": "HEMLE FC The BOTKO",
+    "author": "TheProgrammmer",
     "private": true,
     "scripts": {
         "dev": "nuxt",
