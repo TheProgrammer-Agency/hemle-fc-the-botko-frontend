@@ -33,6 +33,7 @@ import HeaderBlack from "../components/HeaderBlack";
 export default {
   mixins: [slugify],
   auth:false,
+  middleware:['checkUserIsActive'],
 
   components: {
     HeaderBlack,

@@ -8,15 +8,40 @@
 
     </div>
 
-    <div class="auth-right container"  style="  width: 400px;">
-
+    <div class="auth-right container"  style="  width: 480px;">
 
       <ValidationObserver v-slot="{ invalid }">
 
 
         <h2 class="text-center">{{ $t('auth.log_in') }}</h2>
+        <br>
+        <div class="auth-oauth">
 
-        <br><br>
+          <span @click.prevent="socialLogin('facebook')" >
+            <img src="/img/home/facebook.png" alt="facebook" >
+          </span>
+
+
+          <span @click.prevent="socialLogin('google')">
+
+                      <img src="/img/home/google.png" alt="google" >
+
+          </span>
+        </div>
+
+        <br>
+        <div class="register_or">
+
+          <hr>
+          <span>
+           {{$t('auth.or')}}
+          </span>
+
+          <hr>
+        </div>
+    <br>
+
+
         <form @submit.prevent="onSubmit" class="auth-form">
 
           <div class="form-group">
@@ -95,7 +120,9 @@ export default {
     ...mapActions({
       setErrorMessage :'setErrorMessage'
     }),
-
+    socialLogin(service) {
+      window.location.href = `${process.env.baseUrlSimple}api/auth/login/${service}`;
+    },
     async onSubmit(){
 
 

@@ -1,0 +1,41 @@
+
+.congratulation{
+
+
+  height: 100vh;
+
+  .left-congrat{
+
+    max-width: 580px;
+  }
+  .wrapper-congratulation{
+
+
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    height: 100%;
+
+
+
+
+    @media #{$sm-layout}{
+
+      flex-direction: column;
+    }
+
+
+    @media #{$md-layout}{
+
+      flex-direction: row;
+    }
+
+    @media #{$lg-layout}{
+
+      flex-direction: row;
+    }
+
+
+  }
+}

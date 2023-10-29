@@ -15,8 +15,34 @@
 
         <h2 class="text-center">{{ $t('auth.register_title') }}</h2>
 
+        <div class="text-center">{{$t('auth.info_right_path')}} </div>
 
-        <div class="text-center">
+        <br>
+        <div class="auth-oauth">
+
+          <span @click.prevent="socialLogin('facebook')" >
+            <img src="/img/home/facebook.png" alt="facebook" >
+          </span>
+
+
+          <span @click.prevent="socialLogin('google')">
+
+                      <img src="/img/home/google.png" alt="google" >
+
+          </span>
+        </div>
+
+        <br>
+        <div class="register_or">
+
+          <hr>
+          <span>
+           {{$t('auth.or')}}
+          </span>
+
+          <hr>
+        </div>
+        <div class="text-center" v-if="error_message!==''">
 
             <span class="error">
 
@@ -24,9 +50,9 @@
 
               <br>
           </span>
-          <br>
+
         </div>
-        <br>
+
         <form @submit.prevent="onSubmit" class="auth-form">
 
           <div class="form-group-horizontal">
@@ -273,9 +299,28 @@ export default {
   },
   methods: {
 
+    socialLogin(service) {
+      window.location.href = `${process.env.baseUrlSimple}api/auth/login/${service}`;
+    },
     onSelect({name, iso2, dialCode}) {
       this.phone_number_code = dialCode;
     },
+
+    async registerGoogle(){
+
+
+      await this.$auth.loginWith('social', {params: {prompt: 'select_account'}}).then(function(res){
+
+        console.log("auth succeeed google",res,res.data)
+
+        alert("wait")
+      }).catch(function (err) {
+
+
+      })
+
+    },
+
     async onSubmit() {
 
       this.$nuxt.$loading.start()

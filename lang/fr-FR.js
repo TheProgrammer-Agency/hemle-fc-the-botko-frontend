@@ -8,7 +8,9 @@ export default {
             return_to_home:"Revenir à l'accueil",
             im_checking:"Je vérifies",
             need_to_contact_us:"Besoin de nous contacter  ?",
-            understood: "J'ai compris"
+            understood: "J'ai compris",
+            download_card: "Télécharger ma carte",
+
 
 
         },
@@ -145,11 +147,17 @@ export default {
 
 
 
+        info_right_path:'Vous êtes sur le point de devenir membre officiel du club.\n',
+        social_waiting:'Veuillez patienter pendant que nous vous connectons...',
+
+
+
+        or:'Ou',
         log_in:'Connectez-vous',
         identifier:"S'identifier",
         create_account:"Créer un compte",
-        lost_account:'Comptes perdu ?',
-        find_my_account:'Retrouver mon compte',
+        lost_account:'Mot de passe oublié  ?',
+        find_my_account:'Réinitialiser mon mot de passe.\n' ,
         error_check_your_credential:'Verifiez vos identifiants',
         error_check_your_credential_desc:'Vous information ne sont pas correct, si cette erreur persiste, contactez l\'administrateur',
         check_your_credential:'Verifiez vos identifiants',
@@ -197,6 +205,19 @@ export default {
 
 
     },
+
+    user:{
+
+        user_not_ready:'Vous n\'êtes pas prêt !',
+        user_not_ready_description:"Il vous manque une chose ! remplissez vos information personnelle  obligatoire. ! " + "\n 🫡",
+
+
+    },
+
+    error:{
+
+        back_to_home:"Faites du stop pour rentrer chez vous."
+    }
 
 
 

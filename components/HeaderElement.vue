@@ -2,12 +2,12 @@
     <fixed-header>
 
         <header class="br_header header-default header-transparent light-logo--version haeder-fixed-width headroom--sticky header-mega-menu clearfix">
-          <div class="message-box move-up wow bg_cat--2 " v-if="$auth.loggedIn && !($auth.user.user.is_member)">
+          <div class="message-box move-up wow bg_cat--2 " v-if="$auth.loggedIn && !($auth.user.data.is_member)">
 
             <div class="icon">
               <i class=" fas fa-bell "></i>
             </div>
-            <div class="content" >Hey ! {{$auth.user.user.first_name}}  {{$t('header.account_inactive_notification')}}
+            <div class="content" >Hey ! {{$auth.user.data.first_name}}  {{$t('header.account_inactive_notification')}}
               <nuxt-link to="/user/orders"  style="color:#ac0404;text-decoration: underline"> ici !</nuxt-link></div>
           </div>
             <div class="container-fluid">
@@ -43,11 +43,11 @@
 
 
 
-                                <nuxt-link :to="localePath('/pricing')"  v-if="!$auth.user?.user?.is_member" class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
+                                <nuxt-link :to="localePath('/pricing')"  v-if="!$auth.user?.data?.is_member" class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
                                 <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">
                                   <img src="/" alt=""> {{ $t('header.login') }} </nuxt-link>
                                 <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">
-                                  <img :src="$auth.user.user.avatar" style="object-fit: cover" alt="" width="30px"></nuxt-link>
+                                  <img :src="$auth.user.data.avatar" style="object-fit: cover" alt="" width="30px"></nuxt-link>
 
                                 <div @click="logout"  v-if="$auth.loggedIn" class="white d-flex">
 

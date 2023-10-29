@@ -1,27 +1,42 @@
 <template>
-    <div class="error404 bg-cover" :style="{ backgroundImage: `url('/img/bg/bg-image-124.jpg')` }">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="error-image">
-                        <img class="img-fluid" src="/img/others/page-404-image.png" alt="Not Found Image">
-                    </div>
-                    <h1 class="error-404-title font-weight--light text-white" v-if="error.statusCode === 404">Oops! Page not found!</h1>
-                    <h1 class="error-404-title font-weight--light text-white" v-else>An error occurred</h1>
-                    <div class="error-buttons section-space--mt_30">
-                        <button class="bk-btn theme-btn" @click="$router.go(-1)">
-                            <span class="button-text">Go Back</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="content errors-page congratulation">
+
+
+    <canvas class="snow" id="snow"></canvas>
+
+
+    <div class="main-text">
+      <h1>{{ error.message}}</h1>
+
+      <n-link class="home-link" to="/">{{ $t('error.back_to_home')}}</n-link>
+
     </div>
+    <br>
+   <div class="ground">
+      <div class="mound">
+        <div class="mound_text">{{error.statusCode}}</div>
+        <div class="mound_spade"></div>
+      </div>
+    </div>
+
+
+
+
+  </div>
 </template>
 
 <script>
     export default {
-        props: ['error']
+        props: ['error'],
+
+      mounted() {
+
+
+          console.log("erro ",this.error)
+
+        document.body.style.backgroundColor = 'rgba(0,0,0,.07)';
+
+      }
     }
 </script>
 

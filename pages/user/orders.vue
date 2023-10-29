@@ -63,7 +63,7 @@
 
           <div class="card-error-left">
 
-            <h2>{{$auth.user.user.last_name}} Vous n'avez aucune commande !</h2>
+            <h2>{{$auth.user.data.last_name}} Vous n'avez aucune commande !</h2>
 
             <p>
               Il semblerait que vous n'ayez aucune commande en cours ! Nous vous invitons à passer une commande ici afin d'activer votre compte. Votre compte restera inactif tant que vous n'aurez pas passé commande pour un package.
@@ -113,7 +113,7 @@ import packages from "../../data/package.json";
 
 export default {
   mixins: [slugify],
-  middleware: 'auth',
+  middleware:['auth','checkUserIsActive'],
 
   components: {
     HeaderBlack,

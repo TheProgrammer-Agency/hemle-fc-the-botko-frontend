@@ -94,7 +94,8 @@ import packages from "../../data/package.json";
 export default {
   name: "payment",
 
-  middleware: ['checkParam','auth'],
+
+  middleware: ['checkParam','auth','checkUserIsActive'],
 
   data() {
     return {
@@ -115,7 +116,7 @@ export default {
       let payment_form = {
         amount: this.package.amount,
         currency: this.package.currency,
-        from: this.$auth.user.user.tel,
+        from: this.$auth.user.data.tel,
         description: this.package.description,
         package_name: this.package.package_name,
         external_user: this.package.external_user,
@@ -123,10 +124,10 @@ export default {
 
       }
 
-      payment_form.user = this.$auth.user.user.uuid
-      payment_form.external_reference = this.$auth.user.user.uuid
+      payment_form.user = this.$auth.user.data.uuid
+      payment_form.external_reference = this.$auth.user.data.uuid
 
-      payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.user.uuid
+      payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.data.uuid
 
       await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(async function (response) {
 
@@ -145,7 +146,7 @@ export default {
 
               app.$swal.fire({
                 icon: 'success',
-                title: app.$t('auth.register_order_success') +' ' +app.$auth.user.user.first_name,
+                title: app.$t('auth.register_order_success') +' ' +app.$auth.user.data.first_name,
                 text: app.$t('auth.register_order_success_desc'),
                 footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
               })
@@ -163,7 +164,7 @@ export default {
 
               app.$swal.fire({
                 icon: 'error',
-                title:app.$t('auth.an_error_occured')+' '+ app.$auth.user.user.first_name,
+                title:app.$t('auth.an_error_occured')+' '+ app.$auth.user.data.first_name,
                 text:  error.response.data.message,
                 footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
 

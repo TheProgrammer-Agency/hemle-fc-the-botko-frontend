@@ -31,7 +31,10 @@ export default {
             ...i18nHead.meta,
 
             link: [
-                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+                {rel: 'preconnect',href: '/favicon.ico'},
+                {rel: 'preconnect',  href: 'https://fonts.gstatic.com' ,crossOrigin:true},
+                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap' ,crossOrigin:true}
             ],
             ...i18nHead.link,
 
@@ -41,6 +44,10 @@ export default {
 
                 {
                     src: "/js/moment.js"
+                },
+
+                {
+                    src: "/js/error.js"
                 },
 
             ]
@@ -79,6 +86,51 @@ export default {
         },
         strategies: {
 
+            social: {
+                scheme: 'oauth2',
+                endpoints: {
+                    authorization: 'https://accounts.google.com/o/oauth2/auth',
+                    token:  'http://localhost:8000/api/auth/google/redirect',
+                    userInfo: 'https://localhost:8000/api/user/me',
+                },
+                token: {
+                    property: 'access_token',
+                    type: 'Bearer',
+                    maxAge: 1800
+                },
+                refreshToken: {
+                    property: 'refresh_token',
+                    maxAge: 60 * 60 * 24 * 30
+                },
+                responseType: 'code',
+                grantType: 'authorization_code',
+                accessType: undefined,
+                redirectUri: undefined,
+                logoutRedirectUri: undefined,
+                clientId:  process.env.CLIENT_ID,
+                scope: ['openid', 'profile', 'email'],
+                state: 'UNIQUE_AND_NON_GUESSABLE',
+                codeChallengeMethod: '',
+                responseMode: '',
+                acrValues: '',
+                // autoLogout: false
+            },
+            facebook: {
+                endpoints: {
+                    userInfo: 'https://graph.facebook.com/v6.0/me?fields=id,name,picture{url}'
+                },
+                clientId: process.env.CLIENT_ID_FACEBOOK,
+                scope: ['public_profile', 'email']
+            },
+            google: {
+                clientId: process.env.CLIENT_ID,
+                codeChallengeMethod: '',
+                responseType: 'token',
+                endpoints: {
+                    token: 'http://localhost:8000/auth/google/redirect', // your backend url to resolve your auth with google and give you the token back
+                    userInfo: 'https://localhost:8000/api/user/me'
+                },
+            },
             local: {
 
                 token: {
@@ -89,8 +141,10 @@ export default {
                     type: 'Bearer'
                 },
                 user: {
-                    property: false,
-                    autoFetch: true
+                    propertyName: 'data',
+                    autoFetch: true,
+                    global: true,
+
                 },
                 endpoints: {
                     login: {url: '/auth/login', method: 'post'},
@@ -98,7 +152,7 @@ export default {
                     user: {url: '/user/me', method: 'get'}
 
                 },
-                autoFetchUser: false
+                autoFetchUser: true
 
             }
 

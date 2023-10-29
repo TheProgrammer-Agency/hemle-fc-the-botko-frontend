@@ -17,7 +17,7 @@ export default function ({ app, $axios, redirect,store,context }) {
 
 
 
-        console.log("response.data",error.response)
+        console.log("response.data",error)
 
 
             store.dispatch('setErrors',error.response.data.errors)

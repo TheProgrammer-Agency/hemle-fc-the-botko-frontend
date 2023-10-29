@@ -16,7 +16,7 @@ if (!Vue.__my_mixin__) {
 
 
             user(){
-                return this.$auth.user.user
+                return this.$auth.user.data
             },
 
 

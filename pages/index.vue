@@ -10,6 +10,7 @@
 <!--    <HeroDigitalAgency  />-->
     <HeroEssential></HeroEssential>
 
+
     <PricingItemStyleTwo :is_came_from_home="true"  />
 
 
@@ -184,7 +185,7 @@ import MatchScore from "../components/MatchScore";
 
 export default {
   mixins: [slugify],
-auth:false,
+  auth:false,
 
   components: {
     HeroEssential,
