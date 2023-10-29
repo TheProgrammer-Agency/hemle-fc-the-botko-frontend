@@ -56,8 +56,8 @@
 
           <br>
 
-          <span @click.prevent="copySomething($auth.user.data.referral_code)" style="cursor:pointer">
-             {{ $auth.user.data.referral_code }}  <img src="/img/home/copy.png" width="25" height="25">
+          <span @click.prevent="copySomething($auth.user?.data?.referral_code)" style="cursor:pointer">
+             {{ $auth.user?.data?.referral_code }}  <img src="/img/home/copy.png" width="25" height="25">
           </span>
 
         </div>
@@ -401,8 +401,8 @@
 
                     <label>Email</label>
 
-                    <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
-                      <input v-model="form.email" type="email">
+                    <ValidationProvider name="E-mail" v-slot="{ errors }">
+                      <input v-model="form.email" type="email"  readonly disabled>
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
 
@@ -666,7 +666,7 @@ export default {
         //generate
 
         try {
-          await this.$copyText(text);
+          await app.$copyText('text');
           app.$toast.info('Vous copié le code  !   ')
         } catch (e) {
           console.error(e);

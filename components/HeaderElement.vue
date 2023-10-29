@@ -2,12 +2,12 @@
     <fixed-header>
 
         <header class="br_header header-default header-transparent light-logo--version haeder-fixed-width headroom--sticky header-mega-menu clearfix">
-          <div class="message-box move-up wow bg_cat--2 " v-if="$auth.loggedIn && !($auth.user.data.is_member)">
+          <div class="message-box move-up wow bg_cat--2 " v-if="$auth.loggedIn && !($auth.user?.data?.is_member)">
 
             <div class="icon">
               <i class=" fas fa-bell "></i>
             </div>
-            <div class="content" >Hey ! {{$auth.user.data.first_name}}  {{$t('header.account_inactive_notification')}}
+            <div class="content" >Hey ! {{$auth.user?.data?.first_name}}  {{$t('header.account_inactive_notification')}}
               <nuxt-link to="/user/orders"  style="color:#ac0404;text-decoration: underline"> ici !</nuxt-link></div>
           </div>
             <div class="container-fluid">
