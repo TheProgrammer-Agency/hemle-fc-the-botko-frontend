@@ -123,6 +123,8 @@ export default {
     socialLogin(service) {
       window.location.href = `${process.env.baseUrlSimple}api/auth/login/${service}`;
     },
+
+
     async onSubmit(){
 
 
@@ -148,13 +150,13 @@ export default {
 
 
 
-            console.log("response = ",res)
             console.log(app.$auth)
 
 
             app.$router.push('/user')
 
-            app.$toast.open(app.$t('tools.hello ') +res.data.user.first_name)
+            app.$toast.open(app.$t('tools.hello ') +res.data?.user?.first_name== null ?'':res.data?.user?.first_name +' 😊')
+
 
           })
 

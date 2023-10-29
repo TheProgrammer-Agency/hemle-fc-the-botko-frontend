@@ -302,6 +302,7 @@ export default {
     socialLogin(service) {
       window.location.href = `${process.env.baseUrlSimple}api/auth/login/${service}`;
     },
+
     onSelect({name, iso2, dialCode}) {
       this.phone_number_code = dialCode;
     },
