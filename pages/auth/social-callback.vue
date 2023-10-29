@@ -25,7 +25,27 @@ export default {
 
     this.$auth.fetchUser().then((res) => {
 
-      app.$router.push('/user');
+      if(localStorage.getItem('package')){
+
+
+
+        app.$router.push('/payment?package='+localStorage.getItem('package'))
+
+
+
+
+      }
+      else{
+
+        app.$swal.fire({
+          icon: 'info',
+          title: app.$t('auth.rechoose_package'),
+          text: app.$t('auth.rechoose_package_desc'),
+        })
+
+        app.$router.push('/pricing');
+
+      }
 
     }).catch((e) => {
 

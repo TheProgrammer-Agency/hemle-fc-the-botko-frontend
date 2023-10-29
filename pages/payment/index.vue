@@ -62,7 +62,7 @@
 
           <div class="card-payment-method">
 
-            <img src="/img/home/stripe.png" alt="">
+            <img src="/img/home/stripe.png" alt="stripe" @click="paidWithStripe">
           </div>
 
 
@@ -107,6 +107,85 @@ export default {
 
   methods: {
 
+
+
+    async makeOrder(paymentForm,redirectUrl){
+
+
+      let app=this;
+
+      await app.$axios.post('/payment/order', paymentForm)
+
+          .then(async function (res) {
+
+            app.$nuxt.$loading.finish()
+
+
+
+            app.$swal.fire({
+              icon: 'success',
+              title: app.$t('auth.register_order_success') +' ' +app.$auth.user.data.first_name,
+              text: app.$t('auth.register_order_success_desc'),
+              footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
+            })
+
+
+            setTimeout(() => {
+              window.location.href = redirectUrl
+            }, 5000);
+
+
+          }).catch(function (error) {
+
+
+
+
+            app.$swal.fire({
+              icon: 'error',
+              title:app.$t('auth.an_error_occured')+' '+ app.$auth.user.data.first_name,
+              text:  error.response.data.message,
+              footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
+
+            })
+
+            app.$nuxt.$loading.finish()
+
+
+          });
+
+
+    },
+    async paidWithStripe(){
+
+
+
+     let app=this;
+      app.$nuxt.$loading.start()
+
+
+      let payment_form = {
+        amount: this.package.amount,
+        currency: this.package.currency,
+        from: this.$auth.user.data.tel,
+        description: this.package.description,
+        package_name: this.package.package_name,
+        external_user: this.package.external_user,
+
+
+      }
+
+      payment_form.user = this.$auth.user.data.uuid
+      payment_form.external_reference = this.$auth.user.data.uuid
+      let redirectUrl=`${process.env.baseUrlSimple}api/payment/checkout?reference=${app.$auth.user.data.uuid}&&price_stripe=${app.package.price_stripe}`
+
+      await this.makeOrder(payment_form,redirectUrl )
+
+
+
+},
+
+
+
     async paidWithOrangeOrMtn(){
 
       this.$nuxt.$loading.start()
@@ -135,49 +214,7 @@ export default {
         let $payment_link = response.link
 
         //log in
-
-        await app.$axios.post('/payment/order', payment_form)
-
-            .then(async function (res) {
-
-              app.$nuxt.$loading.finish()
-
-
-
-              app.$swal.fire({
-                icon: 'success',
-                title: app.$t('auth.register_order_success') +' ' +app.$auth.user.data.first_name,
-                text: app.$t('auth.register_order_success_desc'),
-                footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
-              })
-
-
-              setTimeout(() => {
-                window.location.href = $payment_link;
-              }, 5000);
-
-
-            }).catch(function (error) {
-
-
-
-
-              app.$swal.fire({
-                icon: 'error',
-                title:app.$t('auth.an_error_occured')+' '+ app.$auth.user.data.first_name,
-                text:  error.response.data.message,
-                footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
-
-              })
-
-              app.$nuxt.$loading.finish()
-
-
-            });
-
-
-
-
+        await  app.makeOrder(payment_form,$payment_link);
 
       })
 

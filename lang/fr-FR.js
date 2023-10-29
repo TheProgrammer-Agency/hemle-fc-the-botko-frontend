@@ -150,6 +150,9 @@ export default {
         info_right_path:'Vous êtes sur le point de devenir membre officiel du club.\n',
         social_waiting:'Veuillez patienter pendant que nous vous connectons...',
 
+        rechoose_package: "Oh ! Un imprévu s'est produit.\n",
+        rechoose_package_desc: "Veuillez sélectionner à nouveau votre forfait avant de poursuivre.\n" +
+            "\n",
 
 
         or:'Ou',

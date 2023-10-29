@@ -291,10 +291,12 @@ export default {
     async requestPaymentLink(numberInTag = 1) {
 
 
+     localStorage.setItem("package",numberInTag);
+
+
       if (this.$auth.loggedIn) {
 
         this.$router.push('/payment?package=' + numberInTag)
-
 
       } else {
 

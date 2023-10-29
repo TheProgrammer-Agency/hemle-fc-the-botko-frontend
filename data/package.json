@@ -7,7 +7,8 @@
     "description": "ÑÈM KÍÍ HIÉE",
     "external_reference": "",
     "external_user": "",
-    "package_name": "ÑÈM KÍÍ HIÉE"
+    "package_name": "ÑÈM KÍÍ HIÉE",
+    "price_stripe": "price_1O6PKDCohtXZaMKCvV2p6eEz"
   },
   {
     "id": 2,
@@ -18,7 +19,9 @@
     "description": "ÑEM KÍÍ HIAÑNGA'A",
     "external_reference": "",
     "external_user": "",
-    "package_name": "ÑEM KÍÍ HIAÑNGA'A"
+    "package_name": "ÑEM KÍÍ HIAÑNGA'A",
+    "price_stripe": "price_1O6PGeCohtXZaMKChNMoAfla"
+
   },
   {
     "id": 3,
@@ -29,7 +32,9 @@
     "description": "ÑÈM KÍÍ NGOCK",
     "external_reference": "",
     "external_user": "",
-    "package_name": "ÑÈM KÍÍ NGOCK"
+    "package_name": "ÑÈM KÍÍ NGOCK",
+    "price_stripe": "price_1O6PIwCohtXZaMKCpyI6Ar4P"
+
   },
   {
     "id": 4,
@@ -40,6 +45,8 @@
     "description": "ÑEM  KÍÍ  ÑJÉÉ",
     "external_reference": "",
     "external_user": "",
-    "package_name": "ÑÈM KÍÍ ÑJÉÉ"
+    "package_name": "ÑÈM KÍÍ ÑJÉÉ",
+    "price_stripe": "price_1O6PKDCohtXZaMKCvV2p6eEz"
+
   }
 ]

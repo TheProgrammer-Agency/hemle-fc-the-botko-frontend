@@ -314,6 +314,7 @@ export default {
         console.log("auth succeeed google",res,res.data)
 
         alert("wait")
+
       }).catch(function (err) {
 
 
