@@ -90,8 +90,8 @@ export default {
                 scheme: 'oauth2',
                 endpoints: {
                     authorization: 'https://accounts.google.com/o/oauth2/auth',
-                    token:  'http://localhost:8000/api/auth/google/redirect',
-                    userInfo: 'https://localhost:8000/api/user/me',
+                    token:  process.env.baseUrlSimple+'api/auth/login/google/callback',
+                    userInfo: process.env.baseUrlSimple+'api/user/me',
                 },
                 token: {
                     property: 'access_token',
@@ -127,8 +127,8 @@ export default {
                 codeChallengeMethod: '',
                 responseType: 'token',
                 endpoints: {
-                    token: 'http://localhost:8000/auth/google/redirect', // your backend url to resolve your auth with google and give you the token back
-                    userInfo: 'https://localhost:8000/api/user/me'
+                    token: process.env.baseUrlSimple+'api/auth/login/google/callback', // your backend url to resolve your auth with google and give you the token back
+                    userInfo: process.env.baseUrlSimple+'api/user/me'
                 },
             },
             local: {
