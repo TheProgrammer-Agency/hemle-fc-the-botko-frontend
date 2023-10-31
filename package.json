@@ -47,7 +47,6 @@
     "devDependencies": {
         "@lingui/core": "2.8.3",
         "@nuxtclub/slugify": "^1.2.1",
-
         "sass": "^1.43.4",
         "sass-loader": "^10.1.1"
     }

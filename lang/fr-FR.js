@@ -172,10 +172,19 @@ export default {
         total:'Total de votre commande',
         sub_total:'Sous total',
         choose_your_payment_method:'Choisissez votre mode de paiement',
+
+
+        payment_success_title:"FELICITATIONS <strong class='secondary-color'>Hémlèen(e) !!</strong>",
+        payment_success_desc:"  Vous faites désormais partie de la famille Hémléenne , nous vous réservons pleins de surprise !! Cliquez sur\n" +
+            "          le lien ci-dessous pour téléchager votre carte de membre",
     },
+
+
     auth:{
 
 
+
+        please_connect:"Bonjour ! veuillez tout d'abord créer un compte  ou vous connecter 😊",
 
         info_right_path:'Vous êtes sur le point de devenir membre officiel du club.\n',
         social_waiting:'Veuillez patienter pendant que nous vous connectons...',

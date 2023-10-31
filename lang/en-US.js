@@ -134,6 +134,9 @@ export default {
 
 
     auth: {
+        please_connect: "Hello! Please create an account or log in first. 😊",
+
+
         info_right_path: "You are about to become an official member of the club.\n",
         social_waiting: "Please wait while we connect you...",
 
@@ -192,6 +195,17 @@ export default {
         unavailable_desc: "We are currently updating our database to bring you new exciting articles. Please wait a little or come back later to explore our updated content. Thank you for your understanding and see you soon!",
         unavailable_title: "No Articles Available!",
     },
+
+    payment:{
+
+        total: 'Total of your order',
+        sub_total: 'Subtotal',
+        choose_your_payment_method: 'Choose your payment method',
+
+        payment_success_title: "CONGRATULATIONS <strong class='secondary-color'>Hémlèen(e)!!</strong>",
+        payment_success_desc: "You are now part of the Hémlè family, and we have lots of surprises in store for you! Click on the link below to download your membership card.",
+    },
+
     user: {
         title: "Member Area",
 

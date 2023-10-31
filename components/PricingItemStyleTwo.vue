@@ -300,7 +300,7 @@ export default {
 
       } else {
 
-        this.$toast.open('Bonjour !' + "veuillez tout d'abord créer un compte  ou vous connecter 😊")
+        this.$toast.open(this.$t('auth.please_connect'))
         this.$router.push(this.localePath('/auth/register?package=' + numberInTag))
 
 

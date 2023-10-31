@@ -18,14 +18,14 @@
 
       <div class="left-congrat">
 
-        <h1>
-          FELICITATIONS Hémlèen !!
+        <h1 v-html="$t('payment.payment_success_title')">
+
         </h1>
 
 
         <p>
-          Vous faites désormais partie de la famille Hémléenne , nous vous réservons pleins de surprise !! Cliquez sur
-          le lien ci-dessous pour téléchager votre carte de membre
+
+          {{$t('payment.payment_success_desc')}}
         </p>
 
 

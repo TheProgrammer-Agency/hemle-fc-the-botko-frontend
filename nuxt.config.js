@@ -269,6 +269,11 @@ export default {
 
 
     i18n: {
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'i18n_redirected',
+            redirectOn: 'root',  // recommended
+        },
         locales: [
             {
                 code: 'en',
@@ -277,8 +282,6 @@ export default {
                 icon: '/img/en.png',
                 colorFlag: '#E2162C',
                 iso: 'en-US' //
-
-
 
             },
 
