@@ -16,6 +16,8 @@ export default {
 
 
         },
+        testimonials_title: "They became members <br>And they say...",
+
 
         hello:'Hello',
 
@@ -54,9 +56,13 @@ export default {
         made_with_by: "Made with <i class='fa fa-heart text-danger'></i> by "
     },
     home: {
+        players: 'Our players',
+
+        shop:"SHOP",
         title_page: 'Home',
         banner_title_2: "<strong class='secondary-color'> Dare the impossible </strong> with Hémlè!",
         banner_title_1: "Together with Hémlè, <strong class='secondary-color'>let's attempt the absurd</strong>",
+        banner_title_1_desc:"Dive into the dynamic world of passionate Hémlè men and women, a football family. Discover our rich history, meet our iconic players, and experience the thrill of every match. Join us to live unforgettable moments and share the passion for the beautiful game.",
         banner_title_3: "<strong class='secondary-color'>Experience a unique journey</strong> by becoming a Hémlèen!",
 
         shop_title:" It's a Must-See! <br>\n" +

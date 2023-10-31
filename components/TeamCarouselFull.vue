@@ -5,7 +5,7 @@
 
 
         <hr class="hr-text">
-        Nos joueurs
+        {{$t('home.players')}}
         <hr class="hr-text">
 
       </h1>

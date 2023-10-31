@@ -17,6 +17,8 @@ export default {
 
         },
 
+
+        testimonials_title: "Ils  sont devenus membre  <br>Et  ils  disent ..",
         hello:'Hello',
 
     },
@@ -49,9 +51,14 @@ export default {
 
 
     home: {
+
+
+        players:'Nos joueurs',
+        shop:"BOUTIQUE",
         title_page: 'Home',
         banner_title_2: "<strong class='secondary-color'> Osez l'impossible  </strong> avec Hémlè !",
         banner_title_1: "Ensemble avec Hémlè, <strong class='secondary-color'>tentons l’absurde</strong> ",
+        banner_title_1_desc: "Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
         banner_title_3: "<strong class='secondary-color'> Vivez une expérience unique  </strong>  en devenant Hémléen(e)! ",
 
         shop_title:" C'est Incontournable ! <br>\n" +

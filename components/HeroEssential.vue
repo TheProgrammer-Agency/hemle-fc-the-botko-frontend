@@ -65,7 +65,8 @@
             id: 1,
             heading: this.$t('home.banner_title_1'),
             heading_completed:"",
-            description:"Plongez dans le monde dynamique des Hémlèens et Hémléennes, une famille  de football passionnée. Découvrez notre histoire riche, rencontrez nos joueurs emblématiques et vibrez au rythme de chaque match. Rejoignez-nous pour vivre des moments inoubliables et partager la passion du beau jeu.\n",
+
+            description:this.$t('home.banner_title_1_desc'),
 
             bgImage: "/img/home/hero1.jpg"
           },

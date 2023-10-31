@@ -3,7 +3,7 @@
     <div class="row row--0 align-items-center">
       <div class="col-lg-3 col-xl-5 text-center ptb-md--80 ptb-sm--80">
         <div class="brook-section-title text-left title-max-width plr_sm--30 plr_md--40">
-          <h3 class="heading heading-h3 text-white">Ils  sont devenus membre  <br>Et  ils  disent ..
+          <h3 class="heading heading-h3 text-white"  v-html="$t('tools.testimonials_title')">
           </h3>
         </div>
 

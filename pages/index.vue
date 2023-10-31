@@ -35,7 +35,7 @@
 
 
                 <hr class="hr-text">
-                  Boutique
+                  {{$t('home.shop')}}
                 <hr class="hr-text">
 
               </h1>
