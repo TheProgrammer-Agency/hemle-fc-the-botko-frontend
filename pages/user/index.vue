@@ -1,34 +1,28 @@
 <template>
   <div class="main-container user-profil">
 
-
     <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
 
+    <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @togglenav="navOpen = !navOpen"/>
 
     <div class="container header-user-profil ">
 
 
       <div class="left">
 
-        <ValidationProvider rules="image" v-slot="{ errors, validate }">
 
-          <div class="user-img">
-
-            <label for="upload" style="cursor:pointer">
-              <img alt="user" :src="form.avatar" id="fileUpload" width="200" height="200" style="object-fit: cover">
-              <input id="upload" style="display:none" type="file" @change="handleValidateChange">
-            </label>
+          <label for="upload" style="cursor:pointer">
+            <img alt="user" :src="form.avatar" id="fileUpload" width="200" height="200" style="object-fit: cover">
+            <input id="upload" style="display:none" type="file" @change="handleValidateChange">
+          </label>
 
 
-          </div>
-          <span class="error">{{ errors[0] }}</span>
 
-        </ValidationProvider>
 
 
 
         <div class="content">
-          <h2>{{ $auth.user?.user?.first_name }} {{ $auth.user?.user?.last_name }}</h2>
+          <h2>{{ $auth.user?.data?.first_name }} {{ $auth.user?.data?.last_name }}</h2>
 <!--
           <span>
 
@@ -49,7 +43,7 @@
         <div>
 
           <strong>
-            parrainez un membre grace à votre code et gagnez de l'argent
+            {{$t('user.referrer_member')}}
 
           </strong>
 
@@ -66,7 +60,9 @@
 <!--        download :href="$auth.user.data.card"
         -->
 
-        <a v-if="$auth?.user.data?.card !==null  && $auth?.user?.data?.is_member" download :href="$auth?.user?.data?.card"  class="bk-btn theme-btn" @click.prevent="generateMyCard">Génerer ma carte</a>
+
+
+        <a v-if="$auth?.user.data?.card !== null  && $auth?.user?.data?.is_member" download :href="$auth?.user?.data?.card"  class="bk-btn theme-btn">Génerer ma carte</a>
 
         <button v-if="$auth?.user?.data?.card ==null "  class="bk-btn theme-btn" @click.prevent="generateMyCard" >Génerer ma carte</button>
 
@@ -110,7 +106,7 @@
 
                     <label>{{ $t('user.first_name') }}</label>
 
-                    <ValidationProvider name="Nom" rules="required|min:3" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('user.first_name')" rules="required|min:3" v-slot="{ errors }">
                       <input v-model="form.first_name" type="text">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -121,7 +117,7 @@
 
                     <label>{{ $t('user.last_name') }}</label>
 
-                    <ValidationProvider name="Prénom" rules="required|min:3" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('user.last_name')" rules="required|min:3" v-slot="{ errors }">
                       <input v-model="form.last_name" type="text">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -134,9 +130,9 @@
 
                   <div class="form-group">
 
-                    <label>{{ $t('user.city') }}</label>
+                    <label>{{ $t('auth.city') }}</label>
 
-                    <ValidationProvider name="Ville" rules="required|min:2" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('auth.city')" rules="required|min:2" v-slot="{ errors }">
                       <input v-model="form.city" type="text">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -147,11 +143,11 @@
 
                     <label>{{ $t('user.country') }}</label>
 
-                    <ValidationProvider name="First Name" rules="required" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('user.country') " rules="required" v-slot="{ errors }">
 
-                      <span>{{ errors[0] }}</span>
+                      <span>{{ errors[0] }} </span>
 
-                      <select v-model="form.country" id="country" name="country">
+                      <select v-model="form.country" id="country" name="country" >
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
                         <option value="Albania">Albania</option>
@@ -407,7 +403,7 @@
 
                     <label>{{$t('user.email')}}</label>
 
-                    <ValidationProvider name="E-mail" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('user.email')" v-slot="{ errors }">
                       <input v-model="form.email" type="email"  readonly disabled>
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -474,7 +470,7 @@
 
                     <label>{{$t('user.password')}}</label>
 
-                    <ValidationProvider name="Mot de passe" rules="required|min:4" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('user.password')" rules="required|min:4" v-slot="{ errors }">
                       <input v-model="form.password" type="password">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -485,7 +481,7 @@
 
                     <label>{{$t('user.confirm_password')}}</label>
 
-                    <ValidationProvider name="Mot de passe" rules="required|min:4" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('user.confirm_password')" rules="required|min:4" v-slot="{ errors }">
                       <input v-model="form.password_confirmation" type="password">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -602,7 +598,7 @@ export default {
         first_name: '',
         last_name: '',
         city: '',
-        country: '',
+        country: 'Cameroun',
         tel: '',
         email: '',
         password: '',
@@ -652,7 +648,7 @@ export default {
       avatar: this.$auth.user.data.avatar? this.$auth.user.data.avatar :'/img/home/avatar.svg'
     }
 
-    console.log(this.$auth.user.data)
+
 
 
     document.body.classList.add('template-color-1', 'template-font-2')
@@ -764,29 +760,57 @@ export default {
 
       let app = this;
 
-      app.$nuxt.$loading.start()
+      app.$swal.fire({
+        title: app.$t('user.are_you_sure'),
+        text: app.$t('user.delete_account_confirm_desc'),
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: app.$t('tools.btn.delete_account_confirm'),
+        cancelButtonText: app.$t('tools.btn.delete_account_canceled'),
+        reverseButtons: true
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+/*
+          app.$router.push('/')
+*/
+          app.$nuxt.$loading.start()
+          await app.$axios.$delete('user/delete').then(async function (response) {
+
+            await app.$auth.logout();
+
+            app.$router.push('/')
+
+            app.$nuxt.$loading.finish()
+
+            app.$swal.fire({
+              position: 'Center',
+              icon: 'info',
+              title: app.$t('auth.success_account_deleted_title'),
+              text:app.$t('auth.success_account_deleted_desc'),
+              showConfirmButton: true,
+              confirmButtonText: app.$t('tools.btn.understood'),
+            })
+
+          }).catch(function(err){
+
+          })
 
 
-      await this.$axios.$delete('user/delete').then(async function (response) {
-
-        await app.$auth.logout();
-
-        app.$router.push('/')
-
-        app.$nuxt.$loading.finish()
-
-        app.$swal.fire({
-          position: 'Center',
-          icon: 'info',
-          title: app.$t('auth.success_account_deleted_title'),
-          text:app.$t('auth.success_account_deleted_desc'),
-          showConfirmButton: true,
-          confirmButtonText: app.$t('tools.btn.understood'),
-        })
-
-      }).catch(function(err){
-
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === app.$swal.DismissReason.cancel
+        ) {
+          app.$swal.fire(
+              app.$t('user.delete_account_canceled_title'),
+              app.$t('user.delete_account_canceled_desc'),
+              'info'
+          )
+        }
       })
+
+
+
+
     },
 
 

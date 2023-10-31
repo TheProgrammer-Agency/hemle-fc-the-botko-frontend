@@ -2,6 +2,12 @@ export default function ({ app, $axios, redirect,store,context }) {
 
 
 
+/*
+    console.log("app ==== ",app)
+    console.log("store ==== ",store)
+    */
+    $axios.setHeader('Accept-Language',app.i18n.locale)
+
     $axios.onRequest(config => {
 
         store.dispatch('setErrors',[])

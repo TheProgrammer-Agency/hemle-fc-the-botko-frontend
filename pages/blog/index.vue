@@ -141,10 +141,6 @@ export default {
         },
         {
           text: 'Blog',
-          to: "/blog"
-        },
-        {
-          text: 'Blog',
           active: true
         }
       ]

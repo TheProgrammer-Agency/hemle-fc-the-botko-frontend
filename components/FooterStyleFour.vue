@@ -89,6 +89,7 @@
 
 <script>
     import {localeChanged} from "vee-validate";
+    import { localize } from 'vee-validate';
 
     export default {
 
@@ -131,8 +132,7 @@
           let app=this
 
 
-          console.log("locale ",locale)
-          this.$i18n.setLocale(this.localeSelected)
+          await this.$i18n.setLocale(this.localeSelected)
 
           await this.$axios.get('/lang/set/'+locale,{
 
@@ -144,12 +144,16 @@
 
 
 
+/*
             localeChanged();
+*/
 
+
+            localize(locale);
 
           }).catch(function(){
 
-            app.$toast.error("Une erreur s'est produite, veuillez contactez l'administrateur  ")
+            app.$toast.error(app.$t('auth.an_error_occured'))
             app.$nuxt.$loading.finish()
 
           });

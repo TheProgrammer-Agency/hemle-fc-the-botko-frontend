@@ -11,6 +11,8 @@ export default {
             understood: "J'ai compris",
             download_card: "Télécharger ma carte",
             delete_account: "Supprimer mon compte",
+            delete_account_confirm: "Oui, supprimez-le !",
+            delete_account_canceled: "Non, annulez !",
             buy_now: "Payer maintenant",
 
 
@@ -276,16 +278,28 @@ export default {
             "\n",
         danger_zone:"ZONE DE DANGER",
 
-        confirm_password:"Confirmez votre mot de passe",
-        password:"Mot de passe",
-        my_password:"Mot de passe",
-        update:"Modifier",
-        phone_number:"Téléphone",
-        email:"Email",
-        country:"Pays",
-        first_name:"Prénom",
-        last_name:"nom",
-        my_information:"Mes informations",
+        confirm_password: "Confirmez votre mot de passe",
+        password: "Mot de passe",
+        my_password: "Mot de passe",
+        update: "Modifier",
+        phone_number: "Téléphone",
+        email: "Email",
+        country: "Pays",
+        first_name: "Prénom",
+        last_name: "nom",
+        my_information: "Mes informations",
+
+        referrer_member: "parrainez un membre grace à votre code et gagnez de l'argent",
+
+
+        are_you_sure:"Es-tu sûr ?",
+        delete_account_confirm_desc:"Attention ! En supprimant votre compte, vous perdrez l'accès à toutes vos données et toutes les informations associées seront définitivement " +
+            "supprimées. Veuillez confirmer que vous souhaitez procéder à la suppression de votre compte.",
+
+
+        delete_account_canceled_title:"Votre compte est en sécurité !",
+        delete_account_canceled_desc:"Votre compte est en sécurité ! La suppression a été annulée avec succès. Continuez à profiter de tous les avantages de HÉMLÈ."
+
 
 
 

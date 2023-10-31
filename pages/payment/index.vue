@@ -7,9 +7,11 @@
 
     <div class="payment-left">
 
+      <nuxt-link :to="localePath('/user')"><img src="/img/home/back.png" alt="" width="40" class="icon-back"></nuxt-link>
 
 
       <div class="container payment-left-wrapper">
+
 
         <h3 class="text-center">{{ package.amount }} XAF
          </h3>
@@ -49,6 +51,7 @@
     </div>
 
     <div class="payment-right">
+
 
 
       <div class="container payment-right-wrapper">

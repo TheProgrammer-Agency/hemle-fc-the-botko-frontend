@@ -10,7 +10,7 @@
 
     <div class="auth-right container"  style="  width: 480px;">
 
-      <ValidationObserver v-slot="{ invalid }">
+      <ValidationObserver v-slot="{ invalid,validate }">
 
 
         <h2 class="text-center">{{ $t('auth.log_in') }}</h2>

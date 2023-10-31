@@ -57,6 +57,31 @@
 
     background: var(--primary-color);
 
+
+    .icon-back{
+
+      position: absolute;
+
+
+      top: 6%;
+      left: 5%;
+
+    }
+    @media #{$sm-layout}{
+
+      .icon-back{
+        top: 2%;
+        left: 5%;
+      }
+
+    }
+    @media #{$md-layout}{
+
+      .icon-back{
+        top: 6%;
+        left: 5%;
+      }
+    }
    .payment-left-wrapper{
      display: flex;
      flex-direction: column;

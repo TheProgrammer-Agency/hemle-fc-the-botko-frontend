@@ -11,6 +11,9 @@ export default {
             understood: "I understood",
             download_card: "Download my card",
             delete_account: "Delete my account",
+            delete_account_confirm: "'Yes, delete it!'",
+            delete_account_canceled: 'No, cancel!',
+
             buy_now: "Buy now",
 
 
@@ -245,6 +248,15 @@ export default {
         first_name: "First name",
         last_name: "Last name",
         my_information: "My information",
+        referrer_member: "Refer a member using your code and earn money",
+
+        are_you_sure: "Are you sure?",
+        delete_account_confirm_desc: "Attention! By deleting your account, you will lose access to all your data, and all associated information will be permanently deleted. Please confirm that you want to proceed with the deletion of your account.",
+
+        delete_account_canceled_title: "Your account is safe!",
+        delete_account_canceled_desc: "Your account is safe! The deletion has been successfully canceled. Continue to enjoy all the benefits from HÉMLÈ."
+
+
     },
 
     error: {

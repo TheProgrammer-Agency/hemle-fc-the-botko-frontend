@@ -5,11 +5,9 @@ import { messages } from 'vee-validate/dist/locale/en.json';
 
 import { i18n } from "./i18n";
 
-import { localize } from 'vee-validate';
 import VueI18n from 'vue-i18n';
 
-import en from 'vee-validate/dist/locale/en.json';
-import fr from 'vee-validate/dist/locale/fr.json';
+
 import validationMessagesEn from 'vee-validate/dist/locale/en.json';
 import validationMessagesFr from 'vee-validate/dist/locale/fr.json';
 import { required, email, min,integer,max,alpha } from "vee-validate/dist/rules";
@@ -17,6 +15,10 @@ import {
     configure
 } from 'vee-validate/dist/vee-validate.full.esm'
 
+
+import { setInteractionMode } from 'vee-validate';
+
+setInteractionMode('lazy');
 /*
 
 let i18n = new VueI18n({
@@ -116,6 +118,7 @@ configure({
 });*/
 
 
+/*
 
 configure({
     defaultMessage: (field, values) => {
@@ -126,7 +129,20 @@ configure({
     }
 });
 
+*/
 
+
+import { localize } from 'vee-validate';
+import en from 'vee-validate/dist/locale/en.json';
+import fr from 'vee-validate/dist/locale/fr.json';
+
+// Install English and Arabic locales.
+localize({
+    en,
+    fr
+});
+
+localize('fr');
 
 extend("required", required);
 

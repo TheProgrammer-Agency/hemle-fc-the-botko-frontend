@@ -10,10 +10,10 @@
     <div class="auth-right container">
 
 
-      <ValidationObserver v-slot="{ invalid,validate }"  style="width: 100%">
+      <ValidationObserver v-slot="{ invalid,validate,errors }"  style="width: 100%">
 
 
-        <h2 class="text-center">{{ $t('auth.register_title') }}</h2>
+        <h2 class="text-center">{{ $t('auth.register_title') }} </h2>
 
         <div class="text-center">{{$t('auth.info_right_path')}} </div>
 
@@ -240,8 +240,12 @@
           <div class="form-group mx-auto">
 
 
-            <button type="submit" class="bk-btn theme-btn" :disabled="invalid">{{ $t('tools.btn.become_member') }}
+            <button v-if="invalid"  @click.prevent="validate()"  class="bk-btn theme-btn" >{{ $t('tools.btn.become_member') }}
             </button>
+            <button v-if="!invalid" type="submit"   class="bk-btn theme-btn" >{{ $t('tools.btn.become_member') }}
+            </button>
+
+
 
           </div>
 
@@ -250,6 +254,7 @@
           <p class="mx-auto">{{ $t('auth.already_member') }}
             <nuxt-link to="/auth/login" class="text-primary">{{ $t('auth.log_in') }}</nuxt-link>
           </p>
+
         </form>
       </ValidationObserver>
 
@@ -324,105 +329,114 @@ export default {
 
     async onSubmit() {
 
-      this.$nuxt.$loading.start()
-
-      let app = this;
 
 
 
-      let formRegister = app.form
 
-      formRegister = {
-        first_name: app.form.first_name,
-        last_name: app.form.last_name,
-        city: app.form.city,
-        country: app.form.country,
-        tel: '+' + this.phone_number_code + app.form.tel,
-        email: app.form.email,
-        password: app.form.password,
-        password_confirmation: app.form.password_confirmation,
-        referral_code: app.form.referral_code,
-        redirect_url: ''
+
+
+
+
+        this.$nuxt.$loading.start()
+
+        let app = this;
+
+
+
+        let formRegister = app.form
+
+        formRegister = {
+          first_name: app.form.first_name,
+          last_name: app.form.last_name,
+          city: app.form.city,
+          country: app.form.country,
+          tel: '+' + this.phone_number_code + app.form.tel,
+          email: app.form.email,
+          password: app.form.password,
+          password_confirmation: app.form.password_confirmation,
+          referral_code: app.form.referral_code,
+          redirect_url: ''
+        }
+
+
+        await app.$axios.$post('auth/register', formRegister).then(async function (response) {
+
+
+          await app.$auth.loginWith('local', {
+            data: {
+              email: formRegister.email,
+              password: formRegister.password
+            }
+          }).then(async function () {
+
+
+            await app.$auth.fetchUser().then(async function (res) {
+
+
+              app.$nuxt.$loading.finish()
+
+
+              app.$swal.fire({
+                icon: 'success',
+                title: app.$t('auth.register_success') + app.form.last_name,
+                text: app.$t('auth.register_success_desc'),
+                footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
+              })
+
+
+              console.log("autht =",app.$auth)
+
+              app.$router.push(app.localePath('/payment?package='+app.$route.query.package))
+
+
+            }).catch(function (error) {
+
+              app.$nuxt.$loading.finish()
+
+
+              console.log("error",error,error.response)
+              app.$swal.fire({
+                icon: 'error',
+                title:app.$t('auth.an_error_occured'),
+                text:  error.response?.data?.message,
+                footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
+
+              })
+
+
+            });
+            app.$nuxt.$loading.finish()
+
+          })
+
+
+          /*    app.$swal.fire({
+                icon: 'success',
+                title: 'Félicitation ! ' + app.form.last_name,
+                text: "Veuillez compléter votre inscription , en effectuant le paiement pour  votre plan",
+                footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">Besoin de nous contacter  ? </a>'
+              })
+              */
+
+
+        }).catch(function(error){
+
+          app.$nuxt.$loading.finish()
+
+          console.log("error",error,error.response)
+
+          app.$swal.fire({
+            icon: 'error',
+            title:app.$t('auth.an_error_occured'),
+            text:  error.response?.data?.message,
+            footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
+
+          })
+        })
+
       }
 
 
-      await app.$axios.$post('auth/register', formRegister).then(async function (response) {
-
-
-        await app.$auth.loginWith('local', {
-          data: {
-            email: formRegister.email,
-            password: formRegister.password
-          }
-        }).then(async function () {
-
-
-          await app.$auth.fetchUser().then(async function (res) {
-
-
-            app.$nuxt.$loading.finish()
-
-
-            app.$swal.fire({
-              icon: 'success',
-              title: app.$t('auth.register_success') + app.form.last_name,
-              text: app.$t('auth.register_success_desc'),
-              footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
-            })
-
-
-            console.log("autht =",app.$auth)
-
-            app.$router.push(app.localePath('/payment?package='+app.$route.query.package))
-
-
-          }).catch(function (error) {
-
-            app.$nuxt.$loading.finish()
-
-
-            console.log("error",error,error.response)
-            app.$swal.fire({
-              icon: 'error',
-              title:app.$t('auth.an_error_occured'),
-              text:  error.response?.data?.message,
-              footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
-
-            })
-
-
-          });
-          app.$nuxt.$loading.finish()
-
-        })
-
-
-        /*    app.$swal.fire({
-              icon: 'success',
-              title: 'Félicitation ! ' + app.form.last_name,
-              text: "Veuillez compléter votre inscription , en effectuant le paiement pour  votre plan",
-              footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">Besoin de nous contacter  ? </a>'
-            })
-            */
-
-
-      }).catch(function(error){
-
-        app.$nuxt.$loading.finish()
-
-        console.log("error",error,error.response)
-
-        app.$swal.fire({
-          icon: 'error',
-          title:app.$t('auth.an_error_occured'),
-          text:  error.response?.data?.message,
-          footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
-
-        })
-      })
-
-
-    }
   },
 
   mounted() {
