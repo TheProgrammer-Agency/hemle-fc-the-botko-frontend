@@ -70,39 +70,59 @@ export default {
     },
 
     pricing: {
-
         become_member_subtitle: "<strong class='primary-color'> <b>Explore</b> </strong> our membership plans",
-        pricing_title: "Join the pack that matches your level of Hémlè and <br><span > together let's achieve <span class='secondary-color' >the impossible</span></span>",
-
-
+        pricing_title: "Join the package that matches your Hémlè level and <br><span> together let's achieve <span class='secondary-color'>the impossible</span></span>",
         pricing_popular: 'Popular',
 
         pricing_1_summary: '',
         pricing_1_title: 'ÑÈM KÍÍ HIÉE',
-        pricing_1_desc_1: "Get the right to participate in the Hémlèen Tombola, with exclusive prizes to win.",
-        pricing_1_desc_2: "Enjoy a 5% increase in your earnings per recommended member.",
-        pricing_1_desc_3: "Get free access to Hémlè TV, our exclusive content platform.",
+        pricing_1_desc_1: "Get the right to participate in the Hémlèen Raffle, with exclusive prizes to win.",
+        pricing_1_desc_2: "Enjoy a 5% increase in earnings per recommended member.",
+        pricing_1_desc_3: "Access Hémlè TV for free, our exclusive content platform.",
         pricing_1_desc_4: "Attend all concerts organized at Botko for free, a unique experience reserved for our members.",
-        pricing_1_desc_5: "Get a free digital membership card\n",
-
+        pricing_1_desc_5: "Receive a free digital membership card\n",
 
         pricing_2_summary: '',
-
         pricing_2_title: 'ÑEM KÍÍ HIAÑNGA\'A',
-        pricing_2_desc_1: "Get a free digital membership card",
+        pricing_2_desc_1: "Receive a free digital membership card",
         pricing_2_desc_2: "Enjoy an exceptional 15% referral bonus",
-        pricing_2_desc_3: "Get free access to Hémlè TV, our exclusive content platform.",
+        pricing_2_desc_3: "Access Hémlè TV for free, our exclusive content platform.",
         pricing_2_desc_4: "Receive an official club jersey proudly displaying our colors.",
         pricing_2_desc_5: "Receive a club scarf, a symbol of your unwavering support.",
-        pricing_2_desc_6: "Get the right to participate in the Hémlèen Tombola, with exclusive prizes to win.",
-        pricing_2_desc_7: "Get a 5% discount on all your bills in our shop.",
-        pricing_2_desc_8: "Actively participate in the Hémlèen Tombola and increase your chances of winning exceptional prizes."
-        ,
-        pricing_2_desc_9: "Attend all concerts organized at Botko for free",
+        pricing_2_desc_6: "Get the right to participate in the Hémlèen Raffle, with exclusive prizes to win.",
+        pricing_2_desc_7: "Enjoy a 5% discount on all your bills at our store.",
+        pricing_2_desc_8: "Actively participate in the Hémlèen Raffle and increase your chances of winning exceptional prizes.",
+        pricing_2_desc_9: "Attend all concerts organized at Botko for free.",
 
         pricing_3_summary: '',
-        pricing_3_title: "ÑÈM KÍÍ NGOCKApologies, but the provided JavaScript code seems to be incomplete. It ends abruptly with an incomplete property name. Please provide the complete JavaScript code, and I'll be happy to help you with the translation.",
+        pricing_3_title: 'ÑÈM KÍÍ NGOCK',
+        pricing_3_desc_1: "Receive a free digital membership card",
+        pricing_3_desc_2: "Enjoy an exceptional 25% referral bonus",
+        pricing_3_desc_3: "Access Hémlè TV for free, our exclusive content platform.",
+        pricing_3_desc_4: "Receive an official club jersey proudly displaying our colors.",
+        pricing_3_desc_5: "Receive a club scarf, a symbol of your unwavering support.",
+        pricing_3_desc_6: "Enjoy a 10% discount on all your bills at our store.",
+        pricing_3_desc_7: "Get the right to participate in the Hémlèen Raffle, with exclusive prizes to win.",
+        pricing_3_desc_8: "Attend all concerts organized at Botko for free.",
+        pricing_3_desc_9: "Enjoy a full club tracksuit, combining comfort and style for your sporting activities.",
+        pricing_3_desc_10: "Get a club backpack",
+        pricing_3_desc_11: "Get a club cap",
 
+        pricing_4_summary: '',
+        pricing_4_title: 'ÑEM KÍÍ ÑJÉÉ',
+        pricing_4_desc_1: "Receive a free digital membership card",
+        pricing_4_desc_2: "Traditional dinner with the President-Founder and special guests",
+        pricing_4_desc_3: "Enjoy a 15% discount on all your bills at our store.",
+        pricing_4_desc_4: "Access Hémlè TV for free, our exclusive content platform.",
+        pricing_4_desc_5: "Receive an official club jersey proudly displaying our colors.",
+        pricing_4_desc_6: "Receive a club scarf, a symbol of your unwavering support.",
+        pricing_4_desc_7: "Enjoy a full club tracksuit, combining comfort and style for your sporting activities.",
+        pricing_4_desc_8: "Get the right to participate in the Hémlèen Raffle, with exclusive prizes to win.",
+        pricing_4_desc_9: "Attend all concerts organized at Botko for free.",
+        pricing_4_desc_10: "Enjoy an exceptional 35% referral bonus",
+        pricing_4_desc_11: "Get a club cap",
+        pricing_4_desc_12: "Get a club backpack",
+        pricing_4_desc_13: "Get access to the club's digital magazine"
 
     },
 
