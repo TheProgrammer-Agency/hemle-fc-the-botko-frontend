@@ -10,6 +10,8 @@ export default {
             need_to_contact_us:"Besoin de nous contacter  ?",
             understood: "J'ai compris",
             download_card: "Télécharger ma carte",
+            delete_account: "Supprimer mon compte",
+            buy_now: "Payer maintenant",
 
 
 
@@ -18,6 +20,18 @@ export default {
         hello:'Hello',
 
     },
+
+    order:{
+
+        you_have_no_order:"Vous n'avez aucune commande !",
+        you_have_no_order_desc:"Il semblerait que vous n'ayez aucune commande en cours ! Nous vous invitons à passer une commande ici afin d'activer votre compte. Votre compte restera inactif tant que vous n'aurez pas passé commande pour un package.",
+        i_order_my_package:"Je commande mon package !",
+        order:"Commande ",
+        order_passed:"Commandes effectuées  ",
+        order_found:"commande(s) trouvé(es)  ",
+    },
+
+
     header: {
         home: 'Accueil',
         equip: 'Equipes',
@@ -118,7 +132,9 @@ export default {
 
         blog_title:'De notre blog',
         latest_new:'Les dernières news\n',
-        unavailable_desc:"Nous sommes en train de mettre à jour notre base de données pour vous offrir de nouveaux articles passionnants. Veuillez patienter un peu ou revenir ultérieurement pour découvrir notre contenu mis à jour. Merci de votre compréhension et à bientôt !",
+        unavailable_desc:"Nous sommes en train de mettre à jour notre base de données pour vous offrir de " +
+            "nouveaux articles passionnants. Veuillez patienter un peu ou revenir ultérieurement pour découvrir notre contenu mis" +
+            " à jour. Merci de votre compréhension et à bientôt !",
         unavailable_title:"Aucun article disponible ! ",
 
     },
@@ -142,6 +158,13 @@ export default {
         success_contact_description:"Nous avons bien reçu vos informations et votre message. Nous vous répondrons dans les plus brefs délais.\n",
         success_contact_title: "C'est noté ! 🫡"
 
+    },
+
+    payment:{
+
+        total:'Total de votre commande',
+        sub_total:'Sous total',
+        choose_your_payment_method:'Choisissez votre mode de paiement',
     },
     auth:{
 
@@ -211,8 +234,45 @@ export default {
 
     user:{
 
+        title:'Espace Membre',
+
         user_not_ready:'Vous n\'êtes pas prêt !',
         user_not_ready_description:"Il vous manque une chose ! remplissez vos information personnelle  obligatoire. ! " + "\n 🫡",
+        user_error_copy_code_title:"C'est pas le moment ",
+        user_error_copy_code_desc:"Votre code de parrainage sera accessible uniquement après avoir effectué votre paiement.\n" + "\n 🫡",
+
+        user_generate_card_info_not_available_title:"Veuillez patienter ",
+        user_generate_card_info_not_available_desc:"Nous sommes entrain de générer votre, card, elle sera disponible dans les 12h à venir  ",
+
+        user_generate_card_info_inactive_title:"Oops... pas si vite ",
+        user_generate_card_info_inactive_desc:"\"Tu n'es pas encore membre de Hemlé , peux-tu finaliser ton paiement d'abord ? 🫡\" ",
+
+        user_profile_updated_title:'Génial  !',
+        user_profile_updated_desc:'Vous avez mis à jour votre photo de profil',
+
+        user_info_updated_title:'Félicitation ! ',
+        user_info_updated_desc: "Vos information ont été mis à jour !",
+
+        user_img_too_big_title:'Image trop grande ! 😯 ',
+        user_img_too_big_desc:"Vous devez insérer une image ayant une taille inférieur à 1MO",
+
+        user_delete_account:"Vous n’etes pas satisfait du club Hémlè FC de Botko ? ou vous souhaitez supprimer toutes les informations associés à ce compte ?\n" +
+            "\n",
+        danger_zone:"ZONE DE DANGER",
+
+        confirm_password:"Confirmez votre mot de passe",
+        password:"Mot de passe",
+        my_password:"Mot de passe",
+        update:"Modifier",
+        phone_number:"Téléphone",
+        email:"Email",
+        country:"Pays",
+        first_name:"Prénom",
+        last_name:"nom",
+        my_information:"Mes informations",
+
+
+
 
 
     },

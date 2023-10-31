@@ -27,6 +27,19 @@
                                       -->
                                         <a href="https://instagram.com/hemlefcdebotko237?igshid=NTc4MTIwNjQ2YQ==" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </div>
+                                  <span  style="cursor: pointer;color: var(--white)">
+
+
+                                   <select name="" id="" v-model="localeSelected"  @change="switchLocale"  class="select-language">
+
+                                     <option v-for="locale in availableLocales"
+                                             :key="locale.code"
+                                             :value="locale.code">
+                                       <img src="/img/home/eng.png" alt=""> {{locale.name}}
+                                     </option>
+
+                                   </select>
+                              </span>
                                 </div>
                                 <div class="col-lg-5 col-md-6 col-sm-6 col-12 mt_mobile--30">
                                     <p class="bk_pra line-height-1-63 bk-hover">
@@ -75,8 +88,78 @@
 </template>
 
 <script>
+    import {localeChanged} from "vee-validate";
+
     export default {
 
+      data(){
+
+       return{
+
+         localeSelected:''
+       }
+
+      },
+      computed:{
+
+        availableLocales () {
+          return this.$i18n.locales
+        },
+
+        locale(){
+          return this.$i18n.locales.filter(i => i.code === this.$i18n.locale)[0]
+        }
+
+      },
+
+
+      methods:{
+
+
+        async switchLocale() {
+
+
+
+
+          let locale= this.localeSelected
+
+
+          this.$nuxt.$loading.start()
+
+
+
+          let app=this
+
+
+          console.log("locale ",locale)
+          this.$i18n.setLocale(this.localeSelected)
+
+          await this.$axios.get('/lang/set/'+locale,{
+
+            locale:locale
+
+          }).then(function (response) {
+
+            app.$nuxt.$loading.finish()
+
+
+
+            localeChanged();
+
+
+          }).catch(function(){
+
+            app.$toast.error("Une erreur s'est produite, veuillez contactez l'administrateur  ")
+            app.$nuxt.$loading.finish()
+
+          });
+        }
+      },
+
+      mounted() {
+        this.localeSelected=this.$i18n.loadedLanguages['0']
+
+      }
     };
 </script>
 

@@ -9,8 +9,8 @@
 
 
       <div class="header-order"  v-if="!(getOrdersNumber===0)">
-        <h2>Commandes effectuées </h2>
-        <span>{{getOrdersNumber }} commande(s) trouvé(es)</span>
+        <h2>{{$t('order.order_passed')}}</h2>
+        <span>{{getOrdersNumber }} {{$t('order.order_found')}}</span>
       </div>
 
       <br>
@@ -30,7 +30,7 @@
 
             <div class="right">
 
-              <h5>Commande  <span class="reference">#{{ order.external_reference.slice(1,8) }}</span>  </h5>
+              <h5>{{ $t('order.order') }}  <span class="reference">#{{ order.external_reference.slice(1,8) }}</span>  </h5>
 
               <span class="primary-color">
               {{order.package_name }}
@@ -50,7 +50,7 @@
           </div>
 
           <div class="card-order-right" @click.prevent="paid(order)" v-if="order.status==='PENDING'">
-               <h5 class="red-color proceed-payment-btn">Payer maintenant</h5>
+               <h5 class="red-color proceed-payment-btn">{{$t('tools.btn.buy_now')}}</h5>
           </div>
         </div>
 
@@ -63,15 +63,15 @@
 
           <div class="card-error-left">
 
-            <h2>{{$auth.user.data.last_name}} Vous n'avez aucune commande !</h2>
+            <h2> {{$auth.user.data.last_name}} {{$t('order.you_have_no_order')}} </h2>
 
             <p>
-              Il semblerait que vous n'ayez aucune commande en cours ! Nous vous invitons à passer une commande ici afin d'activer votre compte. Votre compte restera inactif tant que vous n'aurez pas passé commande pour un package.
+              {{$t('order.you_have_no_order_desc')}}
 
 
             </p>
 
-            <n-link to="/pricing" class="bk-btn theme-btn">Je commande mon package ! </n-link>
+            <n-link to="/pricing" class="bk-btn theme-btn">{{$t('order.i_order_my_package')}} </n-link>
 
           </div>
 

@@ -22,6 +22,7 @@
         "aos": "^2.3.4",
         "bootstrap": "^4.6.1",
         "bootstrap-vue": "^2.21.2",
+        "html2pdf.js": "^0.10.1",
         "mixitup": "^3.3.1",
         "moment": "^2.29.4",
         "nuxt": "^2.15.8",
@@ -46,6 +47,7 @@
     "devDependencies": {
         "@lingui/core": "2.8.3",
         "@nuxtclub/slugify": "^1.2.1",
+
         "sass": "^1.43.4",
         "sass-loader": "^10.1.1"
     }

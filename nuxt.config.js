@@ -179,6 +179,8 @@ export default {
 
     buildModules: [
         ['@nuxtjs/dotenv', {filename: '.env'}],
+
+
     ],
     /*
     ** Plugins to load before mounting the App
@@ -212,7 +214,8 @@ export default {
         {src: '~/plugins/vue-country-code.js', mode:'client'},
 
         {src: '~/plugins/aos.js', ssr: false},
-        {src: '~/plugins/vue-masonry', ssr: false}
+        {src: '~/plugins/vue-masonry', ssr: false},
+
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -241,7 +244,7 @@ export default {
 
         // with options
         ['nuxt-clipboard', { autoSetContainer: true }
-            ]
+            ],
 
     ],
 
@@ -262,6 +265,8 @@ export default {
 
         }
     },
+// nuxt.config.js
+
 
     i18n: {
         locales: [
@@ -298,6 +303,8 @@ export default {
 
 
     },
+
+
 
 
 }

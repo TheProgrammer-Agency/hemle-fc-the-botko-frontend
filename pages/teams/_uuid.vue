@@ -115,7 +115,7 @@
             <div class="portfolio-right portfolio-details-gallery text-center text-lg-right">
               <!-- Start Portfolio Image -->
               <div class="portfolio-image mb--50">
-                <img :src="user.image" alt="portfolio">
+                <img :src="user.avatar" alt="portfolio">
               </div>
               <!-- End Portfolio Image -->
 

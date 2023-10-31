@@ -26,7 +26,7 @@
         <div class="payment-order">
 
           <div class="sub">
-            <span>Sous total</span>
+            <span>{{$t('payment.sub_total')}}</span>
             <span>{{ package.amount }}  XAF</span>
           </div>
 
@@ -37,7 +37,7 @@
           </div>
 
           <div class="sub">
-            <span>Total de votre commande</span>
+            <span>{{$t('payment.total')}}</span>
             <span>{{ package.amount }} XAF</span>
           </div>
 
@@ -54,7 +54,7 @@
       <div class="container payment-right-wrapper">
 
         <h2>
-          Choisissez votre mode de paiement
+          {{$t('payment.choose_your_payment_method')}}
         </h2>
 
         <br>
@@ -114,13 +114,9 @@ export default {
 
       let app=this;
 
-      await app.$axios.post('/payment/order', paymentForm)
-
-          .then(async function (res) {
+      await app.$axios.post('/payment/order', paymentForm).then(async function (res) {
 
             app.$nuxt.$loading.finish()
-
-
 
             app.$swal.fire({
               icon: 'success',

@@ -18,13 +18,7 @@
                 </div>
             </div>
         </swiper>
-        <!-- slider arrow navigation -->
-        <div class="ht-swiper-button ht-swiper-button-prev">
-            <i class="ion ion-ios-arrow-back"></i>
-        </div>
-        <div class="ht-swiper-button ht-swiper-button-next">
-            <i class="ion ion-ios-arrow-forward"></i>
-        </div>
+
     </div>
 </template>
 

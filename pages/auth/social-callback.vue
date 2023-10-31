@@ -29,7 +29,6 @@ export default {
 
 
 
-        app.$toast.open(app.$t('tools.hello ') +res.data?.user?.first_name== null ?'':res.data?.user?.first_name +' 😊')
 
 
         app.$router.push('/payment?package='+localStorage.getItem('package'))

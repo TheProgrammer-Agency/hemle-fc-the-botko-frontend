@@ -312,7 +312,6 @@ export default {
 
       await this.$auth.loginWith('social', {params: {prompt: 'select_account'}}).then(function(res){
 
-        console.log("auth succeeed google",res,res.data)
 
         alert("wait")
 
@@ -372,16 +371,21 @@ export default {
             })
 
 
-            app.$router.push('/payment?package='+app.$route.query.package)
+            console.log("autht =",app.$auth)
+
+            app.$router.push(app.localePath('/payment?package='+app.$route.query.package))
 
 
           }).catch(function (error) {
+
             app.$nuxt.$loading.finish()
 
+
+            console.log("error",error,error.response)
             app.$swal.fire({
               icon: 'error',
               title:app.$t('auth.an_error_occured'),
-              text:  error.response.data.message,
+              text:  error.response?.data?.message,
               footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
 
             })
@@ -406,10 +410,12 @@ export default {
 
         app.$nuxt.$loading.finish()
 
+        console.log("error",error,error.response)
+
         app.$swal.fire({
           icon: 'error',
           title:app.$t('auth.an_error_occured'),
-          text:  error.response.data.message,
+          text:  error.response?.data?.message,
           footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
 
         })

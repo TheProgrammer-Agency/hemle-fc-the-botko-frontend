@@ -198,12 +198,14 @@ a:visited {
 }
 
 .select-language {
-  background: var(--white);
-  padding: 1px 0px;
-  height: 25px;
+  background: transparent;
+  padding: 3px 0;
+  height: 32px;
   border: 1px solid var(--text-color);
   cursor: pointer;
   border-radius: 7px;
+  color:var(--white);
+  max-width:60px;
 }
 
 /*====================================

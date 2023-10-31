@@ -296,12 +296,12 @@ export default {
 
       if (this.$auth.loggedIn) {
 
-        this.$router.push('/payment?package=' + numberInTag)
+        this.$router.push(this.localePath('/payment?package=' + numberInTag))
 
       } else {
 
         this.$toast.open('Bonjour !' + "veuillez tout d'abord créer un compte  ou vous connecter 😊")
-        this.$router.push('/auth/register?package=' + numberInTag)
+        this.$router.push(this.localePath('/auth/register?package=' + numberInTag))
 
 
       }

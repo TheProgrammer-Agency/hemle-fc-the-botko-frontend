@@ -96,6 +96,12 @@ export default {
 
     document.body.style.backgroundColor = 'rgba(0,0,0,.07)';
 
+  },
+
+  beforeDestroy() {
+
+    document.body.style.backgroundColor = '#fff';
+
   }
 }
 </script>

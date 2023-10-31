@@ -65,19 +65,7 @@
                                     </div>
                                 </div>
 
-                              <span  style="cursor: pointer;color: var(--white)">
 
-
-                                   <select name="" id="" v-model="localeSelected"  @change="switchLocale"  class="select-language">
-
-                                     <option v-for="locale in availableLocales"
-                                             :key="locale.code"
-                                             :value="locale.code">
-                                       <img src="/img/home/eng.png" alt=""> {{locale.name}}
-                                     </option>
-
-                                   </select>
-                              </span>
                                 <!-- End Hamberger -->
                             </div>
                             <!-- Header Right end -->
@@ -138,6 +126,8 @@
 
             await this.$auth.logout();
           },
+
+
         async switchLocale() {
 
 

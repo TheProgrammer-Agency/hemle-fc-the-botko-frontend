@@ -153,9 +153,11 @@ export default {
             console.log(app.$auth)
 
 
-            app.$router.push('/user')
+            app.$toast.open('Hello '  +' '+( res.data?.user?.first_name== null ? ' ':res.data?.user?.first_name) +' 😊 ')
 
-            app.$toast.open(app.$t('tools.hello ') +res.data?.user?.first_name== null ?'':res.data?.user?.first_name +' 😊')
+
+            app.$router.push(app.localePath('/user'))
+
 
 
           })

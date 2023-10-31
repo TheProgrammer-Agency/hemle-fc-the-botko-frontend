@@ -62,7 +62,13 @@
 
         </div>
         <br>
-        <button class="bk-btn theme-btn" @click.prevent="generateMyCard">Génerer ma carte</button>
+
+<!--        download :href="$auth.user.data.card"
+        -->
+
+        <a v-if="$auth?.user.data?.card !==null  && $auth?.user?.data?.is_member" download :href="$auth?.user?.data?.card"  class="bk-btn theme-btn" @click.prevent="generateMyCard">Génerer ma carte</a>
+
+        <button v-if="$auth?.user?.data?.card ==null "  class="bk-btn theme-btn" @click.prevent="generateMyCard" >Génerer ma carte</button>
 
 
       </div>
@@ -92,7 +98,7 @@
           </span>
 
             </div>
-            <h5><img src="/img/home/user-black.png" alt=""> Mes information</h5>
+            <h5><img src="/img/home/user-black.png" alt=""> {{ $t('user.my_information') }}</h5>
 
             <div class="wrapper-wrapper-form-info">
 
@@ -102,7 +108,7 @@
 
                   <div class="form-group">
 
-                    <label>Votre nom</label>
+                    <label>{{ $t('user.first_name') }}</label>
 
                     <ValidationProvider name="Nom" rules="required|min:3" v-slot="{ errors }">
                       <input v-model="form.first_name" type="text">
@@ -113,7 +119,7 @@
 
                   <div class="form-group">
 
-                    <label>Votre prénom</label>
+                    <label>{{ $t('user.last_name') }}</label>
 
                     <ValidationProvider name="Prénom" rules="required|min:3" v-slot="{ errors }">
                       <input v-model="form.last_name" type="text">
@@ -128,7 +134,7 @@
 
                   <div class="form-group">
 
-                    <label>Ville</label>
+                    <label>{{ $t('user.city') }}</label>
 
                     <ValidationProvider name="Ville" rules="required|min:2" v-slot="{ errors }">
                       <input v-model="form.city" type="text">
@@ -139,7 +145,7 @@
 
                   <div class="form-group">
 
-                    <label>Pays</label>
+                    <label>{{ $t('user.country') }}</label>
 
                     <ValidationProvider name="First Name" rules="required" v-slot="{ errors }">
 
@@ -399,7 +405,7 @@
 
                   <div class="form-group">
 
-                    <label>Email</label>
+                    <label>{{$t('user.email')}}</label>
 
                     <ValidationProvider name="E-mail" v-slot="{ errors }">
                       <input v-model="form.email" type="email"  readonly disabled>
@@ -410,7 +416,7 @@
 
                   <div class="form-group">
 
-                    <label>Téléphone</label>
+                    <label>{{$t('user.phone_number')}}</label>
 
 
                     <ValidationProvider :name="$t('auth.tel')" rules="required|min:7|integer" v-slot="{ errors }">
@@ -450,13 +456,13 @@
             <div class="form-group ml-auto">
 
 
-              <button type="submit" class="bk-btn theme-btn" @click.prevent="updateInfo">Modifier</button>
+              <button type="submit" class="bk-btn theme-btn" @click.prevent="updateInfo">{{$t('user.update')}}</button>
 
             </div>
 
             <div class="wrapper-wrapper-info">
 
-              <h5><img src="/img/home/user-black.png" alt=""> Mes mot de passe</h5>
+              <h5><img src="/img/home/user-black.png" alt=""> {{$t('user.my_password')}}</h5>
 
 
               <form @submit.prevent="updatePassword" class="form-info">
@@ -466,7 +472,7 @@
 
                   <div class="form-group">
 
-                    <label>Mot de passe</label>
+                    <label>{{$t('user.password')}}</label>
 
                     <ValidationProvider name="Mot de passe" rules="required|min:4" v-slot="{ errors }">
                       <input v-model="form.password" type="password">
@@ -477,7 +483,7 @@
 
                   <div class="form-group">
 
-                    <label>Confirmez votre mot de passe</label>
+                    <label>{{$t('user.confirm_password')}}</label>
 
                     <ValidationProvider name="Mot de passe" rules="required|min:4" v-slot="{ errors }">
                       <input v-model="form.password_confirmation" type="password">
@@ -496,18 +502,18 @@
             <br><br>
             <div class="wrapper-wrapper-info">
 
-              <h4 class="error"><img src="/img/home/delete.png" alt="">  &nbsp; ZONE DE DANGER</h4>
+              <h4 class="error"><img src="/img/home/delete.png" alt="">  &nbsp; {{$t('user.danger_zone')}}</h4>
 
 
               <p>
-                Vous n’etes pas satisfait du club Hémlè FC de Botko ? ou vous souhaitez supprimer toutes les informations associés à ce compte ?
+               {{$t('user.user_delete_account')}}
               </p>
 
 
             </div>
             <div class="form-group ml-auto">
 
-              <button type="submit" class="bk-btn  btn-error " @click.prevent="deleteUser">Supprimer mon compte</button>
+              <button type="submit" class="bk-btn  btn-error " @click.prevent="deleteUser">{{$t('tools.btn.delete_account')}}</button>
 
             </div>
 
@@ -679,9 +685,8 @@ export default {
 
           this.$swal.fire({
             icon: 'error',
-            title: "C'est pas le moment " +this.$auth.user.data.last_name,
-            text: "Votre code de parrainage sera accessible uniquement après avoir effectué votre paiement.\n" +
-                "\n 🫡",
+            title: this.$t('user.user_error_copy_code_title') +(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
+            text: this.$t('user.user_error_copy_code_desc'),
             footer: '<a href="/pricing" style="margin:auto;">Payez votre abonnement Hèmlé ICI !!</a>'
           })
 
@@ -704,6 +709,15 @@ export default {
       if(this.$auth.user.data.is_member){
 
         //generate
+
+        if(this.$auth.user.data.card == null){
+
+          this.$swal.fire({
+            icon: 'info',
+            title: this.$t('user.user_generate_card_info_not_available_title')+this.$auth.user.data.last_name,
+            text: this.$t('user.user_generate_card_info_not_available_desc')
+          })
+        }
       }
       else{
 
@@ -711,8 +725,8 @@ export default {
         if(this.$auth.user.data.is_active){
           this.$swal.fire({
             icon: 'error',
-            title: 'Oops... pas si vite '+this.$auth.user.data.last_name,
-            text: "Tu n'es pas encore membre de Hemlé , peux-tu finaliser ton paiement d'abord ? 🫡",
+            title: this.$t('user.user_generate_card_info_not_available_title')+(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
+            text: this.$t('user.user_generate_card_info_inactive_desc'),
             footer: '<a href="/pricing" style="margin:auto;">Ça se passe ici !</a>'
           })
 
@@ -861,8 +875,8 @@ export default {
             app.$swal.fire({
               position: 'Center',
               icon: 'success',
-              title: 'Génial  !',
-              text: 'Vous avez mis à jour votre photo de profil',
+              title: app.$t('user.user_profile_updated_title'),
+              text: $t('user.user_profile_updated_desc'),
               showConfirmButton: true,
               confirmButtonText: "Okay",
               timer: 10000
@@ -879,8 +893,8 @@ export default {
           app.$swal.fire({
             position: 'Center',
             icon: 'info',
-            title: 'Image trop grande ! 😯 ',
-            text: "Vous devez insérer une image ayant une taille inférieur à 1MO",
+            title: app.$t('user.user_img_too_big_title'),
+            text:  app.$t('user.user_img_too_big_desc'),
             showConfirmButton: true,
             confirmButtonText: app.$t('tools.btn.understood'),
             timer: 10000
@@ -905,8 +919,8 @@ export default {
 
         app.$swal.fire({
           icon: 'success',
-          title: 'Félicitation ! ' + app.form.last_name,
-          text: "Vos information ont été mis à jour !",
+          title: app.$t('user.user_info_updated_title') + app.form.last_name,
+          text: app.$t('user.user_info_updated_desc'),
         })
 
       }).catch(function(error){
@@ -937,15 +951,16 @@ export default {
 
         app.$swal.fire({
           icon: 'success',
-          title: 'Félicitation ! ' + app.form.last_name,
-          text: "Vos information ont été mis à jour ! ",
+          title: app.$t('user.user_info_updated_title') + app.form.last_name,
+          text: app.$t('user.user_info_updated_desc'),
         })
 
       }).catch(function (error) {
+
         app.$swal.fire({
           icon: 'error',
-          title: "Une erreur s'est produite " + app.form.last_name,
-          text: "Veuillez réessayer ou contacter l'administrateur  " + error.response.data.message,
+          title: app.$t('error.an_error_occured') + app.form.last_name,
+          text:error.response.data.message,
         })
       })
     },
@@ -953,7 +968,7 @@ export default {
 
     head() {
       return {
-        title: 'Home Business'
+        title: this.$t('user.title')
       }
     },
   }
