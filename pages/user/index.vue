@@ -17,21 +17,17 @@
           </label>
 
 
-
-
-
-
         <div class="content">
           <h2>{{ $auth.user?.data?.first_name }} {{ $auth.user?.data?.last_name }}</h2>
+
 <!--
           <span>
-
-
             Nyem Kni Hié
-
            </span>
-
 -->
+
+
+
 
         </div>
       </div>
@@ -54,6 +50,7 @@
              {{ $auth.user?.data?.referral_code }}  <img src="/img/home/copy.png" width="25" height="25">
           </span>
 
+
         </div>
         <br>
 
@@ -62,9 +59,12 @@
 
 
 
-        <a v-if="$auth?.user.data?.card !== null  && $auth?.user?.data?.is_member" download :href="$auth?.user?.data?.card"  class="bk-btn theme-btn">Génerer ma carte</a>
+        <a v-if="$auth?.user.data?.card !== null  && $auth?.user?.data?.is_member" download :href="$auth?.user?.data?.card"  class="bk-btn theme-btn">{{$t('tools.btn.generate_card')}}</a>
 
-        <button v-if="$auth?.user?.data?.card ==null "  class="bk-btn theme-btn" @click.prevent="generateMyCard" >Génerer ma carte</button>
+        <button v-if="$auth?.user?.data?.card ==null "  class="bk-btn theme-btn" @click.prevent="generateMyCard" >{{$t('tools.btn.generate_card')}}</button>
+
+        <br>
+        <button   class="bk-btn btn-secondary  secondary-color" @click="goToOrder" >{{$t('tools.btn.my_orders')}}</button>
 
 
       </div>
@@ -73,7 +73,7 @@
     </div>
 
 
-    <div class="user-info container-fluid">
+    <div class="user-info container-fluid" id="fill-user-info">
 
 
       <div class="information container">
@@ -84,7 +84,7 @@
 
 
           <br><br>
-          <div class="wrapper-form-info">
+          <div class="wrapper-form-info" >
 
             <div class="text-center">
 
@@ -108,7 +108,7 @@
 
                     <ValidationProvider :name="$t('user.first_name')" rules="required|min:3" v-slot="{ errors }">
                       <input v-model="form.first_name" type="text">
-                      <span>{{ errors[0] }}</span>
+                      <span class="error">{{ errors[0] }}</span>
                     </ValidationProvider>
 
                   </div>
@@ -119,7 +119,7 @@
 
                     <ValidationProvider :name="$t('user.last_name')" rules="required|min:3" v-slot="{ errors }">
                       <input v-model="form.last_name" type="text">
-                      <span>{{ errors[0] }}</span>
+                      <span class="error">{{ errors[0] }}</span>
                     </ValidationProvider>
 
                   </div>
@@ -134,7 +134,7 @@
 
                     <ValidationProvider :name="$t('auth.city')" rules="required|min:2" v-slot="{ errors }">
                       <input v-model="form.city" type="text">
-                      <span>{{ errors[0] }}</span>
+                      <span class="error">{{ errors[0] }}</span>
                     </ValidationProvider>
 
                   </div>
@@ -145,7 +145,7 @@
 
                     <ValidationProvider :name="$t('user.country') " rules="required" v-slot="{ errors }">
 
-                      <span>{{ errors[0] }} </span>
+                      <span class="error">{{ errors[0] }} </span>
 
                       <select v-model="form.country" id="country" name="country" >
                         <option value="Afghanistan">Afghanistan</option>
@@ -404,8 +404,8 @@
                     <label>{{$t('user.email')}}</label>
 
                     <ValidationProvider :name="$t('user.email')" v-slot="{ errors }">
-                      <input v-model="form.email" type="email"  readonly disabled>
-                      <span>{{ errors[0] }}</span>
+                      <input v-model="form.email" type="email"   :disabled="$auth.user.data.email!=null">
+                      <span class="error">{{ errors[0] }}</span>
                     </ValidationProvider>
 
                   </div>
@@ -472,7 +472,7 @@
 
                     <ValidationProvider :name="$t('user.password')" rules="required|min:4" v-slot="{ errors }">
                       <input v-model="form.password" type="password">
-                      <span>{{ errors[0] }}</span>
+                      <span class="error">{{ errors[0] }}</span>
                     </ValidationProvider>
 
                   </div>
@@ -483,7 +483,7 @@
 
                     <ValidationProvider :name="$t('user.confirm_password')" rules="required|min:4" v-slot="{ errors }">
                       <input v-model="form.password_confirmation" type="password">
-                      <span>{{ errors[0] }}</span>
+                      <span class="error">{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                 </div>
@@ -669,7 +669,7 @@ export default {
 
         try {
           await app.$copyText('text');
-          app.$toast.info('Vous copié le code  !   ')
+          app.$toast.info(app.$t('user.code_copied'))
         } catch (e) {
           console.error(e);
         }
@@ -683,7 +683,7 @@ export default {
             icon: 'error',
             title: this.$t('user.user_error_copy_code_title') +(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
             text: this.$t('user.user_error_copy_code_desc'),
-            footer: '<a href="/pricing" style="margin:auto;">Payez votre abonnement Hèmlé ICI !!</a>'
+            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('user.subscribe_here') +'</a>'
           })
 
         }
@@ -723,7 +723,7 @@ export default {
             icon: 'error',
             title: this.$t('user.user_generate_card_info_not_available_title')+(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
             text: this.$t('user.user_generate_card_info_inactive_desc'),
-            footer: '<a href="/pricing" style="margin:auto;">Ça se passe ici !</a>'
+            footer: '<a href="/pricing" style="margin:auto;">'+this.$t('tools.btn.it_is_here')+'</a>'
           })
 
         }
@@ -742,7 +742,23 @@ export default {
 
       }
     },
+    goToOrder(){
 
+
+      if(this.$auth.user.data.is_active){
+
+
+        this.$router.push(this.localePath('/user/orders'))
+
+      }else{
+
+        this.$swal.fire({
+          icon: 'warning',
+          title: this.$t('user.user_not_ready'),
+          text: this.$t('user.user_not_ready_description')
+        })
+      }
+    },
     setData(){
 
       this.data.append('tel','+' + this.phone_number_code + this.form.tel,)

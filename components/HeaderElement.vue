@@ -8,7 +8,10 @@
               <i class=" fas fa-bell "></i>
             </div>
             <div class="content" >Hey ! {{$auth.user?.data?.first_name}}  {{$t('header.account_inactive_notification')}}
-              <nuxt-link to="/user/orders"  style="color:#ac0404;text-decoration: underline"> ici !</nuxt-link></div>
+
+              <button style="color:#ac0404;text-decoration: underline" @click="goToOrder"> {{$t('header.here')}}</button>
+
+            </div>
           </div>
             <div class="container-fluid">
                 <div class="row">
@@ -43,7 +46,7 @@
 
 
 
-                                <nuxt-link :to="localePath('/pricing')"  v-if="!$auth.user?.data?.is_member" class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </nuxt-link>
+                                <button v-if="!$auth.user?.data?.is_member" @click="goToPricing"  class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </button>
                                 <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">
                                   <img src="/" alt=""> {{ $t('header.login') }} </nuxt-link>
                                 <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">
@@ -122,6 +125,44 @@
       methods:{
 
 
+          goToOrder(){
+
+
+            if(this.$auth.user.data.is_active){
+
+
+              this.$router.push(this.localePath('/user/orders'))
+
+            }else{
+
+              this.$swal.fire({
+                icon: 'warning',
+                title: this.$t('user.user_not_ready'),
+                text: this.$t('user.user_not_ready_description')
+              })
+
+              this.$router.push(this.localePath('/user/#fill-user-info'))
+
+            }
+          }, goToPricing(){
+
+
+            if(this.$auth.user.data.is_active){
+
+
+              this.$router.push(this.localePath('/user/orders'))
+
+            }else{
+
+              this.$swal.fire({
+                icon: 'warning',
+                title: this.$t('user.user_not_ready'),
+                text: this.$t('user.user_not_ready_description')
+              })
+              this.$router.push(this.localePath('/user/#fill-user-info'))
+
+            }
+          },
        async    logout(){
 
             await this.$auth.logout();

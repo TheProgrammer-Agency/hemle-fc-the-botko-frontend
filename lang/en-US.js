@@ -15,7 +15,12 @@ export default {
             delete_account_canceled: 'No, cancel!',
 
             buy_now: "Buy now",
+            it_is_here: "It's happening here!",
 
+            code_copied: "Code copied! ",
+
+            generate_card: "Generate my card",
+            my_orders: "View my orders",
 
 
         },
@@ -48,6 +53,7 @@ export default {
         my_account: 'My account',
         account_inactive_notification:'! Your account is inactive because you are not a member yet. Subscribe to a membership to complete your registration',
 
+        here:'here !',
 
 
     },
@@ -213,7 +219,8 @@ export default {
         title: "Member Area",
 
         user_not_ready: "You're not ready!",
-        user_not_ready_description: "You're missing something! Please fill in your mandatory personal information! 🫡",
+        user_not_ready_description: "There's one thing missing! Please fill in your mandatory personal information before becoming fully active. Complete your name, last name, email address, phone number, country, and city. Once you provide this information, you'll be able to enjoy all the features of our site.\n" +
+            "\n🫡",
         user_error_copy_code_title: "Not the right time",
         user_error_copy_code_desc:
             "Your referral code will be accessible only after you complete your payment. 🫡",
@@ -254,7 +261,9 @@ export default {
         delete_account_confirm_desc: "Attention! By deleting your account, you will lose access to all your data, and all associated information will be permanently deleted. Please confirm that you want to proceed with the deletion of your account.",
 
         delete_account_canceled_title: "Your account is safe!",
-        delete_account_canceled_desc: "Your account is safe! The deletion has been successfully canceled. Continue to enjoy all the benefits from HÉMLÈ."
+        delete_account_canceled_desc: "Your account is safe! The deletion has been successfully canceled. Continue to enjoy all the benefits from HÉMLÈ.",
+        subscribe_here: "Pay your Hèmlé subscription HERE!!"
+
 
 
     },

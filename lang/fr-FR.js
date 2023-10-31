@@ -14,6 +14,9 @@ export default {
             delete_account_confirm: "Oui, supprimez-le !",
             delete_account_canceled: "Non, annulez !",
             buy_now: "Payer maintenant",
+            it_is_here:"Ça se passe ici !",
+            generate_card:"Génerer ma carte",
+            my_orders:"Voir mes commandes",
 
 
 
@@ -49,6 +52,7 @@ export default {
 
 
 
+        here:'ici !',
     },
 
 
@@ -254,8 +258,9 @@ export default {
 
         title:'Espace Membre',
 
-        user_not_ready:'Vous n\'êtes pas prêt !',
-        user_not_ready_description:"Il vous manque une chose ! remplissez vos information personnelle  obligatoire. ! " + "\n 🫡",
+        user_not_ready:'Vous n\'êtes pas prêt !\n',
+        user_not_ready_description:"Il vous manque une chose essentielle ! Avant d'être pleinement actif, veuillez compléter vos informations personnelles obligatoires. Remplissez votre nom, prénom, adresse e-mail, numéro de téléphone, pays et ville. Une fois que vous aurez fourni ces informations," +
+            " vous pourrez profiter de toutes les fonctionnalités de notre site. 🫡",
         user_error_copy_code_title:"C'est pas le moment ",
         user_error_copy_code_desc:"Votre code de parrainage sera accessible uniquement après avoir effectué votre paiement.\n" + "\n 🫡",
 
@@ -298,7 +303,11 @@ export default {
 
 
         delete_account_canceled_title:"Votre compte est en sécurité !",
-        delete_account_canceled_desc:"Votre compte est en sécurité ! La suppression a été annulée avec succès. Continuez à profiter de tous les avantages de HÉMLÈ."
+        delete_account_canceled_desc:"Votre compte est en sécurité ! La suppression a été annulée avec succès. Continuez à profiter de tous les avantages de HÉMLÈ.",
+
+        subscribe_here:"Payez votre abonnement Hèmlé ICI !!",
+
+        code_copied: 'Vous copié le code  !   '
 
 
 
