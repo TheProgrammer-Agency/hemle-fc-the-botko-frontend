@@ -916,7 +916,7 @@ export default {
               position: 'Center',
               icon: 'success',
               title: app.$t('user.user_profile_updated_title'),
-              text: $t('user.user_profile_updated_desc'),
+              text: app.$t('user.user_profile_updated_desc'),
               showConfirmButton: true,
               confirmButtonText: "Okay",
               timer: 10000

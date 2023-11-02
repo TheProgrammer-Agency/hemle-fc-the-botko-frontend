@@ -128,7 +128,7 @@
           goToOrder(){
 
 
-            if(this.$auth.user.data.is_active){
+            if(this.$auth?.user?.data?.is_active){
 
 
               this.$router.push(this.localePath('/user/orders'))
@@ -147,7 +147,7 @@
           }, goToPricing(){
 
 
-            if(this.$auth.user.data.is_active){
+            if(this.$auth?.user?.data?.is_active){
 
 
               this.$router.push(this.localePath('/user/orders'))
