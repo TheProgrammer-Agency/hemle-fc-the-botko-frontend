@@ -147,21 +147,31 @@
           }, goToPricing(){
 
 
-            if(this.$auth?.user?.data?.is_active){
+            if(this.$auth.loggedIn){
+
+              if(this.$auth?.user?.data?.is_active){
 
 
-              this.$router.push(this.localePath('/user/orders'))
+                this.$router.push(this.localePath('/user/orders'))
 
-            }else{
+              }else{
 
-              this.$swal.fire({
-                icon: 'warning',
-                title: this.$t('user.user_not_ready'),
-                text: this.$t('user.user_not_ready_description')
-              })
-              this.$router.push(this.localePath('/user/#fill-user-info'))
+                this.$swal.fire({
+                  icon: 'warning',
+                  title: this.$t('user.user_not_ready'),
+                  text: this.$t('user.user_not_ready_description')
+                })
+                this.$router.push(this.localePath('/user/#fill-user-info'))
+
+              }
+            }
+            else{
+
+              this.$router.push(this.localePath('/pricing'))
 
             }
+
+
           },
        async    logout(){
 

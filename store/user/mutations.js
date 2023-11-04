@@ -5,6 +5,11 @@ export default {
 
     },
 
+    SET_REFERRER(state,referrer){
+        state.referrers=referrer;
+
+    },
+
 
     CREATE_CONTACT(state,contact){
         state.contact=contact;

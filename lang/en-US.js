@@ -272,4 +272,9 @@ export default {
         back_to_home: "Hitchhike to go back home.",
     },
 
+    referrer: {
+        my_child: "My children in Hémlè",
+        total: "Total to be paid <strong class='secondary-color'>5000 XAF</strong>",
+        my_referrer: "My sponsor"
+    }
 }

@@ -131,7 +131,7 @@ export default {
 
             setTimeout(() => {
               window.location.href = redirectUrl
-            }, 5000);
+            }, 3000);
 
 
           }).catch(function (error) {

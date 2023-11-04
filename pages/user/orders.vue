@@ -1,9 +1,6 @@
 <template>
   <div class="main-container user-orders">
-
-
-    <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
-
+    <br><br><br><br><br>
 
     <div class="container">
 
@@ -88,11 +85,7 @@
 
     </div>
 
-
     <br><br><br><br><br>
-    <br><br><br><br><br>
-    <br><br><br><br><br>
-    <FooterStyleFour/>
 
   </div>
 </template>
@@ -115,6 +108,7 @@ export default {
   mixins: [slugify],
   middleware:['auth','checkUserIsActive'],
 
+  layout:"layout-profil",
   components: {
     HeaderBlack,
     FooterStyleFour,

@@ -16,6 +16,17 @@ export default {
     },
 
 
+    async getMyReferer({ commit }){
+
+        let referrer=   (await this.$axios.get('/user/referrer')).data
+
+
+        commit('SET_REFERRER',referrer)
+
+
+
+    },
+
    async  createContact({commit}){
 
        await this.$axios.post('/contact')

@@ -319,6 +319,12 @@ export default {
     error:{
 
         back_to_home:"Faites du stop pour rentrer chez vous."
+    },
+    referrer:{
+
+        my_child:"Mes enfant dans Hémlè ",
+        total:"Total à verser <strong class=\"secondary-color\"> 5000 xaf</strong>",
+        my_referrer:"Mon parain"
     }
 
 
