@@ -25,13 +25,24 @@ export default {
 
     this.$auth.fetchUser().then((res) => {
 
+
+      if(this.$auth.user.data.is_active){
+
+        app.$router.push(app.localePath('/user'));
+
+      }
+
+      else{
+
+
+
       if(localStorage.getItem('package')){
 
 
 
 
 
-        app.$router.push('/payment?package='+localStorage.getItem('package'))
+        app.$router.push(app.localePath('/payment?package='+localStorage.getItem('package')))
 
 
 
@@ -45,10 +56,11 @@ export default {
           text: app.$t('auth.rechoose_package_desc'),
         })
 
-        app.$router.push('/pricing');
+        app.$router.push(app.localePath('/pricing'));
 
       }
 
+      }
     }).catch((e) => {
 
       this.$auth.logout();

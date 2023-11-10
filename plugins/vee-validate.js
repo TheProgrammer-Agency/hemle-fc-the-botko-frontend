@@ -10,7 +10,7 @@ import VueI18n from 'vue-i18n';
 
 import validationMessagesEn from 'vee-validate/dist/locale/en.json';
 import validationMessagesFr from 'vee-validate/dist/locale/fr.json';
-import { required, email, min,integer,max,alpha } from "vee-validate/dist/rules";
+import { required, email, min,integer,max,alpha,regex } from "vee-validate/dist/rules";
 import {
     configure
 } from 'vee-validate/dist/vee-validate.full.esm'
@@ -151,6 +151,7 @@ extend("min", min);
 extend("integer", integer);
 extend("max", max);
 extend("alpha", alpha);
+extend("regex", regex);
 
 
 // Register it globally

@@ -98,6 +98,12 @@
     <br><br><br><br><br>
     <br><br><br><br><br>
     <FooterStyleFour/>
+
+    <a :href="getContact" class="messenger" target="_blank">
+      <img src="/img/home/wa_icon.png" alt="" >
+
+    </a>
+
   </div>
 </template>
 
@@ -127,7 +133,14 @@ export default {
   computed: {
     ...mapGetters({
       error_message: 'error_message'
-    })
+    }),
+
+
+      getContact(){
+
+        return process.env.wa_contact;
+    
+    }
   },
 
   data() {
@@ -205,20 +218,20 @@ export default {
     },
     async copySomething(text) {
 
-      let app = this;
+        let app = this;
 
-      if(this.$auth.user.data.is_member){
+        if(this.$auth.user.data.is_member){
 
-        //generate
+          //generate
 
-        try {
-          await app.$copyText('text');
-          app.$toast.info(app.$t('user.code_copied'))
-        } catch (e) {
-          console.error(e);
+          try {
+            await app.$copyText('text');
+            app.$toast.info(app.$t('user.code_copied'))
+          } catch (e) {
+            console.error(e);
+          }
+
         }
-
-      }
       else{
 
         if(this.$auth.user.data.is_active){

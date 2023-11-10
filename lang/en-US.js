@@ -21,6 +21,7 @@ export default {
 
             generate_card: "Generate my card",
             my_orders: "View my orders",
+            copy_code:"I'm copying my code!"
 
 
         },
@@ -118,7 +119,7 @@ export default {
         pricing_3_desc_5: "Receive a club scarf, a symbol of your unwavering support.",
         pricing_3_desc_6: "Enjoy a 10% discount on all your bills at our store.",
         pricing_3_desc_7: "Get the right to participate in the Hémlèen Raffle, with exclusive prizes to win.",
-        pricing_3_desc_8: "Attend all concerts organized at Botko for free.",
+        pricing_3_desc_8: "<strong>Attend all concerts organized in Botko for free in VIP mode</strong>",
         pricing_3_desc_9: "Enjoy a full club tracksuit, combining comfort and style for your sporting activities.",
         pricing_3_desc_10: "Get a club backpack",
         pricing_3_desc_11: "Get a club cap",
@@ -133,7 +134,7 @@ export default {
         pricing_4_desc_6: "Receive a club scarf, a symbol of your unwavering support.",
         pricing_4_desc_7: "Enjoy a full club tracksuit, combining comfort and style for your sporting activities.",
         pricing_4_desc_8: "Get the right to participate in the Hémlèen Raffle, with exclusive prizes to win.",
-        pricing_4_desc_9: "Attend all concerts organized at Botko for free.",
+        pricing_4_desc_9: "<strong>Attend all concerts organized in Botko for free in VIP mode</strong>",
         pricing_4_desc_10: "Enjoy an exceptional 35% referral bonus",
         pricing_4_desc_11: "Get a club cap",
         pricing_4_desc_12: "Get a club backpack",
@@ -171,6 +172,7 @@ export default {
         city: "City",
         password: "Password",
         email: "Email",
+        sex:'Sex',
         first_name: "First name",
         last_name: "Last name",
         confirm_password: "Confirm your password",
@@ -218,6 +220,7 @@ export default {
     user: {
         title: "Member Area",
 
+        go_back:"Go back to my profile",
         user_not_ready: "You're not ready!",
         user_not_ready_description: "There's one thing missing! Please fill in your mandatory personal information before becoming fully active. Complete your name, last name, email address, phone number, country, and city. Once you provide this information, you'll be able to enjoy all the features of our site.\n" +
             "\n🫡",
@@ -262,7 +265,10 @@ export default {
 
         delete_account_canceled_title: "Your account is safe!",
         delete_account_canceled_desc: "Your account is safe! The deletion has been successfully canceled. Continue to enjoy all the benefits from HÉMLÈ.",
-        subscribe_here: "Pay your Hèmlé subscription HERE!!"
+        subscribe_here: "Pay your Hèmlé subscription HERE!!",
+
+        man:'Man',
+        woman:'Woman'
 
 
 
@@ -275,6 +281,9 @@ export default {
     referrer: {
         my_child: "My children in Hémlè",
         total: "Total to be paid <strong class='secondary-color'>5000 XAF</strong>",
-        my_referrer: "My sponsor"
+        my_referrer: "My sponsor",
+        referer_error_desc:"Description: \"It seems like you don't have a sponsor in Hemlè yet. Don't worry, you can invite your friends to join us and enjoy this unique experience together. Be the first to sponsor and build your own network in Hemlè. Join us now and don't miss out on this opportunity!\"",
+        referer_error_title:"Oops, You Don't Have a Sponsor Yet!"
+
     }
 }

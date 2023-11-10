@@ -28,9 +28,10 @@
             return {
                 swiperOption: {
                     loop: true,
-                    speed: 8000,
+                    speed: 12000,
                     autoplay: true,
                     effect: "fade",
+                    delay:5000,
 
                     navigation: {
                         nextEl: '.ht-swiper-button-next',

@@ -42,7 +42,7 @@
                   <vue-country-code
 
                       @onSelect="onSelect"
-                      :onlyCountries="['cm']"
+
 
                   >
                   </vue-country-code>

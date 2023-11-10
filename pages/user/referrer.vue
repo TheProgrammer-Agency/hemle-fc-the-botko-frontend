@@ -15,12 +15,39 @@
       <br>
       <br>
 
+      <div class="card-error"   v-if="!hasReferrer && !hasReferrals">
 
-      <div class="main-order">
+
+
+
+        <div class="card-error-left">
+
+          <h2>  {{$t('referrer.referer_error_title')}}  {{$auth.user.data.first_name}}</h2>
+
+          <p>
+            {{$t('referrer.referer_error_desc')}}
+
+
+          </p>
+
+          <button class="bk-btn theme-btn"  @click.prevent="copySomething($auth.user?.data?.referral_code)">{{$t('tools.btn.copy_code')}} </button>
+
+        </div>
+
+
+        <div class="card-error-right">
+
+          <img src="/img/home/not_found.png" alt="">
+
+        </div>
+      </div>
+
+      <div class="main-order" v-if="hasReferrer">
 
 
 
         <h2>{{ $t('referrer.my_referrer') }} </h2>
+
         <div class="card-order">
 
           <div class="card-order-left">
@@ -57,13 +84,15 @@
 
       </div>
       <br>
-      <div class="main-order  ">
+
+
+      <div class="main-order  " v-if="hasReferrals">
 
         <h2>{{ $t('referrer.my_child') }}</h2>
 
         <div class="main-referrer">
 
-          <div class="card-order card-referrer" v-for="referrer in referrers.referrals">
+          <div class="card-order card-referrer" v-for="referrer in referrers?.referrals">
 
             <div class="card-order-left">
 
@@ -84,8 +113,9 @@
 
                    {{ referrer.amount }} XAF
 
+
                   <br>
-                <span class="secondary-color">{{ referrer.referrer.is_paid ? 'Est déjà membre !' : 'Pas encore membre'}}</span>
+                <span class="secondary-color">{{ referrer.is_paid ? 'Est déjà membre !' : 'Pas encore membre'}}</span>
 
 
                   </span>
@@ -100,7 +130,9 @@
 
         </div>
 
-        <h2 v-html="$t('referrer.total')"></h2>
+        <h2>{{$t('referrer.total')}}  <strong class="secondary-color">  {{getTotalToPaid}} xaf</strong></h2>
+
+
 
 
 
@@ -152,7 +184,6 @@ import FooterAgency from "../../components/FooterAgency";
 import FooterStyleFour from "../../components/FooterStyleFour";
 import HeaderBlack from "../../components/HeaderBlack";
 import {mapGetters} from "vuex";
-import packages from "../../data/package.json";
 
 export default {
   mixins: [slugify],
@@ -178,6 +209,8 @@ export default {
     }
   },
 
+
+
   computed: {
     ...mapGetters({
       referrers: 'user/referrers'
@@ -187,7 +220,41 @@ export default {
     getReferrer() {
 
       return this.referrers?.referrer?.referrer
+    },
+    hasReferrer(){
+
+      return  !(this.referrers?.referrer == null)
+
+    },
+
+    hasReferrals(){
+     return  this.referrers?.referrals?.length>0
+    },
+
+    getTotalToPaid(){
+
+
+      let total=0;
+     this.referrers?.referrals?.forEach(function (referrer) {
+
+
+        if (referrer.is_paid) {
+
+
+          total +=   parseFloat(referrer.amount)
+
+
+        }
+
+
+      });
+
+     return total;
+
+
     }
+
+
 
 
   },
@@ -205,7 +272,49 @@ export default {
 
   },
   fetchOnServer: false,
-  methods: {},
+  methods: {
+    async copySomething(text) {
+
+      let app = this;
+
+      if(this.$auth?.user.data?.is_member){
+
+        //generate
+
+        try {
+          await app.$copyText('text');
+          app.$toast.info(app.$t('user.code_copied'))
+        } catch (e) {
+          console.error(e);
+        }
+
+      }
+      else{
+
+        if(this.$auth?.user?.data?.is_active){
+
+          this.$swal.fire({
+            icon: 'error',
+            title: this.$t('user.user_error_copy_code_title') +(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
+            text: this.$t('user.user_error_copy_code_desc'),
+            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('user.subscribe_here') +'</a>'
+          })
+
+        }
+        else{
+
+
+          this.$swal.fire({
+            icon: 'warning',
+            title: this.$t('user.user_not_ready'),
+            text: this.$t('user.user_not_ready_description')
+          })
+        }
+
+      }
+
+    },
+  },
 
 
   mounted() {

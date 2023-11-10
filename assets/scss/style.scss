@@ -137,7 +137,7 @@
   z-index: 999999;
 
   img{
-    width: 70px;
+    width: 50px;
 
 
 
@@ -199,13 +199,14 @@ a:visited {
 
 .select-language {
   background: transparent;
-  padding: 3px 0;
-  height: 32px;
+  padding: 3px 7px;
+  min-height: 32px;
   border: 1px solid var(--text-color);
   cursor: pointer;
   border-radius: 7px;
   color:var(--white);
   max-width:60px;
+  background: var(--primary-color);
 }
 
 /*====================================

@@ -78,7 +78,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  text-align: center;
+  text-align:  left;
   flex-wrap: wrap;
   .card-error-left{
 
@@ -88,12 +88,12 @@
 
 
     margin:auto;
-    align-items: center;
+    align-items: self-start;
   }
 
   img{
 
-    width: 70%;
+    width: 100%;
   }
 
   @media #{$sm-layout}{

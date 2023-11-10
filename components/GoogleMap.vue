@@ -8,7 +8,6 @@
         </GmapMap>
     </div>
 </template>
-https://maps.app.goo.gl/9eCgfMXH4L4igcVu9
 <script>
     export default {
         name: 'GoogleMap',

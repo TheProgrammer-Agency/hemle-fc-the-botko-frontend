@@ -18,16 +18,21 @@
 
       <div class="left-congrat">
 
-        <h1 v-html="$t('payment.payment_success_title')">
+        <h1>
+
+          {{$t('payment.payment_success_title')}} {{ $auth.user.data.first_name }}
+          <strong class='secondary-color'>{{ $auth?.user?.data?.sex==='male' ? 'le Hémlèen ':'la Hémlèenne ' }}!!</strong>
 
         </h1>
 
 
         <p>
 
-          {{$t('payment.payment_success_desc')}}
-        </p>
+          {{
+            $t('payment.payment_success_desc')
+          }}
 
+        </p>
 
         <n-link to="/user" class="bk-btn theme-btn">{{ $t('tools.btn.download_card') }}</n-link>
 
@@ -35,7 +40,8 @@
       <div class="right-congrat">
 
 
-        <img src="/img/home/thank_membered.png" alt="">
+        <img src="/img/home/congrat2.svg" alt="" v-if="$auth?.user?.data?.sex==='male'">
+        <img src="/img/home/thank_membered.png" alt="" v-if="$auth?.user?.data?.sex==='female'">
 
       </div>
 
@@ -51,7 +57,7 @@ export default {
 
   auth: false,
   fetchOnServer: false,
-  middleware:['checkUserIsActive'],
+  middleware:['checkUserIsActive','auth'],
 
   async fetch() {
 

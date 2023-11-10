@@ -140,7 +140,7 @@
                   <div class="list-header with-ckeck item-available" v-for="a in pricing[2]">
                     <div class="marker"></div>
                     <div class="title-wrap">
-                      <h6 class="heading heading-h5">{{ a }}</h6>
+                      <h6 class="heading heading-h5"  v-html="a"></h6>
                     </div>
                   </div>
 
@@ -175,9 +175,7 @@
                   <div class="list-header with-ckeck item-available" v-for="a in pricing[3]">
                     <div class="marker"></div>
                     <div class="title-wrap">
-                      <h6 class="heading heading-h5">{{
-                          a
-                        }}</h6>
+                      <h6 class="heading heading-h5" v-html="a"></h6>
                     </div>
                   </div>
 
@@ -200,6 +198,7 @@
     </div>
 
     <br><br>
+
   </div>
 </template>
 
@@ -243,7 +242,6 @@ export default {
         this.$t('pricing.pricing_2_desc_3'),
         this.$t('pricing.pricing_2_desc_4'),
         this.$t('pricing.pricing_2_desc_5'),
-        this.$t('pricing.pricing_2_desc_6'),
         this.$t('pricing.pricing_2_desc_7'),
         this.$t('pricing.pricing_2_desc_8'),
         this.$t('pricing.pricing_2_desc_9'),

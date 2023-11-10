@@ -17,6 +17,7 @@ export default {
             it_is_here:"Ça se passe ici !",
             generate_card:"Génerer ma carte",
             my_orders:"Voir mes commandes",
+            copy_code:"Je copie mon code !"
 
 
 
@@ -118,7 +119,7 @@ export default {
         pricing_3_desc_5: "Recevez une écharpe du club, symbole de votre soutien indéfectible.",
         pricing_3_desc_6: "Bénéficiez d'une réduction de  10% sur toutes vos factures dans notre boutique.",
         pricing_3_desc_7: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
-        pricing_3_desc_8: "Assistez gratuitement à tous les concerts organisés à Botko",
+        pricing_3_desc_8: "<strong>Assistez gratuitement à tous les concerts organisés à Botko en mode VIP </strong>",
         pricing_3_desc_9: "Profitez d'un jogging complet du club, alliant confort et style pour vos activités sportives. ",
         pricing_3_desc_10: "Obtenez un Sac à dos du club",
         pricing_3_desc_11: "Obtenez une casquette  du club\n",
@@ -133,7 +134,7 @@ export default {
         pricing_4_desc_6: "Recevez une écharpe du club, symbole de votre soutien indéfectible.",
         pricing_4_desc_7: "Profitez d'un jogging complet du club, alliant confort et style pour vos activités sportives.",
         pricing_4_desc_8: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
-        pricing_4_desc_9: "Assistez gratuitement à tous les concerts organisés à Botko\n",
+        pricing_4_desc_9: "<strong>Assistez gratuitement à tous les concerts organisés à Botko en mode VIP </strong>",
         pricing_4_desc_10: "Profitez d'un bonus de parrainage exceptionnel  de 35% ",
         pricing_4_desc_11: "Obtenez une casquette  du club\n",
         pricing_4_desc_12: "Obtenez un Sac à dos du club ",
@@ -180,7 +181,7 @@ export default {
         choose_your_payment_method:'Choisissez votre mode de paiement',
 
 
-        payment_success_title:"FELICITATIONS <strong class='secondary-color'>Hémlèen(e) !!</strong>",
+        payment_success_title:"FELICITATIONS  ",
         payment_success_desc:"  Vous faites désormais partie de la famille Hémléenne , nous vous réservons pleins de surprise !! Cliquez sur\n" +
             "          le lien ci-dessous pour téléchager votre carte de membre",
     },
@@ -220,11 +221,12 @@ export default {
         tel:"Téléphone",
         country:"Pays",
         city:"Ville",
+        sex:"Sexe",
         password:"Mot de passe",
         email:"Email",
         first_name:"Nom",
         last_name:"Prénom",
-        confirm_password:"Confirmez votre mot de passe",
+        confirm_password:"Confirmation du mot de passe",
         referral_code:"Code de parrainage ?",
         already_member:"Déjà membre ?",
         register_order_success:"Tu y es presque au bout ! 💪 !",
@@ -258,6 +260,7 @@ export default {
 
         title:'Espace Membre',
 
+        go_back:"Retourner vers mon profil",
         user_not_ready:'Vous n\'êtes pas prêt !\n',
         user_not_ready_description:"Il vous manque une chose essentielle ! Avant d'être pleinement actif, veuillez compléter vos informations personnelles obligatoires. Remplissez votre nom, prénom, adresse e-mail, numéro de téléphone, pays et ville. Une fois que vous aurez fourni ces informations," +
             " vous pourrez profiter de toutes les fonctionnalités de notre site. 🫡",
@@ -307,7 +310,9 @@ export default {
 
         subscribe_here:"Payez votre abonnement Hèmlé ICI !!",
 
-        code_copied: 'Vous copié le code  !   '
+        code_copied: 'Vous copié le code  !   ',
+        man:'Homme',
+        woman:'Femme'
 
 
 
@@ -323,8 +328,12 @@ export default {
     referrer:{
 
         my_child:"Mes enfant dans Hémlè ",
-        total:"Total à verser <strong class=\"secondary-color\"> 5000 xaf</strong>",
-        my_referrer:"Mon parain"
+        total:"Total à verser ",
+        my_referrer:"Mon parain",
+        referer_error_desc:"Il semblerait que vous n'ayez pas encore de parrain dans Hémlè. Ne vous inquiétez pas, vous pouvez inviter vos amis à nous rejoindre et profiter ensemble de cette expérience unique. Soyez le premier à parrainer et à bâtir votre propre réseau dans Hemlè. Rejoignez-nous dès maintenant et ne manquez pas cette opportunité !\"",
+        referer_error_title:"Oups, vous n'avez pas encore de parrain "
+
+
     }
 
 

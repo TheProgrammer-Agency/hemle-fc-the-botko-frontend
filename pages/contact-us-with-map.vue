@@ -50,7 +50,7 @@
 
         head() {
             return {
-                title: 'Contact Us With Map'
+                title: 'Contactez-nous'
             }
         },
     };

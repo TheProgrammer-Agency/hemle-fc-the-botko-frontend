@@ -7,7 +7,7 @@
 
     <div class="payment-left">
 
-      <nuxt-link :to="localePath('/user')"><img src="/img/home/back.png" alt="" width="40" class="icon-back"></nuxt-link>
+      <nuxt-link :to="localePath('/user')" data-toggle="tooltip" data-placement="top" :title="$t('user.go_back')"><img src="/img/home/back.png" alt="" width="40" class="icon-back"></nuxt-link>
 
 
       <div class="container payment-left-wrapper">

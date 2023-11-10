@@ -5,9 +5,9 @@
     <ValidationObserver v-slot="{ invalid }">
 
 
-
       <br><br>
-      <div class="wrapper-form-info" >
+
+      <div class="wrapper-form-info">
 
         <div class="text-center">
 
@@ -70,7 +70,7 @@
 
                   <span class="error">{{ errors[0] }} </span>
 
-                  <select v-model="form.country" id="country" name="country" >
+                  <select v-model="form.country" id="country" name="country">
                     <option value="Afghanistan">Afghanistan</option>
                     <option value="Åland Islands">Åland Islands</option>
                     <option value="Albania">Albania</option>
@@ -186,7 +186,8 @@
                     <option value="Kazakhstan">Kazakhstan</option>
                     <option value="Kenya">Kenya</option>
                     <option value="Kiribati">Kiribati</option>
-                    <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                    <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of
+                    </option>
                     <option value="Korea, Republic of">Korea, Republic of</option>
                     <option value="Kuwait">Kuwait</option>
                     <option value="Kyrgyzstan">Kyrgyzstan</option>
@@ -200,7 +201,9 @@
                     <option value="Lithuania">Lithuania</option>
                     <option value="Luxembourg">Luxembourg</option>
                     <option value="Macao">Macao</option>
-                    <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                    <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic
+                      of
+                    </option>
                     <option value="Madagascar">Madagascar</option>
                     <option value="Malawi">Malawi</option>
                     <option value="Malaysia">Malaysia</option>
@@ -273,7 +276,9 @@
                     <option value="Solomon Islands">Solomon Islands</option>
                     <option value="Somalia">Somalia</option>
                     <option value="South Africa">South Africa</option>
-                    <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                    <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich
+                      Islands
+                    </option>
                     <option value="Spain">Spain</option>
                     <option value="Sri Lanka">Sri Lanka</option>
                     <option value="Sudan">Sudan</option>
@@ -320,14 +325,16 @@
                 </ValidationProvider>
               </div>
             </div>
+
+
             <div class="form-group-horizontal">
 
               <div class="form-group">
 
-                <label>{{$t('user.email')}}</label>
+                <label>{{ $t('user.email') }}</label>
 
                 <ValidationProvider :name="$t('user.email')" v-slot="{ errors }">
-                  <input v-model="form.email" type="email"   :disabled="$auth.user.data.email!=null">
+                  <input v-model="form.email" type="email" :disabled="$auth.user.data.email!=null">
                   <span class="error">{{ errors[0] }}</span>
                 </ValidationProvider>
 
@@ -335,11 +342,10 @@
 
               <div class="form-group">
 
-                <label>{{$t('user.phone_number')}}</label>
+                <label>{{ $t('user.phone_number') }}</label>
 
 
                 <ValidationProvider :name="$t('auth.tel')" rules="required|min:7|integer" v-slot="{ errors }">
-                  <span class="error">{{ errors[0] }}</span>
 
 
                   <div class="flex align-center login-phone">
@@ -355,15 +361,41 @@
                       </vue-country-code>
 
                     </client-only>
-                    <input  v-model="form.tel" type="number">
+
+                    <input v-model="form.tel" type="text">
 
                   </div>
+                  <span class="error">{{ errors[0] }}</span>
 
                 </ValidationProvider>
               </div>
             </div>
 
 
+            <div class="form-group-horizontal">
+
+              <div class="form-group">
+
+                <label>{{ $t('auth.sex') }}</label>
+
+                <ValidationProvider :name="$t('auth.sex')" rules="required|min:2" v-slot="{ errors }">
+                  <div class="wrapper-input-icon">
+                    <select name="" id="" v-model="form.sex">
+
+                      <option value="male">{{ $t('user.man') }}</option>
+                      <option value="female">{{ $t('user.woman') }}</option>
+
+                    </select>
+                  </div>
+
+
+                  <span class="error">{{ errors[0] }}</span>
+                </ValidationProvider>
+
+              </div>
+
+
+            </div>
 
 
             <br>
@@ -375,13 +407,13 @@
         <div class="form-group ml-auto">
 
 
-          <button type="submit" class="bk-btn theme-btn" @click.prevent="updateInfo">{{$t('user.update')}}</button>
+          <button type="submit" class="bk-btn theme-btn" @click.prevent="updateInfo">{{ $t('user.update') }}</button>
 
         </div>
 
         <div class="wrapper-wrapper-info">
 
-          <h5><img src="/img/home/user-black.png" alt=""> {{$t('user.my_password')}}</h5>
+          <h5><img src="/img/home/user-black.png" alt=""> {{ $t('user.my_password') }}</h5>
 
 
           <form @submit.prevent="updatePassword" class="form-info">
@@ -391,9 +423,10 @@
 
               <div class="form-group">
 
-                <label>{{$t('user.password')}}</label>
+                <label>{{ $t('user.password') }}</label>
 
-                <ValidationProvider :name="$t('user.password')" rules="required|min:4" v-slot="{ errors }">
+                <ValidationProvider :name="$t('user.password')" :rules="{ regex: /[!@#$%^&*(),.?:{}|<>]/ }"
+                                    v-slot="{ errors }">
                   <input v-model="form.password" type="password">
                   <span class="error">{{ errors[0] }}</span>
                 </ValidationProvider>
@@ -402,9 +435,10 @@
 
               <div class="form-group">
 
-                <label>{{$t('user.confirm_password')}}</label>
+                <label>{{ $t('user.confirm_password') }}</label>
 
-                <ValidationProvider :name="$t('user.confirm_password')" rules="required|min:4" v-slot="{ errors }">
+                <ValidationProvider :name="$t('user.confirm_password')" :rules="{  regex: /[!@#$%^&*(),.?:{}|<>]/ }"
+                                    v-slot="{ errors }">
                   <input v-model="form.password_confirmation" type="password">
                   <span class="error">{{ errors[0] }}</span>
                 </ValidationProvider>
@@ -417,26 +451,33 @@
 
         </div>
 
+        <div class="form-group ml-auto">
+
+
+          <button type="submit" class="bk-btn theme-btn" @click.prevent="updatePassword">{{ $t('user.update') }}
+          </button>
+
+        </div>
 
         <br><br>
         <div class="wrapper-wrapper-info">
 
-          <h4 class="error"><img src="/img/home/delete.png" alt="">  &nbsp; {{$t('user.danger_zone')}}</h4>
+          <h4 class="error"><img src="/img/home/delete.png" alt=""> &nbsp; {{ $t('user.danger_zone') }}</h4>
 
 
           <p>
-            {{$t('user.user_delete_account')}}
+            {{ $t('user.user_delete_account') }}
           </p>
 
 
         </div>
         <div class="form-group ml-auto">
 
-          <button type="submit" class="bk-btn  btn-error " @click.prevent="deleteUser">{{$t('tools.btn.delete_account')}}</button>
+          <button type="submit" class="bk-btn  btn-error " @click.prevent="deleteUser">
+            {{ $t('tools.btn.delete_account') }}
+          </button>
 
         </div>
-
-
 
 
         <!--            <div class="wrapper-wrapper-info">
@@ -477,10 +518,10 @@ import {mapGetters} from "vuex";
 
 export default {
   mixins: [slugify],
-  middleware:['auth'],
+  middleware: ['auth'],
 
 
-  layout:"layout-profil",
+  layout: "layout-profil",
   components: {
     HeaderBlack,
     FooterStyleFour,
@@ -507,7 +548,7 @@ export default {
       blogs,
       navOpen: false,
       searchOpen: false,
-      phone_number_code:'',
+      phone_number_code: '',
       form: {
 
         first_name: '',
@@ -517,7 +558,8 @@ export default {
         tel: '',
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        sex: ''
 
       },
       config: {
@@ -533,11 +575,10 @@ export default {
 
   mounted() {
 
-    this.data=new FormData()
+    this.data = new FormData()
 
 
-
-    if(!(this.$auth.user?.data?.is_active)){
+    if (!(this.$auth.user?.data?.is_active)) {
 
       this.$swal.fire({
         icon: 'warning',
@@ -548,8 +589,6 @@ export default {
     }
 
 
-
-
     this.form = {
 
       first_name: this.$auth.user.data.first_name,
@@ -558,12 +597,11 @@ export default {
       country: this.$auth.user.data.country,
       tel: this.$auth.user.data.tel,
       email: this.$auth.user.data.email,
+      sex: this.$auth.user.data.sex,
       password: '',
       password_confirmation: '',
-      avatar: this.$auth.user.data.avatar? this.$auth.user.data.avatar :'/img/home/avatar.svg'
+      avatar: this.$auth.user.data.avatar ? this.$auth.user.data.avatar : '/img/home/avatar.svg'
     }
-
-
 
 
     document.body.classList.add('template-color-1', 'template-font-2')
@@ -578,7 +616,7 @@ export default {
 
       let app = this;
 
-      if(this.$auth.user.data.is_member){
+      if (this.$auth.user.data.is_member) {
 
         //generate
 
@@ -589,20 +627,18 @@ export default {
           console.error(e);
         }
 
-      }
-      else{
+      } else {
 
-        if(this.$auth.user.data.is_active){
+        if (this.$auth.user.data.is_active) {
 
           this.$swal.fire({
             icon: 'error',
-            title: this.$t('user.user_error_copy_code_title') +(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
+            title: this.$t('user.user_error_copy_code_title') + (this.$auth.user.data.last_name == null ? '' : this.$auth.user.data.last_name),
             text: this.$t('user.user_error_copy_code_desc'),
-            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('user.subscribe_here') +'</a>'
+            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('user.subscribe_here') + '</a>'
           })
 
-        }
-        else{
+        } else {
 
           this.$swal.fire({
             icon: 'warning',
@@ -615,34 +651,32 @@ export default {
 
     },
 
-    generateMyCard(){
+    generateMyCard() {
 
-      if(this.$auth.user.data.is_member){
+      if (this.$auth.user.data.is_member) {
 
         //generate
 
-        if(this.$auth.user.data.card == null){
+        if (this.$auth.user.data.card == null) {
 
           this.$swal.fire({
             icon: 'info',
-            title: this.$t('user.user_generate_card_info_not_available_title')+this.$auth.user.data.last_name,
+            title: this.$t('user.user_generate_card_info_not_available_title') + this.$auth.user.data.last_name,
             text: this.$t('user.user_generate_card_info_not_available_desc')
           })
         }
-      }
-      else{
+      } else {
 
 
-        if(this.$auth.user.data.is_active){
+        if (this.$auth.user.data.is_active) {
           this.$swal.fire({
             icon: 'error',
-            title: this.$t('user.user_generate_card_info_not_available_title')+(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
+            title: this.$t('user.user_generate_card_info_not_available_title') + (this.$auth.user.data.last_name == null ? '' : this.$auth.user.data.last_name),
             text: this.$t('user.user_generate_card_info_inactive_desc'),
-            footer: '<a href="/pricing" style="margin:auto;">'+this.$t('tools.btn.it_is_here')+'</a>'
+            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('tools.btn.it_is_here') + '</a>'
           })
 
-        }
-        else{
+        } else {
 
           this.$swal.fire({
             icon: 'warning',
@@ -652,20 +686,17 @@ export default {
         }
 
 
-
-
-
       }
     },
-    goToOrder(){
+    goToOrder() {
 
 
-      if(this.$auth.user.data.is_active){
+      if (this.$auth.user.data.is_active) {
 
 
         this.$router.push(this.localePath('/user/orders'))
 
-      }else{
+      } else {
 
         this.$swal.fire({
           icon: 'warning',
@@ -674,9 +705,9 @@ export default {
         })
       }
     },
-    setData(){
+    setData() {
 
-      this.data.append('tel','+' + this.phone_number_code + this.form.tel,)
+      this.data.append('tel', '+' + this.phone_number_code + this.form.tel,)
       this.data.append('first_name', this.form.first_name)
       this.data.append('last_name', this.form.last_name)
       this.data.append('city', this.form.city)
@@ -685,9 +716,8 @@ export default {
       this.data.append('password_confirmation', this.form.password_confirmation)
 
 
-
     },
-    async deleteUser(){
+    async deleteUser() {
 
       let app = this;
 
@@ -717,12 +747,12 @@ export default {
               position: 'Center',
               icon: 'info',
               title: app.$t('auth.success_account_deleted_title'),
-              text:app.$t('auth.success_account_deleted_desc'),
+              text: app.$t('auth.success_account_deleted_desc'),
               showConfirmButton: true,
               confirmButtonText: app.$t('tools.btn.understood'),
             })
 
-          }).catch(function(err){
+          }).catch(function (err) {
 
           })
 
@@ -740,10 +770,7 @@ export default {
       })
 
 
-
-
     },
-
 
 
     async execUpdate() {
@@ -751,13 +778,10 @@ export default {
       let app = this
 
 
-
       this.setData()
 
 
-
       return new Promise(async (resolve, reject) => {
-
 
 
         await app.$axios.$post('/user/update/img', app.data, app.config).then(async function (res) {
@@ -765,10 +789,6 @@ export default {
           await app.$auth.fetchUser().then(function () {
 
             resolve()
-
-            console.log("response = ",res.data)
-
-            console.log(app.$auth.user)
             app.$nuxt.$loading.finish()
 
           })
@@ -791,11 +811,10 @@ export default {
 
       app.$nuxt.$loading.start()
 
-      if(e.target.files.length>0){
+      if (e.target.files.length > 0) {
 
 
-
-        console.log("e = ",e.target.files,e.target.files[0])
+        console.log("e = ", e.target.files, e.target.files[0])
         let fileSize = e.target.files[0].size / 1024 / 1024
 
         if (e.target.files && e.target.files[0]) {
@@ -849,7 +868,7 @@ export default {
               position: 'Center',
               icon: 'info',
               title: app.$t('user.user_img_too_big_title'),
-              text:  app.$t('user.user_img_too_big_desc'),
+              text: app.$t('user.user_img_too_big_desc'),
               showConfirmButton: true,
               confirmButtonText: app.$t('tools.btn.understood'),
               timer: 10000
@@ -868,22 +887,32 @@ export default {
 
       let app = this;
 
-
+      app.$nuxt.$loading.start()
 
       await this.$axios.$patch('user/update', this.form).then(async function (response) {
 
-        app.$swal.fire({
-          icon: 'success',
-          title: app.$t('user.user_info_updated_title') + app.form.last_name,
-          text: app.$t('user.user_info_updated_desc'),
-        })
 
-      }).catch(function(error){
+            await app.$auth.fetchUser().then(function () {
+
+
+              app.$nuxt.$loading.finish()
+
+            })
+
+            app.$swal.fire({
+              icon: 'success',
+              title: app.$t('user.user_info_updated_title') + app.form.last_name,
+              text: app.$t('user.user_info_updated_desc'),
+            })
+
+
+          }
+      ).catch(function (error) {
 
         app.$swal.fire({
           icon: 'error',
-          title:app.$t('auth.an_error_occured'),
-          text:  error.response.data.message,
+          title: app.$t('auth.an_error_occured'),
+          text: error.response.data.message,
 
         })
 
@@ -906,7 +935,7 @@ export default {
 
         app.$swal.fire({
           icon: 'success',
-          title: app.$t('user.user_info_updated_title') + app.form.last_name,
+          title: app.$t('user.user_info_updated_title'),
           text: app.$t('user.user_info_updated_desc'),
         })
 
@@ -914,18 +943,20 @@ export default {
 
         app.$swal.fire({
           icon: 'error',
-          title: app.$t('error.an_error_occured') + app.form.last_name,
-          text:error.response.data.message,
+          title: app.$t('auth.an_error_occured'),
+          text: error.response.data.message,
         })
       })
-    },
+    }
+    ,
 
 
     head() {
       return {
         title: this.$t('user.title')
       }
-    },
+    }
+    ,
   }
 }
 

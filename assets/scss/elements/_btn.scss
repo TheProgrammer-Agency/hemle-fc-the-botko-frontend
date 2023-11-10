@@ -3,6 +3,12 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
   background: var(--primary-color);
 }
 
+button:active, button:focus, input:active, input:focus, select:active, select:focus, textarea:active, textarea:focus
+{
+
+
+  border-color: rgba(0,0,0,.2);
+}
 .btn{
 
 

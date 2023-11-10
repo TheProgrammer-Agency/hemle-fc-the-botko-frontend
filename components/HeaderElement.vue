@@ -47,6 +47,8 @@
 
 
                                 <button v-if="!$auth.user?.data?.is_member" @click="goToPricing"  class="white d-flex bk-btn theme-btn">{{ $t('header.become_member') }} </button>
+
+
                                 <nuxt-link v-if="!$auth.loggedIn" style="color:#000" :to="localePath('/auth/login')" class="white d-flex bk-btn btn-secondary">
                                   <img src="/" alt=""> {{ $t('header.login') }} </nuxt-link>
                                 <nuxt-link v-if="$auth.loggedIn" :to="localePath('/auth/login')" class="white d-flex">
@@ -57,8 +59,22 @@
                                   <img src="/img/home/logout.png" style="object-fit: contain;cursor:pointer" alt="" width="25px">
 
                                 </div>
+
                               </div>
 
+                              <span  style="cursor: pointer;color: var(--white)">
+
+
+                                   <select name="" id="" v-model="localeSelected"  @change="switchLocale"  class="select-language">
+
+                                     <option v-for="locale in availableLocales"
+                                             :key="locale.code"
+                                             :value="locale.code">
+                                       <img src="/img/home/eng.png" alt=""> {{locale.name}}
+                                     </option>
+
+                                   </select>
+                              </span>
                                 <!-- End Popup Search Wrap -->
 
                                 <!-- Start Hamberger -->
@@ -147,12 +163,14 @@
           }, goToPricing(){
 
 
+            console.log("go to prici")
+
             if(this.$auth.loggedIn){
 
               if(this.$auth?.user?.data?.is_active){
 
 
-                this.$router.push(this.localePath('/user/orders'))
+                this.$router.push(this.localePath('/pricing'))
 
               }else{
 

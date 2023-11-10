@@ -27,19 +27,6 @@
                                       -->
                                         <a href="https://instagram.com/hemlefcdebotko237?igshid=NTc4MTIwNjQ2YQ==" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </div>
-                                  <span  style="cursor: pointer;color: var(--white)">
-
-
-                                   <select name="" id="" v-model="localeSelected"  @change="switchLocale"  class="select-language">
-
-                                     <option v-for="locale in availableLocales"
-                                             :key="locale.code"
-                                             :value="locale.code">
-                                       <img src="/img/home/eng.png" alt=""> {{locale.name}}
-                                     </option>
-
-                                   </select>
-                              </span>
                                 </div>
                                 <div class="col-lg-5 col-md-6 col-sm-6 col-12 mt_mobile--30">
                                     <p class="bk_pra line-height-1-63 bk-hover">
