@@ -48,9 +48,7 @@
                   <div class="list-header with-ckeck item-available" v-for="pricer in pricing[0]">
                     <div class="marker"></div>
                     <div class="title-wrap">
-                      <h6 class="heading heading-h5">{{
-                          pricer
-                        }}</h6>
+                      <h6 class="heading heading-h5" v-html="pricer"></h6>
                     </div>
                   </div>
 
@@ -99,9 +97,7 @@
                   <div class="list-header with-ckeck item-available" v-for="a in pricing[1]">
                     <div class="marker"></div>
                     <div class="title-wrap">
-                      <h6 class="heading heading-h5">{{
-                          a
-                        }}</h6>
+                      <h6 class="heading heading-h5" v-html="a"></h6>
                     </div>
                   </div>
 
