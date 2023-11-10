@@ -488,19 +488,16 @@
 
               <div class="form-group">
 
-                <label>{{ $t('auth.referral_code') }} </label>
+                <label>{{ $t('auth.sex') }} </label>
 
                 <ValidationProvider  v-slot="{ errors }">
-
-
-
 
                   <div class="wrapper-input-icon">
                     <img src="/img/home/password.svg" alt="">
                     <select name="" id="" v-model="form.sex">
 
-                      <option value="male">Homme</option>
-                      <option value="female">Femme</option>
+                      <option value="male">{{ $t('user.man') }}</option>
+                      <option value="female">{{ $t('user.woman') }}</option>
 
                     </select>
                   </div>
