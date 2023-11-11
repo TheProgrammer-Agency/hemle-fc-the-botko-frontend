@@ -92,8 +92,8 @@ export default {
         pricing_1_desc_1: "Obtenez le droit de participer à la Tombola Hémléen, avec des prix exclusifs à gagner.",
         pricing_1_desc_2: "<strong>Profitez d'un bonus de parrainage de 5% de vos gains par membre recommandé.</strong>",
         pricing_1_desc_3: "Accédez gratuitement à Hémlè TV, notre plateforme de contenu exclusive.",
-        pricing_1_desc_4: "Assistez gratuitement à tous les concerts organisés à Botko, une expérience unique réservée à nos membres.",
-        pricing_1_desc_5: "Obtenez une carte de membre numérique gratuite\n",
+        pricing_1_desc_4: "Obtenez une carte de membre numérique gratuite",
+        pricing_1_desc_5: "Assistez gratuitement à tous les concerts organisés à Botko, une expérience unique réservée à nos membres.",
 
 
         pricing_2_summary:'',
@@ -308,7 +308,7 @@ export default {
         delete_account_canceled_title:"Votre compte est en sécurité !",
         delete_account_canceled_desc:"Votre compte est en sécurité ! La suppression a été annulée avec succès. Continuez à profiter de tous les avantages de HÉMLÈ.",
 
-        subscribe_here:"Payez votre abonnement Hèmlé ICI !!",
+        subscribe_here:"Payez votre abonnement Hémlè ICI !!",
 
         code_copied: 'Vous copié le code  !   ',
         man:'Homme',

@@ -42,6 +42,7 @@
 
           <hr>
         </div>
+        <br>
         <div class="text-center" v-if="error_message!==''">
 
             <span class="error">

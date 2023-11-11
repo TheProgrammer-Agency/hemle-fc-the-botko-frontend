@@ -795,6 +795,7 @@ export default {
 
 
         }).catch(function () {
+          app.$nuxt.$loading.finish()
 
           reject()
 
@@ -908,6 +909,7 @@ export default {
 
           }
       ).catch(function (error) {
+        app.$nuxt.$loading.finish()
 
         app.$swal.fire({
           icon: 'error',

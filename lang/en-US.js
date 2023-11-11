@@ -265,7 +265,7 @@ export default {
 
         delete_account_canceled_title: "Your account is safe!",
         delete_account_canceled_desc: "Your account is safe! The deletion has been successfully canceled. Continue to enjoy all the benefits from HÉMLÈ.",
-        subscribe_here: "Pay your Hèmlé subscription HERE!!",
+        subscribe_here: "Pay your Hémlè subscription HERE!!",
 
         man:'Man',
         woman:'Woman'

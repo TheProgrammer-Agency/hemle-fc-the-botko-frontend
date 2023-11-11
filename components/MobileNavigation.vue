@@ -4,11 +4,11 @@
     <nav class="offcanvas-navigation" id="offcanvas-navigation">
       <ul>
         <li class="menu-item-has-children">
-          <n-link :to="localePath('index')">{{ $t('header.home') }}</n-link>
+          <a href="/" @click.prevent="goToHome">{{ $t('header.home') }}</a>
         </li>
 
         <li class="menu-item-has-children">
-          <n-link :to="localePath('/#teams')">{{ $t('header.equip') }}</n-link>
+          <a href="#" @click.prevent="goToEquip" style="cursor:pointer">{{ $t('header.equip') }}</a>
         </li>
 
         <li class="menu-item-has-children">
@@ -22,19 +22,18 @@
           <n-link :to="localePath('/contact-us-with-map')">{{ $t('header.contact') }}</n-link>
         </li>
 
-        <li class="menu-item-has-children" v-if="$auth.loggedIn" >
+        <li class="menu-item-has-children" v-if="$auth.loggedIn">
           <n-link :to="localePath('/user')">
 
-             {{ $t('header.my_account') }}
+            {{ $t('header.my_account') }}
 
           </n-link>
         </li>
 
-        <li class="menu-item-has-children"  @click="logout"  v-if="$auth.loggedIn"  >
+        <li class="menu-item-has-children" @click="logout" v-if="$auth.loggedIn">
           <img src="/img/home/logout.png" style="object-fit: contain;cursor:pointer" alt="" width="25px">
 
         </li>
-
 
 
       </ul>
@@ -43,45 +42,81 @@
 </template>
 
 <script>
-export default{
+export default {
   name: 'MobileNavMenu',
 
 
-  methods:{
+  methods: {
 
 
-    async    logout(){
+    goToHome() {
+
+      if (this.$route.path === "/") {
+
+
+        window.location.href = "/";
+
+      } else {
+        this.$router.push(this.localePath('/'))
+
+      }
+
+    },
+
+
+    goToEquip() {
+
+      const divCible = document.querySelector('#teams');
+
+
+      if (this.$route.path === "/") {
+
+
+        divCible.scrollIntoView({
+          behavior: 'smooth' // Utilisez 'smooth' pour un défilement fluide, ou 'auto' pour un défilement instantané
+        });
+
+      } else {
+
+        this.$router.push(this.localePath('/#teams'))
+
+        divCible.scrollIntoView({
+          behavior: 'smooth' // Utilisez 'smooth' pour un défilement fluide, ou 'auto' pour un défilement instantané
+        });
+      }
+    },
+    async logout() {
 
       await this.$auth.logout();
     },
   },
   mounted() {
-  /*  const offCanvasNav = document.querySelector('#offcanvas-navigation');
-    const offCanvasNavSubMenu = offCanvasNav.querySelectorAll('.sub-menu');
-    const anchorLinks = offCanvasNav.querySelectorAll('a');
+    /*  const offCanvasNav = document.querySelector('#offcanvas-navigation');
+      const offCanvasNavSubMenu = offCanvasNav.querySelectorAll('.sub-menu');
+      const anchorLinks = offCanvasNav.querySelectorAll('a');
 
-    for (let i = 0; i < offCanvasNavSubMenu.length; i++){
-      offCanvasNavSubMenu[i].insertAdjacentHTML("beforebegin", "<span class='menu-expand'><i></i></span>");
-    }
+      for (let i = 0; i < offCanvasNavSubMenu.length; i++){
+        offCanvasNavSubMenu[i].insertAdjacentHTML("beforebegin", "<span class='menu-expand'><i></i></span>");
+      }
 
-    const menuExpand = offCanvasNav.querySelectorAll('.menu-expand');
-    const numMenuExpand = menuExpand.length;
+      const menuExpand = offCanvasNav.querySelectorAll('.menu-expand');
+      const numMenuExpand = menuExpand.length;
 
-    for (let i = 0; i < numMenuExpand; i++) {
-      menuExpand[i].addEventListener("click", (e) => {sideMenuExpand(e)});
-    }
+      for (let i = 0; i < numMenuExpand; i++) {
+        menuExpand[i].addEventListener("click", (e) => {sideMenuExpand(e)});
+      }
 
-    for (let i = 0; i < anchorLinks.length; i++) {
-      anchorLinks[i].addEventListener("click", () => {closeMobileMenu()});
-    }
+      for (let i = 0; i < anchorLinks.length; i++) {
+        anchorLinks[i].addEventListener("click", () => {closeMobileMenu()});
+      }
 
-    const sideMenuExpand = (e) => {
-      e.currentTarget.parentElement.classList.toggle('active');
-    }
-    const closeMobileMenu = () => {
-      const offcanvasMobileMenu = document.querySelector('#offcanvas-mobile-menu');
-      offcanvasMobileMenu?.classList.remove('active');
-    }*/
+      const sideMenuExpand = (e) => {
+        e.currentTarget.parentElement.classList.toggle('active');
+      }
+      const closeMobileMenu = () => {
+        const offcanvasMobileMenu = document.querySelector('#offcanvas-mobile-menu');
+        offcanvasMobileMenu?.classList.remove('active');
+      }*/
 
   }
 };
@@ -97,12 +132,14 @@ export default{
             font-weight: 500;
           }
         }
+
         .sub-menu {
           height: 0;
           opacity: 0;
           transition: 0.3s;
           visibility: hidden;
         }
+
         &.active > {
           .sub-menu {
             height: 100%;
@@ -111,12 +148,14 @@ export default{
           }
         }
       }
+
       a {
         color: $white;
         font-size: 14px;
         font-weight: 600;
         padding: 10px 0;
         display: block;
+
         &:hover {
           color: $theme-color;
         }
@@ -128,14 +167,17 @@ export default{
     &.sub-menu {
       margin-left: 15px;
       transition: 0.4s;
+
       li {
         a {
           color: $white;
           font-weight: 400;
+
           &:hover {
             color: $theme-color;
           }
         }
+
         .sub-menu {
           li {
             a {
@@ -146,10 +188,12 @@ export default{
         }
       }
     }
+
     li {
       &.menu-item-has-children {
         position: relative;
         display: block;
+
         a {
           display: inline-block;
         }
@@ -157,6 +201,7 @@ export default{
         &.active > {
           .menu-expand {
             background-color: rgba($white, 0.2);
+
             i {
               &:before {
                 transform: rotate(0);
@@ -175,6 +220,7 @@ export default{
           position: absolute;
           text-align: center;
           background-color: rgba($white, 0.1);
+
           &:hover {
             background-color: rgba($white, 0.2);
           }
@@ -188,6 +234,7 @@ export default{
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
             &:before {
               width: 100%;
               content: "";

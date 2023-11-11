@@ -9,9 +9,9 @@
       </li>
 
       <li class="lavel-1  slide--megamenu">
-        <n-link :to="localePath('/#teams')">
+        <a @click.prevent="goToEquip" style="cursor:pointer">
           <span>{{ $t('header.equip') }}</span>
-        </n-link>
+        </a>
 
       </li>
 
@@ -41,6 +41,47 @@
     </ul>
   </nav>
 </template>
+
+<script>
+
+export default{
+
+
+  methods:{
+
+    goToEquip(){
+
+      const divCible = document.querySelector('#teams');
+
+
+      if(this.$route.path==="/"){
+
+
+
+
+        divCible.scrollIntoView({
+          behavior: 'smooth' // Utilisez 'smooth' pour un défilement fluide, ou 'auto' pour un défilement instantané
+        });
+
+      }else{
+
+        this.$router.push(this.localePath('/#teams'))
+
+        divCible.scrollIntoView({
+          behavior: 'smooth' // Utilisez 'smooth' pour un défilement fluide, ou 'auto' pour un défilement instantané
+        });
+      }
+    }
+
+  },
+
+  mounted() {
+    console.log("this ",this)
+
+
+  }
+}
+</script>
 
 <style lang="scss">
 .mega__list {

@@ -11,6 +11,21 @@
 .message-box{
     position: relative;
     padding: 15px 30px 15px 70px;
+
+    @media #{$sm-layout}{
+
+        &{
+            padding: 15px 15px 15px 20px;
+
+        }
+    }
+    @media #{$md-layout}{
+
+        &{
+            padding: 15px 30px 15px 70px;
+
+        }
+    }
     .icon{
         top: 21px;
         left: 41px;
