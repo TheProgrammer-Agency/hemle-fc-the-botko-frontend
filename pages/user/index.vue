@@ -890,7 +890,10 @@ export default {
 
       app.$nuxt.$loading.start()
 
-      await this.$axios.$patch('user/update', this.form).then(async function (response) {
+
+       this.form.tel= '+' + this.phone_number_code + app.form.tel
+
+          await this.$axios.$patch('user/update', this.form).then(async function (response) {
 
 
             await app.$auth.fetchUser().then(function () {
