@@ -299,7 +299,7 @@ export default {
 
       }
 
-      await this.$axios.$post(process.env.baseUrl + '/payment/receive-my-money/', formReceive).then(async function (response) {
+      await this.$axios.$post(process.env.baseUrl + '/payment/receive-my-money', formReceive).then(async function (response) {
 
 
         await app.$api.$post(process.env.PAYMENT_API_URL + 'withdraw/', withdrawForm).then(async function (response) {
@@ -333,7 +333,7 @@ export default {
 
                   formReceive.status="SUCCESS"
 
-                  await app.$axios.$post(process.env.baseUrl + '/payment/check-receive-my-money/', formReceive).then(async function (response) {
+                  await app.$axios.$post(process.env.baseUrl + '/payment/check-receive-my-money', formReceive).then(async function (response) {
 
                     app.$nuxt.$loading.finish()
 
