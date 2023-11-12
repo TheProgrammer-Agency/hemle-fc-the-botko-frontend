@@ -219,6 +219,11 @@
         display: flex;
         gap: 20px;
 
+        a{
+          color:var(--text-color);
+          font-weight: 500;
+        }
+
         a:hover{
 
           color:var(--secondary-color)

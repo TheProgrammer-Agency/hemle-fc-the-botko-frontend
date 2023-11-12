@@ -268,11 +268,20 @@ export default {
         subscribe_here: "Pay your Hémlè subscription HERE!!",
 
         man:'Man',
-        woman:'Woman'
+        woman:'Woman',
+
+
+        my_profil:'My account',
+        my_orders:'My orders',
+        my_sponsor:'My referrals',
+        withdraw_success :"Congratulations {name}, you have successfully withdrawn {amount}!",
+        withdraw_pending:"We are processing your withdrawal. Please wait a moment.\n",
+        withdraw_waiting:"Please wait a moment.\n",
 
 
 
-    },
+
+},
 
     error: {
         back_to_home: "Hitchhike to go back home.",

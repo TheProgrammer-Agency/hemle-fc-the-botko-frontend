@@ -1,5 +1,9 @@
 <template>
-    <div class="container-fluid p-0" data-aos="fade-in"  id="teams" >
+    <div class="container-fluid p-0"
+
+
+         id="teams"
+    >
 
       <h1 class="heading heading-h1 line-height-1-5 text-center d-flex justify-content-center  align-items-center">
 
@@ -16,11 +20,11 @@
 
 
 
-            <div class="col-12">
+            <div class="col-12" >
                 <div class="brook-element-carousel swiper-custom-arrow swiper-arrow-hover">
                     <swiper :options="swiperOption">
 
-                        <nuxt-link  v-for="teamMember in teams.teams" :key="teamMember.id"  :to="'/teams/'+teamMember.uuid" class="swiper-slide">
+                        <nuxt-link    v-for="teamMember in teams.teams" :key="teamMember.id"  :to="'/teams/'+teamMember.uuid" class="swiper-slide">
                             <TeamMemberThree :teamMember="teamMember" />
                         </nuxt-link>
 

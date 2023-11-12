@@ -46,7 +46,7 @@
 
           <br>
 
-          <span @click.prevent="copySomething($auth.user?.data?.referral_code)" style="cursor:pointer">
+          <span @click.prevent="copySomething" style="cursor:pointer">
              {{ $auth.user?.data?.referral_code }}  <img src="/img/home/copy.png" width="25" height="25">
           </span>
 
@@ -78,10 +78,9 @@
 
         <nav class="container">
 
-          <nuxt-link to="/user">
-             <span> Mon profil</span></nuxt-link>
-          <nuxt-link :to="localePath('/user/orders')"><i class="fa-solid fa-user-large"></i> Mes commandes</nuxt-link>
-          <nuxt-link :to="localePath('/user/referrer')">Parainage</nuxt-link>
+          <nuxt-link to="/user" class="header-user-link"><span> {{$t('user.my_profil')}}</span></nuxt-link>
+          <nuxt-link :to="localePath('/user/orders')" class="header-user-link"><i class="fa-solid fa-user-large"></i>{{$t('user.my_orders')}}</nuxt-link>
+          <nuxt-link :to="localePath('/user/referrer')" class="header-user-link">{{$t('user.my_sponsor')}}</nuxt-link>
 
 
         </nav>
@@ -225,10 +224,18 @@ export default {
           //generate
 
           try {
-            await app.$copyText('text');
+            await app.$copyText(process.env.APP_URL+'/pricing?code='+this.$auth.user?.data?.referral_code);
             app.$toast.info(app.$t('user.code_copied'))
+
           } catch (e) {
             console.error(e);
+
+            app.$swal.fire({
+              icon: 'error',
+              title:app.$t('auth.an_error_occured'),
+              text:  e,
+
+            })
           }
 
         }

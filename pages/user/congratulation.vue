@@ -77,14 +77,14 @@ export default {
           })
 
 
-        }).catch(function () {
+        }).catch(function (e) {
 
+
+          console.log("e",e.response)
           app.$swal.fire({
             icon: 'error',
-            title: "Une erreur s'est produite" + app.$auth.user.data.last_name,
-            text: "Nous n'avons pas pu mettre à jour vos données de paiment, veuillez réessayer, si cela persiste, contactez-nous !" +
-                "\n 🫡",
-            footer: '<a href="/pricing" style="margin:auto;">Payez votre abonnement Hèmlé ICI !!</a>'
+            title: app.$t('auth.an_error_occured')+ ' '+app.$auth.user.data.last_name,
+            text: e.response.data.message,
           })
 
 

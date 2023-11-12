@@ -467,7 +467,7 @@
 
           <div class="form-group-horizontal">
 
-            <div class="form-group">
+            <div class="form-group" v-if="form.referral_code!==null">
 
               <label>{{ $t('auth.referral_code') }} </label>
 
@@ -571,7 +571,7 @@ export default {
         email: '',
         password: '',
         password_confirmation: '',
-        referral_code: '',
+        referral_code: null,
         sex:'male'
       },
       phone_number_code: '',
@@ -727,6 +727,13 @@ export default {
 
 
     this.package = packages[this.$route.query.package]
+
+    if(this.$route.query.code){
+      this.form.referral_code = this.$route.query.code
+
+    }
+
+    console.log("form referral code ",this.form.referral_code)
     this.contact = process.env.wa_contact
 
 

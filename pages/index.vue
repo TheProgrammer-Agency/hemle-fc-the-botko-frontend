@@ -11,19 +11,20 @@
     <HeroEssential></HeroEssential>
 
 
-    <PricingItemStyleTwo :is_came_from_home="true"  />
+    <PricingItemStyleTwo  :is_came_from_home="true"  />
 
 
 
     <div class="brook-breadcrumb-area pt--100 bg_color--1 breadcrumb-title-bar"
 
+
+         data-aos="fade-up"
          data-aos-offset="50"
          data-aos-delay="50"
          data-aos-duration="1000"
-         data-aos-easing="ease-in"
          data-aos-mirror="true"
          :data-aos-once="true"
-         data-aos-anchor-placement="top-center"
+         data-aos-anchor-placement="top-bottom"
 
     >
       <div class="container  mb_sm--30">
@@ -117,15 +118,7 @@
 
     <MatchScore></MatchScore>
 
-    <div class="brook-team-area bg_color--1  mt--50 mb--150 "   data-aos="fade-up"
-         data-aos-offset="10"
-         data-aos-delay="50"
-         data-aos-duration="1000"
-         data-aos-easing="ease-in"
-         data-aos-mirror="true"
-         data-aos-once="true"
-         data-aos-anchor-placement="top-center"
-
+    <div class="brook-team-area bg_color--1  mt--50 mb--150 "
     >
       <TeamCarouselFull/>
 
@@ -186,6 +179,7 @@ import MatchScore from "../components/MatchScore";
 export default {
   mixins: [slugify],
   auth:false,
+
 
   components: {
     HeroEssential,

@@ -2,9 +2,9 @@
   <nav class="page_nav">
     <ul class="mainmenu">
       <li class="lavel-1  slide--megamenu">
-        <n-link :to="localePath('index')">
+        <a href="#" @click.prevent="goToHome">
           <span>{{ $t('header.home') }}</span>
-        </n-link>
+        </a>
 
       </li>
 
@@ -49,27 +49,59 @@ export default{
 
   methods:{
 
-    goToEquip(){
-
-      const divCible = document.querySelector('#teams');
+    goToHome() {
 
 
-      if(this.$route.path==="/"){
+      console.log(this)
+      if(this.$route.path==="/" || this.$route.path==="/"+this.$i18n.locale){
 
 
-
-
-        divCible.scrollIntoView({
-          behavior: 'smooth' // Utilisez 'smooth' pour un défilement fluide, ou 'auto' pour un défilement instantané
+        console.log('go to')
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Cela permet un défilement fluide
         });
 
-      }else{
+      }
+
+      else{
+
+        this.$router.push(this.localePath('/'))
+
+
+      }
+    },
+
+
+    goToEquip(){
+
+      const divCible = document.getElementById('teams');
+
+
+      if(this.$route.path==="/" || this.$route.path==="/"+this.$i18n.locale ||  this.$route.path==="/"+'#teams' || this.$route.path==="/"+this.$i18n.locale+'#teams' ){
+
+
+        console.log("cibl=,",divCible.offsetTop+400)
+        let rect =divCible.offsetTop+400
+
+        window.scrollTo({
+          top:rect,
+          behavior: 'smooth' // Cela permet un défilement fluide
+        });
+
+      }
+
+      else{
 
         this.$router.push(this.localePath('/#teams'))
 
-        divCible.scrollIntoView({
-          behavior: 'smooth' // Utilisez 'smooth' pour un défilement fluide, ou 'auto' pour un défilement instantané
+        let rect =divCible.offsetTop+400
+
+        window.scrollTo({
+          top:rect,
+          behavior: 'smooth' // Cela permet un défilement fluide
         });
+
       }
     }
 

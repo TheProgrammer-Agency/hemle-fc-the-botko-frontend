@@ -93,6 +93,7 @@
 
 <script>
 import packages from "../../data/package.json";
+import {v4 as uuidv4} from 'uuid';
 
 export default {
   name: "payment",
@@ -103,7 +104,8 @@ export default {
   data() {
     return {
 
-      package:''
+      package:'',
+      external_reference:''
     }
   },
 
@@ -123,7 +125,7 @@ export default {
 
             app.$swal.fire({
               icon: 'success',
-              title: app.$t('auth.register_order_success') +' ' +app.$auth.user.data.first_name,
+              title: app.$t('auth.register_order_success') +' ' +app.$auth?.user?.data?.first_name,
               text: app.$t('auth.register_order_success_desc'),
               footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
             })
@@ -141,8 +143,8 @@ export default {
 
             app.$swal.fire({
               icon: 'error',
-              title:app.$t('auth.an_error_occured')+' '+ app.$auth.user.data.first_name,
-              text:  error.response.data.message,
+              title:app.$t('auth.an_error_occured')+' '+ app?.$auth?.user?.data?.first_name,
+              text:  error?.response?.data?.message,
               footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
 
             })
@@ -168,16 +170,15 @@ export default {
         from: this.$auth.user.data.tel,
         description: this.package.description,
         package_name: this.package.package_name,
-        external_user: this.package.external_user,
 
 
       }
 
-      payment_form.user = this.$auth.user.data.uuid
-      payment_form.external_reference = this.$auth.user.data.uuid
-      let redirectUrl=`${process.env.baseUrlSimple}api/payment/checkout?reference=${app.$auth.user.data.uuid}&&price_stripe=${app.package.price_stripe}`
+      payment_form.user = this.external_reference
+      payment_form.external_reference = this.external_reference;
+      let redirectUrl=`${process.env.baseUrlSimple}api/payment/checkout?reference=${this.external_reference}&&price_stripe=${app.package.price_stripe}`
 
-      await this.makeOrder(payment_form,redirectUrl )
+      await this.makeOrder(payment_form,redirectUrl)
 
 
 
@@ -203,9 +204,9 @@ export default {
       }
 
       payment_form.user = this.$auth.user.data.uuid
-      payment_form.external_reference = this.$auth.user.data.uuid
+      payment_form.external_reference = this.external_reference
 
-      payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.$auth.user.data.uuid
+      payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' +this.external_reference
 
       await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(async function (response) {
 
@@ -228,6 +229,7 @@ export default {
     this.package = packages[this.$route.query.package]
 
     this.contact = process.env.wa_contact
+    this.external_reference=uuidv4();
 
 
   },

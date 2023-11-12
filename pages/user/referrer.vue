@@ -2,7 +2,6 @@
   <div class="main-container user-orders">
 
 
-
     <div class="container">
 
 
@@ -15,22 +14,22 @@
       <br>
       <br>
 
-      <div class="card-error"   v-if="!hasReferrer && !hasReferrals">
-
-
+      <div class="card-error" v-if="!hasReferrer && !hasReferrals">
 
 
         <div class="card-error-left">
 
-          <h2>  {{$t('referrer.referer_error_title')}}  {{$auth.user.data.first_name}}</h2>
+          <h2> {{ $t('referrer.referer_error_title') }} {{ $auth.user.data.first_name }}</h2>
 
           <p>
-            {{$t('referrer.referer_error_desc')}}
+            {{ $t('referrer.referer_error_desc') }}
 
 
           </p>
 
-          <button class="bk-btn theme-btn"  @click.prevent="copySomething($auth.user?.data?.referral_code)">{{$t('tools.btn.copy_code')}} </button>
+          <button class="bk-btn theme-btn" @click.prevent="copySomething($auth.user?.data?.referral_code)">
+            {{ $t('tools.btn.copy_code') }}
+          </button>
 
         </div>
 
@@ -43,7 +42,6 @@
       </div>
 
       <div class="main-order" v-if="hasReferrer">
-
 
 
         <h2>{{ $t('referrer.my_referrer') }} </h2>
@@ -77,9 +75,9 @@
 
           </div>
 
-<!--                <div class="card-order-right" >
-                      <h5 class="red-color proceed-payment-btn">{{$t('tools.btn.buy_now')}}</h5>
-                </div>-->
+          <!--                <div class="card-order-right" >
+                                <h5 class="red-color proceed-payment-btn">{{$t('tools.btn.buy_now')}}</h5>
+                          </div>-->
         </div>
 
       </div>
@@ -98,12 +96,12 @@
 
               <div class="left">
 
-                <img :src="referrer.referrer.avatar" alt="">
+                <img :src="referrer?.referrer?.avatar" alt="">
               </div>
 
               <div class="right">
 
-                <h5>{{ referrer.referrer.first_name }} {{ referrer.referrer.last_name }} </h5>
+                <h5>{{ referrer?.referrer?.first_name }} {{ referrer?.referrer?.last_name }} </h5>
 
                 <!--                    <span class="primary-color">
                                      sdfsdf
@@ -111,11 +109,14 @@
 
                 <span>
 
-                   {{ referrer.amount }} XAF
+                   {{ referrer?.amount }} XAF
 
 
                   <br>
-                <span class="secondary-color">{{ referrer.is_paid ? 'Est déjà membre !' : 'Pas encore membre'}}</span>
+                <span
+                    class="secondary-color">{{
+                    referrer?.referrer?.is_member ? 'Est déjà membre !' : 'Pas encore membre'
+                  }}</span>
 
 
                   </span>
@@ -130,10 +131,11 @@
 
         </div>
 
-        <h2>{{$t('referrer.total')}}  <strong class="secondary-color">  {{getTotalToPaid}} xaf</strong></h2>
+        <h2>{{ $t('referrer.total') }} <strong class="secondary-color"> {{ getTotalToPaid }} xaf</strong></h2>
 
 
-
+        <button v-if="getTotalToPaid>0" class="bk-btn theme-btn" @click.prevent="ReceiveMyMoney">Recevoir mon argent
+        </button>
 
 
       </div>
@@ -168,7 +170,6 @@
     </div>
 
 
-
   </div>
 </template>
 
@@ -184,12 +185,13 @@ import FooterAgency from "../../components/FooterAgency";
 import FooterStyleFour from "../../components/FooterStyleFour";
 import HeaderBlack from "../../components/HeaderBlack";
 import {mapGetters} from "vuex";
+import {v4 as uuidv4} from 'uuid';
 
 export default {
   mixins: [slugify],
   middleware: ['auth', 'checkUserIsActive'],
 
-  layout:"layout-profil",
+  layout: "layout-profil",
   components: {
     HeaderBlack,
     FooterStyleFour,
@@ -205,10 +207,10 @@ export default {
       data,
       blogs,
       navOpen: false,
-      searchOpen: false
+      searchOpen: false,
+      external_reference: null
     }
   },
-
 
 
   computed: {
@@ -221,27 +223,26 @@ export default {
 
       return this.referrers?.referrer?.referrer
     },
-    hasReferrer(){
+    hasReferrer() {
 
-      return  !(this.referrers?.referrer == null)
+      return !(this.referrers?.referrer == null)
 
     },
 
-    hasReferrals(){
-     return  this.referrers?.referrals?.length>0
+    hasReferrals() {
+      return this.referrers?.referrals?.length > 0
     },
 
-    getTotalToPaid(){
+    getTotalToPaid() {
 
 
-      let total=0;
-     this.referrers?.referrals?.forEach(function (referrer) {
+      let total = 0;
+      this.referrers?.referrals?.forEach(function (referrer) {
+
+        if (referrer.is_paid===0) {
 
 
-        if (referrer.is_paid) {
-
-
-          total +=   parseFloat(referrer.amount)
+          total += parseFloat(referrer.amount)
 
 
         }
@@ -249,12 +250,10 @@ export default {
 
       });
 
-     return total;
+      return total;
 
 
     }
-
-
 
 
   },
@@ -273,11 +272,152 @@ export default {
   },
   fetchOnServer: false,
   methods: {
+
+    async ReceiveMyMoney() {
+
+      this.$nuxt.$loading.start()
+
+      let app = this;
+      let withdrawForm = {
+
+        amount: 1,
+/*
+        amount: this.getTotalToPaid,
+*/
+
+
+        to: this.$auth.user.data.tel,
+        description: "paiment des ensembles de parrainage de l'utilisateur Hémlè " + this.$auth.user.data.uuid,
+        external_reference: this.external_reference
+      }
+
+
+      let formReceive = {
+        external_reference: this.external_reference,
+        total: this.getTotalToPaid,
+        description: "paiment des ensembles de parrainage de l'utilisateur Hémlè " + this.$auth.user.data.uuid,
+
+      }
+
+      await this.$axios.$post(process.env.baseUrl + '/payment/receive-my-money/', formReceive).then(async function (response) {
+
+
+        await app.$api.$post(process.env.PAYMENT_API_URL + 'withdraw/', withdrawForm).then(async function (response) {
+
+          console.log("reference = ", response, response?.data)
+
+
+          let timerInterval;
+
+          app.$nuxt.$loading.finish()
+
+
+          app.$swal.fire({
+            title: app.$t('user.withdraw_waiting'),
+            html: app.$t('user.withdraw_pending'),
+            timerProgressBar: true,
+            didOpen: () => {
+              app.$swal.showLoading();
+              const timer = app.$swal.getPopup().querySelector("b");
+
+
+              setTimeout(async function () {
+
+
+                app.$nuxt.$loading.start()
+
+                await app.$api.$get(process.env.PAYMENT_API_URL + 'transaction/' + response.reference + '/').then(async function (response) {
+
+                  app.$nuxt.refresh()
+
+
+                  formReceive.status="SUCCESS"
+
+                  await app.$axios.$post(process.env.baseUrl + '/payment/check-receive-my-money/', formReceive).then(async function (response) {
+
+                    app.$nuxt.$loading.finish()
+
+                    app.$swal.fire({
+                      title: app.$t('user.withdraw_success',{ amount:app.getTotalToPaid+' FCFA',name: app.$auth.user.data.first_name}),
+                      width: 600,
+                      padding: "3em",
+                      color: "var(--primary-color)",
+                      background: "#fff ",
+                      backdrop: `
+                                              url("/img/home/success.gif")
+
+                      rgba(0,0,123,0.4)
+                      left top
+                      no-repeat
+  `
+                    });
+
+                  }).catch(function (error) {
+                    app.$nuxt.$loading.finish()
+
+                    app.$swal.fire({
+                      icon: 'error',
+                      title: app.$t('auth.an_error_occured'),
+                      text: error?.response?.data?.message,
+
+                    })
+
+                  })
+
+
+
+
+                });
+
+
+              }, 3000)
+
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === app.$swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+
+
+        }).catch(function (error) {
+
+          app.$nuxt.$loading.finish()
+
+          app.$swal.fire({
+            icon: 'error',
+            title: app.$t('auth.an_error_occured'),
+            text: error?.response?.data?.message,
+
+          })
+        })
+
+
+      }).catch(function (error) {
+
+        app.$nuxt.$loading.finish()
+
+        app.$swal.fire({
+          icon: 'error',
+          title: app.$t('auth.an_error_occured'),
+          text: error?.response?.data?.message,
+
+        })
+      })
+
+
+    },
+
+
     async copySomething(text) {
 
       let app = this;
 
-      if(this.$auth?.user.data?.is_member){
+      if (this.$auth?.user.data?.is_member) {
 
         //generate
 
@@ -288,23 +428,21 @@ export default {
           console.error(e);
         }
 
-      }
-      else{
+      } else {
 
-        if(this.$auth?.user?.data?.is_active){
+        if (this.$auth?.user?.data?.is_active) {
 
-          this.$swal.fire({
+          app.$swal.fire({
             icon: 'error',
-            title: this.$t('user.user_error_copy_code_title') +(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
+            title: this.$t('user.user_error_copy_code_title') + (this.$auth.user.data.last_name == null ? '' : this.$auth.user.data.last_name),
             text: this.$t('user.user_error_copy_code_desc'),
-            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('user.subscribe_here') +'</a>'
+            footer: '<a href="/pricing" style="margin:auto;">' + this.$t('user.subscribe_here') + '</a>'
           })
 
-        }
-        else{
+        } else {
 
 
-          this.$swal.fire({
+          app.$swal.fire({
             icon: 'warning',
             title: this.$t('user.user_not_ready'),
             text: this.$t('user.user_not_ready_description')
@@ -319,6 +457,10 @@ export default {
 
   mounted() {
     document.body.classList.add('template-color-1', 'template-font-2')
+
+    this.external_reference = uuidv4();
+
+
   },
 
   head() {

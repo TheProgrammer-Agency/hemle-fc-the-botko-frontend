@@ -312,10 +312,17 @@ export default {
 
         code_copied: 'Vous copié le code  !   ',
         man:'Homme',
-        woman:'Femme'
+        woman:'Femme',
 
+        my_profil:'Mon profil',
+        my_orders:'Mes commandes',
+        my_sponsor:'Mes parrainages',
 
+        withdraw_success:"Bravo {name}, vous venez de retirer {amount} avec succès !",
 
+        withdraw_pending:"Nous sommes en train de traiter votre retrait. Veuillez patienter un moment.",
+
+        withdraw_waiting:"Veuillez patienter un instant ",
 
 
 
