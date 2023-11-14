@@ -3,6 +3,7 @@
 
   <div>
 
+
       <vue-html2pdf
           :show-layout="false"
           :float-layout="true"
@@ -76,7 +77,7 @@
 
       </vue-html2pdf>
 
-    <button  class="bk-btn theme-btn" @click.prevent="generateMyCard" >{{$t('tools.btn.generate_card')}}</button>
+    <button  class="bk-btn theme-btn"  v-for="(element,index) in my_packages"  data-toggle="tooltip" data-placement="top" :title="element"  :key="index"  @click.prevent="generateMyCard(element)">{{$t('tools.btn.generate_card')}} </button>
 
   </div>
 </template>
@@ -92,11 +93,13 @@ export default {
   middleware:['auth'],
 
 
+
   data(){
 
     return{
 
-     user_package:"ÑEM KÍÍ ÑJÉÉ"
+     user_package:"ÑEM KÍÍ ÑJÉÉ",
+      my_packages:[]
     }
   },
 
@@ -111,10 +114,33 @@ export default {
       let TabFirstName= first_name.split(' ');
       let TabLastName=last_name.split(' ');
 
-      return TabFirstName[0] + " "+ TabFirstName[0]
+      return TabFirstName[0] + " " + TabFirstName[0]
     },
 
   },
+  fetchOnServer: false,
+
+  async fetch() {
+
+
+    let packages= (await this.$axios.get('/user/get-my-packages')).data.packages
+
+
+    let tab=[]
+    packages.forEach(function (element) {
+
+      tab.push(element.package_name)
+    })
+
+
+
+    this.my_packages=tab;
+
+
+
+
+  },
+
   methods:{
 
 
@@ -125,12 +151,13 @@ export default {
 
     },
 
-    generateMyCard(){
+    generateMyCard(package_user){
 
       if(this.$auth.user.data.is_member){
 
         //generate
 
+        this.user_package=package_user
         this.$refs.html2Pdf.generatePdf()
 
       }
