@@ -225,6 +225,7 @@ export default {
     if(this.$route.query.code){
 
       this.code=this.$route.query.code
+      console.log("code  =",this.$route.query.code)
     }
 
     this.pricing = [

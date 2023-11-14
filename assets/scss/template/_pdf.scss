@@ -1,0 +1,70 @@
+
+
+
+
+.pdf-content{
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .overlay-text{
+
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    color: beige;
+    font-weight: bold;
+    word-break: break-all;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin:auto;
+    text-align: center;
+    width: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: beige;
+
+    &.nianga{
+
+      top:80%;
+      text-align: left;
+      font-size: 38px;
+      padding:0 15px;
+    }
+
+    &.hiee{
+
+      top:80%;
+      text-align: left;
+      font-size: 30px;
+      padding:0 15px;
+    }
+
+    &.njee{
+      font-size: 30px;
+      top:72%;
+      left: 50%;
+      text-align: center;
+      max-width: 66%;
+    }
+  }
+
+
+
+
+
+  .wrapper-img{
+
+    position: relative;
+    width: fit-content;
+    margin:auto;
+
+
+    img{
+
+      width: 100%;
+    }
+
+  }
+}

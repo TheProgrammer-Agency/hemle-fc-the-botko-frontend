@@ -3,22 +3,6 @@
 
   <div>
 
-
-    <section slot="pdf-content" class="pdf-content">
-
-      <div class="wrapper-pdf">
-
-        <div class="wrapper-img">
-
-          <img ref="image" src="/img/home/carte-hiee.jpg" alt="Image">
-          <div class="overlay-text nianga">Josué Nguimatio</div>
-        </div>
-        <img ref="image" src="/img/home/carte-hiee-back.jpg" alt="Image">
-
-      </div>
-    </section>
-
-    <client-only>
       <vue-html2pdf
           :show-layout="false"
           :float-layout="true"
@@ -34,55 +18,56 @@
 
           ref="html2Pdf"
       >
-        <section slot="pdf-content" class="pdf-content" v-if="getUserPackage==='ÑEM KÍÍ ÑJÉÉ'">
+        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage('ÑEM KÍÍ ÑJÉÉ')">
 
           <div class="wrapper-pdf">
 
-            <div class="wrapper-img  njee">
+            <div class="wrapper-img  ">
 
               <img ref="image" src="/img/home/carte.jpg" alt="Image">
-              <div class="overlay-text">Josué Nguimatio</div>
+              <div class="overlay-text njee">{{generateUserNames}}</div>
             </div>
             <img ref="image" src="/img/home/carte-back.jpg" alt="Image">
 
           </div>
         </section>
-        <section slot="pdf-content" class="pdf-content" v-if="getUserPackage==='ÑÈM KÍÍ NGOCK'">
+        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage('ÑÈM KÍÍ NGOCK')">
 
           <div class="wrapper-pdf">
 
             <div class="wrapper-img ">
 
               <img ref="image" src="/img/home/carte-ngock.jpg" alt="Image">
-              <div class="overlay-text  njee">Josué Nguimatio</div>
+              <div class="overlay-text  njee">{{generateUserNames}}</div>
             </div>
             <img ref="image" src="/img/home/carte-ngock-back.jpg" alt="Image">
 
           </div>
         </section>
 
-     <section slot="pdf-content" class="pdf-content" v-if="getUserPackage==='ÑEM KÍÍ HIAÑNGA\'A\''">
+        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage('ÑEM KÍÍ HIAÑNGA\'A')">
 
           <div class="wrapper-pdf">
+
 
             <div class="wrapper-img">
 
               <img ref="image" src="/img/home/carte2.jpg" alt="Image">
-              <div class="overlay-text nianga">Josué Nguimatio</div>
+              <div class="overlay-text nianga">{{generateUserNames}}</div>
             </div>
             <img ref="image" src="/img/home/carte2-back.jpg" alt="Image">
 
           </div>
         </section>
 
-        <section slot="pdf-content" class="pdf-content" v-if="getUserPackage === 'ÑÈM KÍÍ HIÉE'">
+        <section slot="pdf-content" class="pdf-content"   v-if="checkUserPackage('ÑÈM KÍÍ HIÉE')">
 
           <div class="wrapper-pdf">
 
             <div class="wrapper-img">
 
               <img ref="image" src="/img/home/carte-hiee.jpg" alt="Image">
-              <div class="overlay-text hiee">Josué Nguimatio</div>
+              <div class="overlay-text hiee">{{generateUserNames}}</div>
             </div>
             <img ref="image" src="/img/home/carte-hiee-back.jpg" alt="Image">
 
@@ -90,9 +75,8 @@
         </section>
 
       </vue-html2pdf>
-    </client-only>
 
-    <button v-if="$auth?.user?.data?.card ==null "  class="bk-btn theme-btn" @click.prevent="generateMyCard" >{{$t('tools.btn.generate_card')}}</button>
+    <button  class="bk-btn theme-btn" @click.prevent="generateMyCard" >{{$t('tools.btn.generate_card')}}</button>
 
   </div>
 </template>
@@ -107,7 +91,32 @@ export default {
   auth:false,
   middleware:['auth'],
 
+
+  data(){
+
+    return{
+
+     user_package:"ÑEM KÍÍ ÑJÉÉ"
+    }
+  },
+
+  computed:{
+
+    generateUserNames(){
+
+
+      let first_name=this.$auth.user.data.first_name;
+      let last_name=this.$auth.user.data.last_name;
+
+      let TabFirstName= first_name.split(' ');
+      let TabLastName=last_name.split(' ');
+
+      return TabFirstName[0] + " "+ TabFirstName[0]
+    },
+
+  },
   methods:{
+
 
     generatePdf(){
 
@@ -153,9 +162,27 @@ export default {
       }
     },
 
-    getUserPackage(){
 
-      return "ÑEM KÍÍ HIAÑNGA'A";
+
+    checkUserPackage(element){
+
+     if(element === this.user_package){
+
+       return true;
+     }
+     if(element === this.user_package){
+
+
+       return true;
+     }
+     else if(element===this.user_package){
+
+       return true;
+     }
+     else if(element === this.user_package){
+       return true;
+
+     }
 
     }
   }

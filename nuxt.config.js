@@ -216,6 +216,9 @@ export default {
         {src: '~/plugins/aos.js', ssr: false},
         {src: '~/plugins/vue-masonry', ssr: false},
 
+        { src: '~/plugins/vue-html2pdf', mode: 'client' }
+
+
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios

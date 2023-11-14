@@ -59,10 +59,20 @@
 
 
 
+<!--
         <a v-if="$auth?.user.data?.card !== null  && $auth?.user?.data?.is_member" download :href="$auth?.user?.data?.card"  class="bk-btn theme-btn">{{$t('tools.btn.generate_card')}}</a>
 
+-->
+
+<!--
         <button v-if="$auth?.user?.data?.card ==null "  class="bk-btn theme-btn" @click.prevent="generateMyCard" >{{$t('tools.btn.generate_card')}}</button>
 
+-->
+
+
+       <client-only>
+         <generate-card></generate-card>
+       </client-only>
 
 
       </div>
@@ -113,6 +123,7 @@ import {slugify} from '~/mixins/slugify'
 import FooterStyleFour from "../components/FooterStyleFour";
 import HeaderBlack from "../components/HeaderBlack";
 import {mapGetters} from "vuex";
+import GenerateCard from "../components/GenerateCard";
 
 export default {
   mixins: [slugify],
@@ -122,6 +133,7 @@ export default {
   components: {
     HeaderBlack,
     FooterStyleFour,
+    GenerateCard
 
   },
 
@@ -264,48 +276,7 @@ export default {
 
     },
 
-    generateMyCard(){
 
-      if(this.$auth.user.data.is_member){
-
-        //generate
-
-        if(this.$auth.user.data.card == null){
-
-          this.$swal.fire({
-            icon: 'info',
-            title: this.$t('user.user_generate_card_info_not_available_title')+this.$auth.user.data.last_name,
-            text: this.$t('user.user_generate_card_info_not_available_desc')
-          })
-        }
-      }
-      else{
-
-
-        if(this.$auth.user.data.is_active){
-          this.$swal.fire({
-            icon: 'error',
-            title: this.$t('user.user_generate_card_info_not_available_title')+(this.$auth.user.data.last_name == null? '':this.$auth.user.data.last_name),
-            text: this.$t('user.user_generate_card_info_inactive_desc'),
-            footer: '<a href="/pricing" style="margin:auto;">'+this.$t('tools.btn.it_is_here')+'</a>'
-          })
-
-        }
-        else{
-
-          this.$swal.fire({
-            icon: 'warning',
-            title: this.$t('user.user_not_ready'),
-            text: this.$t('user.user_not_ready_description')
-          })
-        }
-
-
-
-
-
-      }
-    },
     goToOrder(){
 
 
