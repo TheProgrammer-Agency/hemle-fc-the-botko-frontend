@@ -22,7 +22,7 @@
 
           ref="html2Pdf"
       >
-        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage('ÑEM KÍÍ ÑJÉÉ')">
+        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage(  'ÑEM KÍÍ ÑJÉÉ')">
 
           <div class="wrapper-pdf">
 
@@ -33,7 +33,13 @@
               <div class="overlay-text njee-date" style="color:#000" >{{ $t('tools.expire_on') }} {{
                   generateDate}}</div>
             </div>
-            <img ref="image" src="/img/home/carte-back.jpg" alt="Image">
+
+            <div class="wrapper-img  ">
+
+              <img ref="image" src="/img/home/carte-back.jpg" alt="Image">
+              <img ref="image" src="/img/home/signature-white.png" alt="Image" class="overlay-text njee-date" style="width: 300px" >
+
+            </div>
 
           </div>
         </section>
@@ -49,12 +55,18 @@
 
 
             </div>
-            <img ref="image" src="/img/home/carte-ngock-back.jpg" alt="Image">
+
+            <div class="wrapper-img  ">
+
+              <img ref="image" src="/img/home/carte-ngock-back.jpg" alt="Image">
+              <img ref="image" src="/img/home/signature-white.png" alt="Image" class="overlay-text njee-date" style="width: 270px" >
+
+            </div>
 
           </div>
         </section>
 
-        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage( 'ÑEM KÍÍ HIAÑNGA\'A' )">
+        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage(   'ÑEM KÍÍ HIAÑNGA\'A')">
 
           <div class="wrapper-pdf">
 
@@ -66,11 +78,20 @@
               <span class="overlay-text nianga-date"  >{{ $t('tools.expire_on') }} {{generateDate}}</span>
 
             </div>
-            <img ref="image" src="/img/home/carte2-back.jpg" alt="Image">
+
+            <div class="wrapper-img  ">
+
+              <img ref="image" src="/img/home/carte2-back.jpg" alt="Image">
+              <img ref="image" src="/img/home/signature-white.png" alt="Image" class="overlay-text njee-date" style="width: 300px;top: 91%" >
+
+            </div>
 
 
           </div>
-        <section slot="pdf-content" class="pdf-content"   v-if="checkUserPackage( 'ÑÈM KÍÍ HIÉE' )">
+
+
+        </section>
+        <section slot="pdf-content" class="pdf-content"   v-if="checkUserPackage(   'ÑÈM KÍÍ HIÉE'  )">
 
           <div class="wrapper-pdf">
 
@@ -81,12 +102,17 @@
               <span class="overlay-text hiee-date"  >{{ $t('tools.expire_on') }} {{generateDate}}</span>
 
             </div>
-            <img ref="image" src="/img/home/carte-hiee-back.jpg" alt="Image">
+
+
+            <div class="wrapper-img  ">
+
+              <img ref="image" src="/img/home/carte-hiee-back.jpg" alt="Image">
+              <img ref="image" src="/img/home/signature-white.png" alt="Image" class="overlay-text njee-date" style="width: 300px;top: 89%" >
+
+            </div>
 
           </div>
         </section>
-        </section>
-
       </vue-html2pdf>
 
     <button  class="bk-btn theme-btn"  v-for="(element,index) in my_packages"  data-toggle="tooltip"
