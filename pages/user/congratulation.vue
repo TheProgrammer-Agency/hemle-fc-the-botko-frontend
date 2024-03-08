@@ -34,7 +34,7 @@
 
         </p>
 
-        <n-link to="/user" class="bk-btn theme-btn">{{ $t('tools.btn.download_card') }}</n-link>
+        <button class="bk-btn theme-btn" @click.prevent="downloadMyCard">{{ $t('tools.btn.download_card') }}</button>
 
       </div>
       <div class="right-congrat">
@@ -140,6 +140,11 @@ computed:{
   methods:{
 
 
+
+    downloadMyCard(){
+
+      window.location.href=process.env.APP_URL+'/user'
+    }
   },
 
    mounted() {

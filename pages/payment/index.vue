@@ -1,6 +1,6 @@
 <template>
 
-  <div class="payment">
+  <div class="payment" id="payment-page">
 
 
     <div class="payment-left">
@@ -119,7 +119,7 @@ export default {
   methods: {
 
 
-    async makeOrder(paymentForm, redirectUrl) {
+    async makeOrder(paymentForm, redirectUrl,isStripe=false) {
 
 
       let app = this;
@@ -136,8 +136,25 @@ export default {
         })
 
 
-        setTimeout(() => {
-          window.location.href = redirectUrl
+        setTimeout(async () => {
+
+          if(isStripe){
+
+            await app.$axios.get(redirectUrl).then(async function (res) {
+
+
+              window.location.href =  res.data.url
+
+
+
+            })
+          }
+          else{
+
+            window.location.href =  redirectUrl
+
+          }
+
         }, 3000);
 
 
@@ -178,9 +195,10 @@ export default {
 
       payment_form.user = this.external_reference
       payment_form.external_reference = this.external_reference;
-      let redirectUrl = `${process.env.baseUrlSimple}api/payment/checkout?reference=${this.external_reference}&&price_stripe=${app.package.price_stripe}`
 
-      await this.makeOrder(payment_form, redirectUrl)
+      let redirectUrl = `${process.env.baseUrlSimple}api/payment/checkout?reference=${this.external_reference}&&price_stripe=${app.package.price_stripe}&&package_name=${app.package.package_name}`
+
+      await this.makeOrder(payment_form, redirectUrl,true)
 
 
     },
@@ -212,6 +230,7 @@ export default {
 
 
         let $payment_link = response.link
+
 
         //log in
         await app.makeOrder(payment_form, $payment_link);

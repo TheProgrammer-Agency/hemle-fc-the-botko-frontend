@@ -1,52 +1,52 @@
 [
   {
     "id": 1,
-    "amount": "5",
+    "amount": "2",
     "currency": "XAF",
     "from": "+237698305411",
     "description": "ÑÈM KÍÍ HIÉE",
     "external_reference": "",
     "external_user": "",
     "package_name": "ÑÈM KÍÍ HIÉE",
-    "price_stripe": "price_1Ord1cGNrbGOiDBUo3N1WKjK"
+    "price_stripe": "price_1OrwN9GNrbGOiDBUfkUR9aGt"
   },
   {
     "id": 2,
 
-    "amount": "5",
+    "amount": "2",
     "currency": "XAF",
     "from": "+237698305411",
     "description": "ÑEM KÍÍ HIAÑNGA'A",
     "external_reference": "",
     "external_user": "",
     "package_name": "ÑEM KÍÍ HIAÑNGA'A",
-    "price_stripe": "price_1Orcy9GNrbGOiDBUdSKIAOym"
+    "price_stripe": "price_1OrwMCGNrbGOiDBUoPJSQVkM"
 
   },
   {
     "id": 3,
 
-    "amount": "5",
+    "amount": "2",
     "currency": "XAF",
     "from": "+237698305411",
     "description": "ÑÈM KÍÍ NGOCK",
     "external_reference": "",
     "external_user": "",
     "package_name": "ÑÈM KÍÍ NGOCK",
-    "price_stripe": "price_1OrcwTGNrbGOiDBUEo0HDAKR"
+    "price_stripe": "price_1OrwLRGNrbGOiDBULuLXwEoT"
 
   },
   {
     "id": 4,
 
-    "amount": "5",
+    "amount": "2",
     "currency": "XAF",
     "from": "+237698305411",
     "description": "ÑEM  KÍÍ  ÑJÉÉ",
     "external_reference": "",
     "external_user": "",
     "package_name": "ÑÈM KÍÍ ÑJÉÉ",
-    "price_stripe": "price_1OrcuPGNrbGOiDBU07XXCRrH"
+    "price_stripe": "price_1OrwKcGNrbGOiDBUdMO4o1Q5"
 
   }
 ]
