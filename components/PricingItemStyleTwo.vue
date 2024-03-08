@@ -207,6 +207,7 @@ export default {
 
 
   props: ['is_came_from_home'],
+
   data() {
 
     return {
@@ -224,8 +225,9 @@ export default {
 
     if(this.$route.query.code){
 
-      this.code=this.$route.query.code
-      console.log("code  =",this.$route.query.code)
+      this.code= this.$route.query.code.substring(1)
+      this.code="+"+this.code
+      console.log("code=",this.code)
     }
 
     this.pricing = [

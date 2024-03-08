@@ -728,9 +728,12 @@ export default {
 
     this.package = packages[this.$route.query.package]
 
-    if(this.$route.query.code){
-      this.form.referral_code = this.$route.query.code
 
+    if(this.$route.query.code){
+
+      this.form.referral_code= this.$route.query.code.substring(1)
+      this.form.referral_code="+"+this.form.referral_code
+      console.log("code=",this.form.referral_code)
     }
 
     this.contact = process.env.wa_contact

@@ -84,6 +84,7 @@
       <br>
 
 
+
       <div class="main-order  " v-if="hasReferrals">
 
         <h2>{{ $t('referrer.my_child') }}</h2>
@@ -266,6 +267,8 @@ export default {
 
     } catch (errors) {
       // Set validation errors on a form
+
+      console.log("erorr fetch referrer",errors)
 
     }
 
