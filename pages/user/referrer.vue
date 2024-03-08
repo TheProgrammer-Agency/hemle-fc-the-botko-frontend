@@ -304,7 +304,6 @@ export default {
 
         await app.$api.$post(process.env.PAYMENT_API_URL + 'withdraw/', withdrawForm).then(async function (response) {
 
-          console.log("reference = ", response, response?.data)
 
 
           let timerInterval;

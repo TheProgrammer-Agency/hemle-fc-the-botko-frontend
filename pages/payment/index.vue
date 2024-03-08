@@ -3,32 +3,31 @@
   <div class="payment">
 
 
-
-
     <div class="payment-left">
 
-      <nuxt-link :to="localePath('/user')" data-toggle="tooltip" data-placement="top" :title="$t('user.go_back')"><img src="/img/home/back.png" alt="" width="40" class="icon-back"></nuxt-link>
+      <nuxt-link :to="localePath('/user')" data-toggle="tooltip" data-placement="top" :title="$t('user.go_back')"><img
+          src="/img/home/back.png" alt="" width="40" class="icon-back"></nuxt-link>
 
 
       <div class="container payment-left-wrapper">
 
 
         <h3 class="text-center">{{ package.amount }} XAF
-         </h3>
+        </h3>
 
         <div class="wrapper-package">
 
           <h3>{{ package.package_name }}</h3>
 
           <p>
-           {{package.description}}
+            {{ package.description }}
           </p>
         </div>
 
         <div class="payment-order">
 
           <div class="sub">
-            <span>{{$t('payment.sub_total')}}</span>
+            <span>{{ $t('payment.sub_total') }}</span>
             <span>{{ package.amount }}  XAF</span>
           </div>
 
@@ -39,7 +38,7 @@
           </div>
 
           <div class="sub">
-            <span>{{$t('payment.total')}}</span>
+            <span>{{ $t('payment.total') }}</span>
             <span>{{ package.amount }} XAF</span>
           </div>
 
@@ -53,11 +52,10 @@
     <div class="payment-right">
 
 
-
       <div class="container payment-right-wrapper">
 
         <h2>
-          {{$t('payment.choose_your_payment_method')}}
+          {{ $t('payment.choose_your_payment_method') }}
         </h2>
 
         <br>
@@ -69,18 +67,25 @@
           </div>
 
 
-          <div class="card-payment-method" @click.prevent="paidWithOrangeOrMtn">
+          <div class="card-payment-method" @click.prevent="paidWithOrangeOrMtn"  v-if="isCameroon">
 
             <img src="/img/home/orange2.jpg" alt="mtn">
           </div>
 
 
-          <div class="card-payment-method">
+          <div class="card-payment-method" v-if="isCameroon">
 
-            <img src="/img/home/mtn2.jpg" alt="orange" @click.prevent="paidWithOrangeOrMtn">
+            <img src="/img/home/mtn2.jpg" alt="orange" @click.prevent="paidWithOrangeOrMtn" >
           </div>
 
+          <div class="card-payment-method">
 
+            <img src="/img/home/visa.png" alt="visa" @click.prevent="paidWithStripe">
+          </div>
+          <div class="card-payment-method">
+
+            <img src="/img/home/mastercard.jpg" alt="mastercard" @click.prevent="paidWithStripe">
+          </div>
 
 
         </div>
@@ -99,13 +104,14 @@ export default {
   name: "payment",
 
 
-  middleware: ['checkParam','auth','checkUserIsActive'],
+  middleware: ['checkParam', 'auth', 'checkUserIsActive'],
 
   data() {
     return {
 
-      package:'',
-      external_reference:''
+      package: '',
+      external_reference: '',
+      isCameroon: ''
     }
   },
 
@@ -113,54 +119,50 @@ export default {
   methods: {
 
 
+    async makeOrder(paymentForm, redirectUrl) {
 
-    async makeOrder(paymentForm,redirectUrl){
 
-
-      let app=this;
+      let app = this;
 
       await app.$axios.post('/payment/order', paymentForm).then(async function (res) {
 
-            app.$nuxt.$loading.finish()
+        app.$nuxt.$loading.finish()
 
-            app.$swal.fire({
-              icon: 'success',
-              title: app.$t('auth.register_order_success') +' ' +app.$auth?.user?.data?.first_name,
-              text: app.$t('auth.register_order_success_desc'),
-              footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
-            })
-
-
-            setTimeout(() => {
-              window.location.href = redirectUrl
-            }, 3000);
+        app.$swal.fire({
+          icon: 'success',
+          title: app.$t('auth.register_order_success') + ' ' + app.$auth?.user?.data?.first_name,
+          text: app.$t('auth.register_order_success_desc'),
+          footer: '<a href="' + process.env.wa_contact + '"  style="margin:auto; ">' + app.$t("tools.btn.need_to_contact_us") + '</a>'
+        })
 
 
-          }).catch(function (error) {
+        setTimeout(() => {
+          window.location.href = redirectUrl
+        }, 3000);
 
 
+      }).catch(function (error) {
 
 
-            app.$swal.fire({
-              icon: 'error',
-              title:app.$t('auth.an_error_occured')+' '+ app?.$auth?.user?.data?.first_name,
-              text:  error?.response?.data?.message,
-              footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
+        app.$swal.fire({
+          icon: 'error',
+          title: app.$t('auth.an_error_occured') + ' ' + app?.$auth?.user?.data?.first_name,
+          text: error?.response?.data?.message,
+          footer: '<a href="/"  style="margin:auto; ">' + app.$t("tools.btn.return_to_home") + '</a>'
 
-            })
+        })
 
-            app.$nuxt.$loading.finish()
+        app.$nuxt.$loading.finish()
 
 
-          });
+      });
 
 
     },
-    async paidWithStripe(){
+    async paidWithStripe() {
 
 
-
-     let app=this;
+      let app = this;
       app.$nuxt.$loading.start()
 
 
@@ -176,21 +178,19 @@ export default {
 
       payment_form.user = this.external_reference
       payment_form.external_reference = this.external_reference;
-      let redirectUrl=`${process.env.baseUrlSimple}api/payment/checkout?reference=${this.external_reference}&&price_stripe=${app.package.price_stripe}`
+      let redirectUrl = `${process.env.baseUrlSimple}api/payment/checkout?reference=${this.external_reference}&&price_stripe=${app.package.price_stripe}`
 
-      await this.makeOrder(payment_form,redirectUrl)
-
-
-
-},
+      await this.makeOrder(payment_form, redirectUrl)
 
 
+    },
 
-    async paidWithOrangeOrMtn(){
+
+    async paidWithOrangeOrMtn() {
 
       this.$nuxt.$loading.start()
 
-      let app=this;
+      let app = this;
 
       let payment_form = {
         amount: this.package.amount,
@@ -206,7 +206,7 @@ export default {
       payment_form.user = this.$auth.user.data.uuid
       payment_form.external_reference = this.external_reference
 
-      payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' +this.external_reference
+      payment_form.redirect_url = process.env.PAYMENT_RETURN_URL + '?reference=' + this.external_reference
 
       await app.$api.$post(process.env.PAYMENT_API_URL + 'get_payment_link/', payment_form).then(async function (response) {
 
@@ -214,7 +214,7 @@ export default {
         let $payment_link = response.link
 
         //log in
-        await  app.makeOrder(payment_form,$payment_link);
+        await app.makeOrder(payment_form, $payment_link);
 
       })
 
@@ -226,10 +226,21 @@ export default {
   mounted() {
 
 
+    let country = this.$auth.user.data.tel.substring(0, 4)
+
     this.package = packages[this.$route.query.package]
 
     this.contact = process.env.wa_contact
-    this.external_reference=uuidv4();
+    this.external_reference = uuidv4();
+
+
+    if (country === '+237') {
+      this.isCameroon = true
+
+
+    } else {
+      this.isCameroon = false
+    }
 
 
   },

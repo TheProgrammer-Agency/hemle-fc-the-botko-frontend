@@ -345,7 +345,7 @@
                 <label>{{ $t('user.phone_number') }}</label>
 
 
-                <ValidationProvider :name="$t('auth.tel')" rules="required|min:7|integer" v-slot="{ errors }">
+                <ValidationProvider :name="$t('auth.tel')" rules="required|min:7" v-slot="{ errors }">
 
 
                   <div class="flex align-center login-phone">
@@ -578,6 +578,8 @@ export default {
     this.data = new FormData()
 
 
+
+
     if (!(this.$auth.user?.data?.is_active)) {
 
       this.$swal.fire({
@@ -595,16 +597,19 @@ export default {
       last_name: this.$auth.user.data.last_name,
       city: this.$auth.user.data.city,
       country: this.$auth.user.data.country,
-      tel: this.$auth.user.data.tel,
+      tel: this.$auth?.user?.data?.tel?.split(' ')[1],
       email: this.$auth.user.data.email,
       sex: this.$auth.user.data.sex,
       password: '',
       password_confirmation: '',
       avatar: this.$auth.user.data.avatar ? this.$auth.user.data.avatar : '/img/home/avatar.svg'
+
     }
 
 
     document.body.classList.add('template-color-1', 'template-font-2')
+
+
   },
 
   methods: {
@@ -891,7 +896,7 @@ export default {
       app.$nuxt.$loading.start()
 
 
-       this.form.tel= '+' + this.phone_number_code + app.form.tel
+       this.form.tel= '+' + this.phone_number_code + " "+ app.form.tel
 
           await this.$axios.$patch('user/update', this.form).then(async function (response) {
 

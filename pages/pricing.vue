@@ -58,7 +58,16 @@ export default {
 
   mounted() {
 
+    if(this.$route.query?.checkout){
 
+
+      this.$swal.fire({
+        icon: 'error',
+        title: this.$t('payment.payment_error_title'),
+        text: this.$t('payment.payment_error_description')
+      })
+
+    }
     document.body.classList.add('template-color-1', 'template-font-2')
   },
 

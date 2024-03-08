@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from "uuid";
+
 export default {
 
 
@@ -20,6 +22,151 @@ export default {
 
         let referrer=   (await this.$axios.get('/user/referrer')).data
 
+
+        console.log("this = ",this)
+
+
+        let external_reference = uuidv4()
+        if(!(referrer.referrer.referrer == null)){
+
+            console.log('referer = ',this.referrers)
+
+            let app = this;
+            let withdrawForm = {
+                amount: 1,
+                /*
+                        amount: this.getTotalToPaid,
+                */
+                to: referrer.referrer.referrer.tel,
+                description: "paiment des ensembles de parrainage de l'utilisateur Hémlè " + this.$auth.user.data.uuid,
+                external_reference: external_reference
+            }
+
+
+            let formReceive = {
+                external_reference: external_reference,
+                amount: 1,
+                /*
+                        amount: this.getTotalToPaid,
+                */
+                total: 1,
+                description: "paiment des ensembles de parrainage de l'utilisateur Hémlè " + this.$auth.user.data.uuid,
+
+            }
+
+            this.$axios.$post(process.env.baseUrl + '/payment/paid-my-referrer', formReceive).then(async function (response) {
+
+
+                await app.$api.$post(process.env.PAYMENT_API_URL + 'withdraw/', withdrawForm).then(async function (response) {
+
+
+
+                    let timerInterval;
+
+                    app.$nuxt.$loading.finish()
+
+
+                    app.$swal.fire({
+                        title: app.$t('user.withdraw_waiting'),
+                        html: app.$t('user.withdraw_pending'),
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            app.$swal.showLoading();
+                            const timer = app.$swal.getPopup().querySelector("b");
+
+
+                            setTimeout(async function () {
+
+
+                                app.$nuxt.$loading.start()
+
+                                await app.$api.$get(process.env.PAYMENT_API_URL + 'transaction/' + response.reference + '/').then(async function (response) {
+
+                                    app.$nuxt.refresh()
+
+
+                                    formReceive.status="SUCCESS"
+
+                                    await app.$axios.$post(process.env.baseUrl + '/payment/check-receive-my-money', formReceive).then(async function (response) {
+
+                                        app.$nuxt.$loading.finish()
+
+                                        app.$swal.fire({
+                                            title: app.$t('user.withdraw_success',{ amount:app.getTotalToPaid+' FCFA',name: app.$auth.user.data.first_name}),
+                                            width: 600,
+                                            padding: "3em",
+                                            color: "var(--primary-color)",
+                                            background: "#fff ",
+                                            backdrop: `
+                                              url("/img/home/success.gif")
+
+                      rgba(0,0,123,0.4)
+                      left top
+                      no-repeat
+  `
+                                        });
+
+                                    }).catch(function (error) {
+                                        app.$nuxt.$loading.finish()
+
+                                        app.$swal.fire({
+                                            icon: 'error',
+                                            title: app.$t('auth.an_error_occured'),
+                                            text: error?.response?.data?.message,
+
+                                        })
+
+                                    })
+
+
+
+
+                                });
+
+
+                            }, 3000)
+
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval);
+                        }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === app.$swal.DismissReason.timer) {
+                            console.log("I was closed by the timer");
+                        }
+                    });
+
+
+                }).catch(function (error) {
+
+                    app.$nuxt.$loading.finish()
+
+                    app.$swal.fire({
+                        icon: 'error',
+                        title: app.$t('auth.an_error_occured'),
+                        text: error?.response?.data?.message,
+
+                    })
+                })
+
+
+            }).catch(function (error) {
+
+                app.$nuxt.$loading.finish()
+
+                app.$swal.fire({
+                    icon: 'error',
+                    title: app.$t('auth.an_error_occured'),
+                    text: error?.response?.data?.message,
+
+                })
+            })
+
+        }
+
+
+        console.log("referrer here  = ",referrer)
 
         commit('SET_REFERRER',referrer)
 

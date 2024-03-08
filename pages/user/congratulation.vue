@@ -53,15 +53,57 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+import {v4 as uuidv4} from "uuid";
+
 export default {
 
   auth: false,
   fetchOnServer: false,
   middleware:['checkUserIsActive','auth'],
 
+
+  data(){
+
+    return{
+
+      external_reference:''
+    }
+  },
+
+  ...mapGetters({
+    referrers: 'user/referrers'
+  }),
+
+computed:{
+
+  getReferrer() {
+
+    return this.referrers?.referrer?.referrer
+  },
+  hasReferrer() {
+
+    return !(this.referrers?.referrer == null)
+
+  },
+
+  hasReferrals() {
+    return this.referrers?.referrals?.length > 0
+  },
+},
+
   async fetch() {
 
-    let app = this
+    try {
+
+      await this.$store.dispatch('user/getMyReferer')
+
+    } catch (errors) {
+      // Set validation errors on a form
+
+    }
+
+
 
 
 
@@ -79,14 +121,11 @@ export default {
 
         }).catch(function (e) {
 
-
-          console.log("e",e.response)
           app.$swal.fire({
             icon: 'error',
             title: app.$t('auth.an_error_occured')+ ' '+app.$auth.user.data.last_name,
             text: e.response.data.message,
           })
-
 
         })
 
@@ -98,8 +137,24 @@ export default {
 
   },
 
-  mounted() {
+  methods:{
 
+
+  },
+
+   mounted() {
+
+     this.external_reference = uuidv4();
+
+    if(!this.hasReferrer){
+
+
+
+
+
+
+
+    }
     document.body.style.backgroundColor = 'rgba(0,0,0,.07)';
 
   },

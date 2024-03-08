@@ -3,6 +3,9 @@
 
   <div>
 
+<!--
+
+-->
 
       <vue-html2pdf
           :show-layout="false"
@@ -26,7 +29,9 @@
             <div class="wrapper-img  ">
 
               <img ref="image" src="/img/home/carte.jpg" alt="Image">
-              <div class="overlay-text njee">{{generateUserNames}}</div>
+              <div class="overlay-text njee">{{generateUserNames}} </div>
+              <div class="overlay-text njee-date" style="color:#000" >{{ $t('tools.expire_on') }} {{
+                  generateDate}}</div>
             </div>
             <img ref="image" src="/img/home/carte-back.jpg" alt="Image">
 
@@ -40,13 +45,16 @@
 
               <img ref="image" src="/img/home/carte-ngock.jpg" alt="Image">
               <div class="overlay-text  njee">{{generateUserNames}}</div>
+              <span class="overlay-text njee-date"  >{{ $t('tools.expire_on') }} {{generateDate}}</span>
+
+
             </div>
             <img ref="image" src="/img/home/carte-ngock-back.jpg" alt="Image">
 
           </div>
         </section>
 
-        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage('ÑEM KÍÍ HIAÑNGA\'A')">
+        <section slot="pdf-content" class="pdf-content" v-if="checkUserPackage( 'ÑEM KÍÍ HIAÑNGA\'A' )">
 
           <div class="wrapper-pdf">
 
@@ -55,13 +63,14 @@
 
               <img ref="image" src="/img/home/carte2.jpg" alt="Image">
               <div class="overlay-text nianga">{{generateUserNames}}</div>
+              <span class="overlay-text nianga-date"  >{{ $t('tools.expire_on') }} {{generateDate}}</span>
+
             </div>
             <img ref="image" src="/img/home/carte2-back.jpg" alt="Image">
 
-          </div>
-        </section>
 
-        <section slot="pdf-content" class="pdf-content"   v-if="checkUserPackage('ÑÈM KÍÍ HIÉE')">
+          </div>
+        <section slot="pdf-content" class="pdf-content"   v-if="checkUserPackage( 'ÑÈM KÍÍ HIÉE' )">
 
           <div class="wrapper-pdf">
 
@@ -69,15 +78,21 @@
 
               <img ref="image" src="/img/home/carte-hiee.jpg" alt="Image">
               <div class="overlay-text hiee">{{generateUserNames}}</div>
+              <span class="overlay-text hiee-date"  >{{ $t('tools.expire_on') }} {{generateDate}}</span>
+
             </div>
             <img ref="image" src="/img/home/carte-hiee-back.jpg" alt="Image">
 
           </div>
         </section>
+        </section>
 
       </vue-html2pdf>
 
-    <button  class="bk-btn theme-btn"  v-for="(element,index) in my_packages"  data-toggle="tooltip" data-placement="top" :title="element"  :key="index"  @click.prevent="generateMyCard(element)">{{$t('tools.btn.generate_card')}} </button>
+    <button  class="bk-btn theme-btn"  v-for="(element,index) in my_packages"  data-toggle="tooltip"
+             data-placement="top" :title="element"
+             :key="index"  @click.prevent="generateMyCard(element)">
+      {{$t('tools.btn.generate_card')}} </button>
 
   </div>
 </template>
@@ -105,16 +120,37 @@ export default {
 
   computed:{
 
+
+    generateDate(){
+
+      const date = new Date(this.$auth.user.data.card_renewal_date);
+
+      return  date.toLocaleDateString().split('/').join('-');
+
+    },
     generateUserNames(){
 
 
       let first_name=this.$auth.user.data.first_name;
       let last_name=this.$auth.user.data.last_name;
 
-      let TabFirstName= first_name.split(' ');
-      let TabLastName=last_name.split(' ');
 
-      return TabFirstName[0] + " " + TabFirstName[0]
+      let TabFirstName=""
+      if(first_name){
+       TabFirstName= first_name?.split(' ')[0];
+
+      }
+      let TabLastName=""
+      if(last_name){
+
+         TabLastName=last_name?.split(' ')[0];
+
+      }
+
+
+      console.log("yahour",TabFirstName,TabLastName)
+
+      return TabFirstName + " " + TabLastName
     },
 
   },
@@ -142,6 +178,7 @@ export default {
   },
 
   methods:{
+
 
 
     generatePdf(){

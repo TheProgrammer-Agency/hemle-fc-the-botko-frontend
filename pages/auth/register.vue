@@ -632,7 +632,7 @@ export default {
           last_name: app.form.last_name,
           city: app.form.city,
           country: app.form.country,
-          tel: '+' + this.phone_number_code + app.form.tel,
+          tel: '+' + this.phone_number_code + " "+ app.form.tel,
           email: app.form.email,
           password: app.form.password,
           password_confirmation: app.form.password_confirmation,
@@ -733,7 +733,6 @@ export default {
 
     }
 
-    console.log("form referral code ",this.form.referral_code)
     this.contact = process.env.wa_contact
 
 

@@ -1,6 +1,9 @@
 export default {
 
     tools: {
+
+        'expire_on': 'Expire le ',
+
         btn: {
 
             'become_member': 'Devenez membre',
@@ -159,7 +162,7 @@ export default {
 
         title:"Convaincu de devenir <br> Hèmléen ?",
         contact_us:"Contactez-nous",
-        location:"Douala Botko ,<br> Stade Nguéda Hémlè",
+        location:"Botko ,<br> Stade Nguéda Hémlè",
         made_with_by:"Made with <i class=\"fa fa-heart text-danger\"></i> by "
     },
 
@@ -182,6 +185,8 @@ export default {
 
 
         payment_success_title:"FELICITATIONS  ",
+        payment_error_title:"Échec du paiement. Veuillez réessayer.",
+        payment_error_description:"Oops! Il semble que votre paiement n'ait pas abouti. Nous vous prions de bien vouloir réessayer. Si le problème persiste, n'hésitez pas à nous contacter pour obtenir de l'aide. Merci pour votre compréhension.",
         payment_success_desc:"  Vous faites désormais partie de la famille Hémléenne , nous vous réservons pleins de surprise !! Cliquez sur\n" +
             "          le lien ci-dessous pour téléchager votre carte de membre",
     },
@@ -294,10 +299,10 @@ export default {
         email: "Email",
         country: "Pays",
         first_name: "Prénom",
-        last_name: "nom",
+        last_name: "Nom",
         my_information: "Mes informations",
 
-        referrer_member: "parrainez un membre grace à votre code et gagnez de l'argent",
+        referrer_member: "Copiez votre code de parrainage, partagez le, gagnez de l'argent ",
 
 
         are_you_sure:"Es-tu sûr ?",

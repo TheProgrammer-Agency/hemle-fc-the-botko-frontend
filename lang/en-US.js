@@ -1,6 +1,8 @@
 export default {
 
     tools: {
+        'expire_on': 'Expires on ',
+
         btn: {
 
             'become_member': 'Become a member',
@@ -212,7 +214,7 @@ export default {
         total: 'Total of your order',
         sub_total: 'Subtotal',
         choose_your_payment_method: 'Choose your payment method',
-
+        payment_error_description:"Oops! It looks like your payment did not go through. Please try again. If the problem persists, please do not hesitate to contact us for assistance. Thank you for your understanding.",
         payment_success_title: "CONGRATULATIONS <strong class='secondary-color'>Hémlèen(e)!!</strong>",
         payment_success_desc: "You are now part of the Hémlè family, and we have lots of surprises in store for you! Click on the link below to download your membership card.",
     },
@@ -258,7 +260,7 @@ export default {
         first_name: "First name",
         last_name: "Last name",
         my_information: "My information",
-        referrer_member: "Refer a member using your code and earn money",
+        referrer_member: "Copy your referral code, share it, earn money",
 
         are_you_sure: "Are you sure?",
         delete_account_confirm_desc: "Attention! By deleting your account, you will lose access to all your data, and all associated information will be permanently deleted. Please confirm that you want to proceed with the deletion of your account.",

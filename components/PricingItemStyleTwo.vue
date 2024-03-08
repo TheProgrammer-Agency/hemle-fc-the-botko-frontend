@@ -31,7 +31,7 @@
             <div class="pricing-box" style="border-top:3px solid var(--primary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h4 class="title font-weight-bold secondary-color" style="font-weight: bold">
+                  <h4 class="title font-weight-bold primary-color" style="font-weight: bold">
                     {{ $t('pricing.pricing_1_title') }} </h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">5 000 &nbsp; </h3>
@@ -76,7 +76,7 @@
                   <div class="header-title">
                     <div class="pricing-feature-mark"> {{ $t('pricing.pricing_popular') }}</div>
 
-                    <h4 class="title font-weight-bold secondary-color" style="font-weight: bold">
+                    <h4 class="title font-weight-bold primary-color" style="font-weight: bold">
                       {{ $t('pricing.pricing_2_title') }} </h4>
 
                   </div>
@@ -121,7 +121,7 @@
             <div class="pricing-box" style="border-bottom:3px solid var(--primary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h4 class="title font-weight-bold secondary-color"> {{ $t('pricing.pricing_3_title') }} </h4>
+                  <h4 class="title font-weight-bold primary-color"> {{ $t('pricing.pricing_3_title') }} </h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">500 000 &nbsp;</h3>
                     <h3 class="currenct"> XAF</h3>
@@ -156,7 +156,7 @@
             <div class="pricing-box" style="border-bottom:3px solid var(--secondary-color)">
               <div class="header">
                 <div class="price-area">
-                  <h4 class="title  font-weight-bold secondary-color">{{ $t('pricing.pricing_4_title') }}</h4>
+                  <h4 class="title  font-weight-bold primary-color">{{ $t('pricing.pricing_4_title') }}</h4>
                   <div class="price-wrap d-flex">
                     <h3 class="">1 000 000 &nbsp;</h3>
                     <h3 class="currenct"> XAF</h3>

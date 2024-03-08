@@ -30,10 +30,10 @@
                                 </div>
                                 <div class="col-lg-5 col-md-6 col-sm-6 col-12 mt_mobile--30">
                                     <p class="bk_pra line-height-1-63 bk-hover">
-                                        <a class="text-white" href="mailto:info@yourdomain.com">ah.voila2010@gmail.com</a>
+                                        <a class="text-white" href="mailto:contact@myhemle.com">contact@myhemle.com</a>
                                     </p>
                                     <p class="bk_pra line-height-1-63 bk-hover">
-                                        <a class="text-white" href="tel:+237691129524">+237 691 12 95 24</a>
+                                        <a class="text-white" href="tel:+237690402737">+237 690 40 27 37</a>
                                     </p>
                                 </div>
                             </div>
