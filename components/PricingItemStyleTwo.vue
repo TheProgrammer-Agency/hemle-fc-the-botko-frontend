@@ -2,7 +2,7 @@
 
   <!--  bg_color&#45;&#45;5-->
   <div id="pricing" :class="is_came_from_home ?
-   'brook-pricing-table-area pricing pt--20 pb--50 pb-md--50 pb-sm--50' : 'brook-pricing-table-area pt--20 pb-md--170 pb-sm--170'"
+   'brook-pricing-table-area pricing pt--20 pb--50 pb-md--50 pb-sm--50' : 'brook-pricing-table-area pt--100 pb-md--170 pb-sm--170'"
 
        data-aos="fade-up"
        data-aos-offset="50"
@@ -12,6 +12,7 @@
        :data-aos-once="true"
        data-aos-anchor-placement="top-bottom"
   >
+    <br><br>
     <div class="container">
       <div class="row">
         <div class="col-12">

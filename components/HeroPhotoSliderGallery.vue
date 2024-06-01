@@ -51,7 +51,7 @@
                     {
                         id: 1,
                         heading: "She stared through the window at the stars.",
-                        image: "/img/slider/photo-slide/photo-slide-1.jpg"
+                        image: "/img/home/teams.jpg"
                     },
                     {
                         id: 2,

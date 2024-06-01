@@ -7,15 +7,24 @@
 
     <SearchPopup :class="{'search-popup-open' : searchOpen}" @toggleSearch="searchOpen = !searchOpen"/>
 
-<!--    <HeroDigitalAgency  />-->
+
+   <HeroBusiness  />
+
+
+<!--
     <HeroEssential></HeroEssential>
+-->
+
+    <BlogOne />
+
+
 
 
     <PricingItemStyleTwo  :is_came_from_home="true"  />
 
 
 
-    <div class="brook-breadcrumb-area pt--100 bg_color--1 breadcrumb-title-bar"
+<!--    <div class="brook-breadcrumb-area pt&#45;&#45;100 bg_color&#45;&#45;1 breadcrumb-title-bar"
 
 
          data-aos="fade-up"
@@ -27,7 +36,9 @@
          data-aos-anchor-placement="top-bottom"
 
     >
-      <div class="container  mb_sm--30">
+    </div>-->
+<!--
+      <div class="container  mb_sm&#45;&#45;30">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-inner text-left">
@@ -46,24 +57,28 @@
           </div>
         </div>
       </div>
+-->
 
+    <OnepageTeammember />
+
+
+      <FeatureStartUp />
 
       <br>
       <br>
       <br>
 
-      <div class="brook-service-list-area  mb--150 "
+      <FeaturedProjects />
 
-
-      >
+<!--      <div class="brook-service-list-area  mb&#45;&#45;150 ">
 
         <div class="bk-service-list justify-content-center d-block d-md-flex align-items-center wow move-up">
 
-          <div class="content plr--130 plr_md--50 plr_sm--40">
+          <div class="content plr&#45;&#45;130 plr_md&#45;&#45;50 plr_sm&#45;&#45;40">
 
             <h3 class="heading heading-h3" v-html="$t('home.shop_title_2')"></h3>
 
-            <div class="bkseparator--35"></div>
+            <div class="bkseparator&#45;&#45;35"></div>
 
             <p class="bk_pra">{{$t('home.shop_description')}}</p>
             <br>
@@ -73,15 +88,17 @@
 
           </div>
 
-          <div class="thumb mt_sm--30">
-            <img class="w--100" src="/img/home/boutique.jpg" :alt="$t('home.shop_title_2')"/>
+          <div class="thumb mt_sm&#45;&#45;30">
+            <img class="w&#45;&#45;100" src="/img/home/boutique.jpg" :alt="$t('home.shop_title_2')"/>
           </div>
 
         </div>
-      </div>
-    </div>
+      </div>-->
 
-    <TestimonialTwo class="mt--100" />
+
+<!--
+    <TestimonialTwo class="mt&#45;&#45;100" />
+-->
 
 
 
@@ -148,7 +165,6 @@
             <BrandLogoCarousel />-->
 
 
-    <BlogOne />
 
 <!--
     <ContactUsOne/>
@@ -175,6 +191,16 @@ import HeroOnepage from "../components/HeroOnepage";
 import HeroProductLanding from "../components/HeroProductLanding";
 import HeroEssential from "../components/HeroEssential";
 import MatchScore from "../components/MatchScore";
+import HeroFullscreen from "../components/HeroFullscreen";
+import HeroStartUp from "../components/HeroStartUp";
+import HeroRestaurant from "../components/HeroRestaurant";
+import HeroAuthenticStudio from "../components/HeroAuthenticStudio";
+import HeroPortfolioSlide from "../components/HeroPortfolioSlide";
+import BlogCreative from "./blog/blog-creative";
+import HeroService from "../components/HeroService";
+import HeroBusiness from "../components/HeroBusiness";
+import BlogRestaurant from "../components/BlogRestaurant";
+import BlogTwo from "../components/sections/BlogTwo";
 
 export default {
   mixins: [slugify],
@@ -182,6 +208,16 @@ export default {
 
 
   components: {
+    BlogTwo,
+    BlogRestaurant,
+    HeroBusiness,
+    HeroService,
+    BlogCreative,
+    HeroPortfolioSlide,
+    HeroAuthenticStudio,
+    HeroRestaurant,
+    HeroStartUp,
+    HeroFullscreen,
     HeroEssential,
     HeroProductLanding,
     HeroOnepage,

@@ -55,19 +55,19 @@
                         id: 1,
                         title: "B-sharp High-end Audio",
                         category: "Design",
-                        coverImage: "/img/bg/bg-image-45.jpg"
+                        coverImage: "/img/home/teams.jpg"
                     },
                     {
                         id: 2,
                         title: "Enchanting Portrait Hacks",
                         category: "Digital",
-                        coverImage: "/img/bg/bg-image-46.jpg"
+                      coverImage: "/img/home/teams.jpg"
                     },
                     {
                         id: 3,
                         title: "Digital Marketing Basics",
                         category: "Design",
-                        coverImage: "/img/bg/bg-image-47.jpg"
+                       coverImage: "/img/home/teams.jpg"
                     },
                     {
                         id: 4,

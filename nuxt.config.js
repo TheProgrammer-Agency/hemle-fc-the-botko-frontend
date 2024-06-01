@@ -30,11 +30,13 @@ export default {
             ],
             ...i18nHead.meta,
 
-            link: [
-                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-                {rel: 'preconnect',href: '/favicon.ico'},
-                {rel: 'preconnect',  href: 'https://fonts.gstatic.com' ,crossOrigin:true},
-                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap' ,crossOrigin:true}
+        link: [
+                { rel: 'icon', type: 'image/x-icon', href: '/img/home/other_logo_1.png' },
+                  /*
+                { rel: 'preload', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap', as: 'style', onload: "this.onload=null;this.rel='stylesheet'" },
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: true },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap', media: 'print', onload: "this.media='all'" }*/
             ],
             ...i18nHead.link,
 
@@ -50,6 +52,17 @@ export default {
                     src: "/js/error.js"
                 },
 
+                {
+                    src: "/js/jquery.min.js"
+                },
+                {
+                    src: "/js/gsap.min.js"
+                },
+
+                {
+                    src: "/js/swiper-bundle.min.js"
+                },
+
             ]
         }
     },
@@ -63,8 +76,25 @@ export default {
 
     router: {
 
+/*
         middleware: ['auth'],
-
+*/
+        scrollBehavior(to, from, savedPosition) {
+            if (savedPosition) {
+                return savedPosition;
+            } else {
+                const position = {};
+                // Si la route a un hash, on scroll jusqu'à ce hash
+                if (to.hash) {
+                    position.selector = to.hash;
+                    // On peut ajouter une option de smooth scroll
+                    if (document.querySelector(to.hash)) {
+                        position.offset = { x: 0, y: 10 };
+                    }
+                }
+                return position;
+            }
+        },
 
         linkExactActiveClass: 'active-link',
     },

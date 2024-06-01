@@ -90,26 +90,28 @@ $header-height-margin:'170px';
 
 
 //===== Font Family =====//
-$body-font: 'Poppins', sans-serif;
-$heading-font: 'louis_george_caferegular';
-$secondary-font: 'Montserrat', sans-serif;
-$playfair-font: 'Playfair Display', serif;
-$Permanent-font: 'Permanent Marker', cursive;
-$roboto : 'Roboto', sans-serif;
-$CerebriSans:'CerebriSans';
-$comic-sans: 'Comic Sans MS';
-$spectral-font: 'Spectral', serif;
+$body-font: "Inter", sans-serif;
+$heading-font: "Inter", sans-serif;
+$secondary-font: "Inter", sans-serif;
+$playfair-font: "Inter", sans-serif;
+$Permanent-font: "Inter", sans-serif;
+$roboto : "Inter", sans-serif;
+$CerebriSans:"Inter", sans-serif;
+$comic-sans: "Inter", sans-serif;
+$spectral-font: "Inter", sans-serif;
 
 
-$font-1: 'Poppins', sans-serif;
-$font-2: 'louis_george_caferegular';
-$font-3: 'Montserrat', sans-serif;
-$font-4: 'Playfair Display', serif;
-$font-5: 'Permanent Marker', cursive;
-$font-6: 'Roboto', sans-serif;
-$font-7: 'CerebriSans';
-$font-8: 'Comic Sans MS';
+$font-1: "Inter", sans-serif;
+$font-2: "Inter", sans-serif;
+$font-3: "Inter", sans-serif;
+$font-4: "Inter", sans-serif;
+$font-5: "Inter", sans-serif;
+$font-6: "Inter", sans-serif;
+$font-7:"Inter", sans-serif;
+$font-8: "Inter", sans-serif;
 // Template Font List
+
+
 $fontList: $font-1, $font-2, $font-3, $font-4, $font-5, $font-6, $font-7, $font-8;
 
 /*================================================ 
@@ -175,7 +177,7 @@ $placeholder-color:#333;
 
 //==== Font size =====//
 $body-font-size: 16px;
-$h1: 42px;
+$h1: 70px;
 $h2: 30px;
 $h3: 26px;
 $h4: 22px;

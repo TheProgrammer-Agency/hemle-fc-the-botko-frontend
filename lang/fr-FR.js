@@ -63,6 +63,7 @@ export default {
     home: {
 
 
+        hemle_story_description:"Suivez notre quotidien au Hémle FC de Botko ! Des coulisses des matchs aux moments de détente, en passant par les entraînements et les événements spéciaux, vivez avec nous chaque instant de notre aventure.",
         players:'Nos joueurs',
         shop:"BOUTIQUE",
         title_page: 'Home',
@@ -79,6 +80,7 @@ export default {
         shop_description:"Découvrez notre boutique officielle regorgeant d'articles de qualité pour les passionnés  pour les vrais Hèmléens. Des maillots, casquettes, polos, survêtements et bien plus encore, tous ornés de nos  couleurs  et de notre logo emblématique. Exprimez votre passion pour le football avec notre sélection complète  d'articles  incontournables. Parcourez notre collection dès maintenant et trouvez l'accessoire parfait pour afficher votre soutien au club.",
 
 
+        home_believe_description :"Chez Hémlè FC de Botko, nous croyons que le football est bien plus qu'un sport. C'est une école de vie, une source d'inspiration et une force unificatrice."
     },
 
     pricing: {
@@ -346,6 +348,13 @@ export default {
         referer_error_title:"Oups, vous n'avez pas encore de parrain "
 
 
+    },
+
+    store:{
+
+        title:'<h3 > DECOUVREZ<span>NOS PRODUITS</span></h3>',
+        btn_see:'Voir la boutique',
+        description:"Découvrez notre boutique officielle regorgeant d\'articles de qualité pour les passionnés pour les vrais Hèmléens. Des maillots, casquettes, polos, survêtements et bien plus encore, tous ornés de nos couleurs et de notre logo emblématique. Exprimez votre passion pour le football avec notre sélection complète d\'articles incontournables. Parcourez notre collection dès maintenant et trouvez l\'accessoire parfait pour afficher votre soutien au club.\n"
     }
 
 

@@ -43,7 +43,7 @@
 
     </div>
 
-    <div class="auth-left" style="background-image: url('/img/home/player2.png')">
+    <div class="auth-left" style="background-image: url('/img/home/bg_3.jpg');background-size: cover">
 
 
     </div>

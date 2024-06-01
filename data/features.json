@@ -5,26 +5,26 @@
         {
             "id": 1,
             "icon": "ion-ios-infinite theme-color",
-            "heading": "Digital Marketing",
-            "text": "We conduct the marketing of products & services using latest digital technologies."
+            "heading": "Esprit d'Équipe",
+            "text": "Nous favorisons la collaboration et l'unité, croyant que le travail en équipe nous permet d'atteindre des objectifs communs et de surmonter les défis ensemble."
         },
         {
             "id": 2,
             "icon": "ion-monitor",
-            "heading": "UI/UX designs",
-            "text": "We conduct the marketing of products & services using latest digital technologies."
+            "heading": "Respect",
+            "text": "Nous traitons chaque personne avec dignité et considération, en valorisant le fair-play et l'intégrité, que ce soit sur le terrain ou en dehors."
         },
         {
             "id": 3,
             "icon": "ion-ios-baseball-outline",
-            "heading": "SEO marketing",
-            "text": "We conduct the marketing of products & services using latest digital technologies."
+            "heading": "Excellence",
+            "text": "Nous nous efforçons d'atteindre des performances de haut niveau en nous engageant à l'entraînement rigoureux et en repoussant constamment nos limites."
         },
         {
             "id": 4,
             "icon": "ion-pinpoint",
-            "heading": "Resource use",
-            "text": "We conduct the marketing of products & services using latest digital technologies."
+            "heading": "Travail Dur",
+            "text": "Nous croyons que le succès vient du travail acharné. Chaque membre de l'équipe donne le meilleur de lui-même à chaque entraînement et à chaque match."
         }
     ]
 }

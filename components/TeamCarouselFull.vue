@@ -1,17 +1,11 @@
 <template>
-    <div class="container-fluid p-0"
-
-
-         id="teams"
+    <div class="container-fluid p-0" id="teams"
     >
 
       <h1 class="heading heading-h1 line-height-1-5 text-center d-flex justify-content-center  align-items-center">
 
 
-        <hr class="hr-text">
         {{$t('home.players')}}
-        <hr class="hr-text">
-
       </h1>
 
       <br><br>
@@ -25,7 +19,9 @@
                     <swiper :options="swiperOption">
 
                         <nuxt-link    v-for="teamMember in teams.teams" :key="teamMember.id"  :to="'/teams/'+teamMember.uuid" class="swiper-slide">
-                            <TeamMemberThree :teamMember="teamMember" />
+
+                              <TeamMemberOne :teamMember="teamMember" />
+
                         </nuxt-link>
 
                     </swiper>
@@ -44,11 +40,12 @@
 </template>
 
 <script>
+
     import data from '../data/team.json';
     import {mapGetters} from "vuex";
     export default {
         components: {
-            TeamMemberThree: () => import('../components/TeamMemberThree'),
+          TeamMemberOne: () => import('../components/TeamMemberOne'),
         },
         data () {
             return {

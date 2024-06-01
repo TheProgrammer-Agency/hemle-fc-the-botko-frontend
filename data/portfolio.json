@@ -7,48 +7,136 @@
     ],
     
     "portfolioFeaturd": [
+
         {
             "id": 1,
-            "image": "/img/portfolio/portfolio-2/portfolio-01.jpg",
+            "image": "/img/home/boutique/boutique_5.jpg",
             "alt": "Portfolio Image",
-            "title": "Digital Marketing Basics",
-            "category": "Digital"
+            "title": {
+                "fr": "Maillot dédicacé par les joueurs !",
+                "en": "Player-Signed Jerseys!"
+            },
+            "category": {
+                "fr": "Portez un morceau de l'histoire avec nos maillots signés par les stars du Hémle FC de Botko.",
+                "en": "Wear a piece of history with jerseys signed by Hémle FC de Botko stars."
+            }
+
         },
         {
             "id": 2,
-            "image": "/img/portfolio/portfolio-2/portfolio-02.jpg",
+            "image": "/img/home/boutique/boutique_1.jpg",
             "alt": "Portfolio Image",
-            "title": "Digital Marketing Basics",
-            "category": "Photography"
+            "title": {
+                "fr": "Découvrez notre collection",
+                "en": "Discover Our Collection"
+            },
+            "category": {
+                "fr": "La boutique officielle vous propose pantalons et maillots aux couleurs de votre équipe favorite.",
+                "en": "The official shop offers pants and jerseys in your favorite team's colors."
+            }
         },
         {
             "id": 3,
-            "image": "/img/portfolio/portfolio-2/portfolio-03.jpg",
+            "image": "/img/home/boutique/boutique_2.jpg",
             "alt": "Portfolio Image",
-            "title": "Digital Marketing Basics",
-            "category": "Design"
+            "title": {
+                "fr": "Vivez la passion Hémle",
+                "en": "Live the Hémle Passion "
+            },
+            "category": {
+                "fr": "Explorez notre sélection de maillots pour afficher fièrement vos couleurs.",
+                "en": "Explore our selection of jerseys to proudly show your colors."
+            }
         },
         {
             "id": 4,
-            "image": "/img/portfolio/portfolio-2/portfolio-04.jpg",
+            "image": "/img/home/boutique/boutique_3.jpg",
             "alt": "Portfolio Image",
-            "title": "Digital Marketing Basics",
-            "category": "Marketing"
+            "title": {
+                "fr": "La grande boutique Hémle FC",
+                "en": "The Grand Hémle FC Shop"
+            },
+            "category": {
+                "fr": "Bienvenue dans notre boutique où chaque article raconte une histoire.\n",
+                "en": "Welcome to our shop where every item tells a story."
+            }
         },
         {
             "id": 5,
-            "image": "/img/portfolio/portfolio-2/portfolio-05.jpg",
+            "image": "/img/home/boutique/boutique_4.jpg",
             "alt": "Portfolio Image",
-            "title": "Digital Marketing Basics",
-            "category": "SEO"
+            "title": {
+                "fr": "Habillez-vous aux couleurs d'Hémle",
+                "en": "Hémle FC T-Shirts"
+            },
+            "category": {
+                "fr": "Nos T-shirts sont parfaits pour afficher votre soutien, sur le terrain comme en dehors.",
+                "en": "Comfortable T-shirts to support your team on any occasion."
+            }
         },
+
+
+
+
+
         {
             "id": 6,
-            "image": "/img/portfolio/portfolio-2/portfolio-06.jpg",
+            "image": "/img/home/boutique/boutique_6.jpg",
             "alt": "Portfolio Image",
-            "title": "Digital Marketing Basics",
-            "category": "Digital"
+            "title": {
+                "fr": "Maillot dédicacé par les joueurs !",
+                "en": "Dress in Hémle Colors"
+            },
+            "category": {
+                "fr": "Portez un morceau de l'histoire avec nos maillots signés par les stars du Hémle FC de Botko.",
+                "en": "Our T-shirts are perfect for showing your support, on and off the field."
+            }
+        },
+        {
+            "id": 7,
+            "image": "/img/home/boutique/boutique_7.jpg",
+            "alt": "Portfolio Image",
+            "title": {
+                "fr": " Tout pour le football",
+                "en": "Everything for Football"
+            },
+            "category": {
+                "fr": " Ballons, godasses, et poids : tout ce dont un fan de Hémle a besoin.",
+                "en": "Balls, boots, and weights: everything a Hémle fan needs."
+            }
+        },
+  {
+            "id": 8,
+            "image": "/img/home/boutique/boutique_8.jpg",
+            "alt": "Portfolio Image",
+
+
+              "title": {
+                  "fr": " Tout pour le football",
+                  "en": "Everything for Football"
+              },
+              "category": {
+                  "fr": " Ballons, godasses, et poids : tout ce dont un fan de Hémle a besoin.",
+                  "en": "Balls, boots, and weights: everything a Hémle fan needs."
+      }
         }
+
+,
+  {
+            "id": 5,
+            "image": "/img/home/boutique/boutique_9.jpg",
+            "alt": "Portfolio Image",
+              "title": {
+                  "fr": "Joueur en action",
+                  "en": "Player in Action"
+              },
+              "category": {
+                  "fr": "Revivez la magie du jeu avec nos maillots portés par les joueurs.",
+                  "en": "Relive the magic of the game with our player-worn jerseys."
+              }
+        }
+
+
     ],
 
     "portfolioItems": [

@@ -2,6 +2,7 @@
     <div class="team team__style--3">
         <div class="thumb">
             <img :src="teamMember.avatar" alt="team Images">
+
             <div class="overlay" :style="{ backgroundImage: `url(${teamMember.avatar})` }"></div>
             <ul class="social-icon icon-solid-rounded icon-size-medium text-center">
                 <li class="facebook">

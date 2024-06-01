@@ -1,9 +1,11 @@
 <template>
-  <div class="container-fluid mt--50 mb--50"  id="teams"  style="padding:150px 0; background:var(--background-secondary-transparent)"
-
+  <div class="container-fluid mt--50 mb--50" id="teams"
+       style="padding:50px 0; background:var(--background-secondary-transparent)"
 
 
   >
+
+
     <div class="row no-gutters ">
 
 
@@ -11,15 +13,17 @@
         <div class="brook-element-carousel  swiper-custom-arrow swiper-arrow-hover">
           <swiper :options="swiperOption">
 
-            <div v-for="teamMember in 7" :key="teamMember"
-                       class="swiper-slide">
+
+
+            <div v-for="(score,index) in scores?.scores" :key="index"
+                 class="swiper-slide">
               <div class="card-new-match">
 
                 <div class="card-new-match-header">
-                  <h2>08</h2>
+                  <h2>{{ score.day }}</h2>
                   <div>
-                    <h3 >JEUDI</h3>
-                    <h3>JUIN</h3>
+                    <h3>{{ score.dayOfTheWeek }}</h3>
+                    <h3>{{ score.month }}</h3>
                   </div>
                 </div>
 
@@ -27,23 +31,23 @@
                 <div class="card-new-match-body">
 
 
-                  <img src="/img/home/other_logo_1.png" alt="">
+                  <img :src="score.logo_opposing_team" alt="" style="object-fit: cover">
 
                   <div class="score">
 
-            <span>
-              90 +2
-            </span>
+<!--                <span>
+                  90 +2
+                </span>-->
 
                     <div class="wrapper-score">
                       <h2>
-                        2-3
+                        {{ score.score}}
                       </h2>
                     </div>
 
                   </div>
 
-                  <img src="/img/home/other_logo_2.png" alt="">
+                  <img :src="score.logo_visiting_team" alt="" style="object-fit: cover">
 
 
                 </div>
@@ -52,8 +56,7 @@
 
                   <h4>Pays de Galle VS Hémlè FC de botko</h4>
                   <span>
-          Stage Amadou Aijo
-
+             {{score.place}}
           </span>
                 </div>
 
@@ -117,7 +120,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      teams: 'user/users'
+      scores: 'scores/scores'
     })
   },
 
@@ -125,10 +128,16 @@ export default {
 
     try {
 
-      await this.$store.dispatch('user/allUser')
+
+      await this.$store.dispatch('scores/allScore')
 
     } catch (errors) {
-      // Set validation errors on a form
+      // Set validation errors
+      //
+      // console.loon a form
+
+      console.log("errrors scores", errors.response)
+      console.log("errrors scores", errors)
 
       console.log("une errror se produit", errors.data)
     }

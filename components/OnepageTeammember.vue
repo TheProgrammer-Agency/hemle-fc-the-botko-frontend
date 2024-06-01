@@ -4,42 +4,50 @@
             <div class="row">
                 <div class="col-lg-3 mt--40">
                     <div class="brook-section-title wow move-up">
-                        <h3 class="heading heading-h3 font-large pr--40">Creative Team</h3>
+                        <h3 class="heading heading-h3 font-large pr--40">Hémlè Stories</h3>
                         <div class="thumb mt--35">
                             <img src="/img/service/icon-box/wavy-icon.png" alt="Multipurpose">
                         </div>
                         <div class="content mt--45">
-                            <p class="bk_pra line-height-1-87 font-16">Each member of our team is a specialist in his or her field. Together, we make sure you're receiving the most dedicated services with best quality.</p>
-                            <div class="team-button mt--40">
+                            <p class="bk_pra line-height-1-87 font-16">{{$t('home.hemle_story_description')}}</p>
+<!--                            <div class="team-button mt&#45;&#45;40">
                                 <n-link to="/team-grid" class="moredetails-btn">
                                     All members 
                                     <i class="fa fa-arrow-right"></i>
                                 </n-link>
                             </div>
+                          -->
+
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-9">
                     <div class="row">
-                        <div class="col-lg-4 col-sm-6 wow move-up mt--40" v-for="(teamMember, index) in teamMembers" :key="index">
-                            <div class="team team_style--4">
+                        <div class="col-lg-4 col-sm-6 wow move-up mt--40 " v-for="(story, index) in stories.stories" :key="index" style="cursor:pointer">
+
+                            <div class="team team_style--4"  @click.prevent="selectStory(story)">
                                 <div class="inner">
                                     <div class="content-header">
                                         <div class="thumb">
-                                            <img :src="teamMember.image" :alt="teamMember.alt">
+                                            <img :src="story.image" :alt="story.title">
                                         </div>
-                                        <div class="social-network">
+
+<!--                                        <div class="social-network">
                                             <div class="social-list">
                                                 <a :href="social.url" v-for="(social, index) in teamMember.socials" :key="index">
                                                     <i :class="social.icon"></i>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div>-->
+
                                     </div>
                                     <div class="content-body">
-                                        <h4 class="heading">{{ teamMember.name }}</h4>
+                                        <h4 class="heading" v-html="story.title['en']"></h4>
+
+<!--
                                         <div class="position">{{ teamMember.position }}</div>
+-->
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +60,11 @@
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
+
     export default {
+
+
         data () {
             return {
                 teamMembers: [
@@ -184,6 +196,48 @@
                     }
                 ]
             }
+
+
+        },
+
+      computed:{
+        ...mapGetters({
+          stories : 'stories/stories'
+        })
+      },
+
+
+
+      methods:{
+
+
+          async selectStory(story){
+
+            await this.$store.dispatch('stories/setSelectStory',story)
+
+            console.log('story',story)
+
+             this.$router.push('/stories/' + story.uuid)
+
+
+          }
+      },
+
+
+      async fetch() {
+
+        try {
+
+          await this.$store.dispatch('stories/allStories')
+
+        } catch (errors) {
+          // Set validation errors on a form
+
+          console.log("une errror se produit", errors.data)
         }
+
+      },
+
+
     };
 </script>

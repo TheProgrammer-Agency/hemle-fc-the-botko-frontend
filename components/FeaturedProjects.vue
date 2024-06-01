@@ -3,15 +3,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+
+
                     <div class="section-title--between wow move-up">
-                        <div class="title">
-                            <h3 class="theme-creative"> Featured <span>Projects</span></h3>
+
+                        <div class="title" v-html="$t('store.title')" >
+
                         </div>
+                      <br>
+                      <br>
+                      <br>
+
+                      <p v-html="$t('store.description')">
+
+
+
+
+
+                      </p>
+
+                      <br>
                         <div class="section-btn mt_mobile--30">
-                            <n-link to="/" class="button-text">
-                                <span>View all projects</span>
-                                <i class="fa fa-arrow-right"></i>
-                            </n-link>
+
+
+                          <a href="https://wa.me/698305411"
+                             target="_blank" class="button-text nuxt-link-active"><span>{{$t('store.btn_see')}}</span>
+                            <i class="fa fa-arrow-right"></i>
+                          </a>
+
                         </div>
                     </div>
                 </div>
@@ -30,8 +49,8 @@
                                     <div class="portfolio-overlay"></div>
                                     <div class="port-overlay-info">
                                         <div class="content">
-                                            <h3 class="port-title">{{ portfolio.title }}</h3>
-                                            <div class="category">{{ portfolio.category }}</div>
+                                            <h3 class="port-title">{{ portfolio.title[$i18n.locale] }}</h3>
+                                            <div class="category">{{ portfolio.category[$i18n.locale] }}</div>
                                         </div>
                                     </div>
                                 </div>

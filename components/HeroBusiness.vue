@@ -1,22 +1,23 @@
 <template>
     <div class="slider-area hero-business position-relative">
         <div class="number-dot">
-            <swiper :options="swiperOption">
-                <div class="hero-item bg-image swiper-slide" :style="{ backgroundImage: `url('/img/slider/business-slide-01.jpg')` }">
+            <swiper :options="swiperOption" v-for="(banner,index) in banners.data">
+                <div class="hero-item bg-image swiper-slide" :style="{ background: `url(${banner.image}) center center /cover` }">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="hero-content-2">
-                                    <h3>This is Brook <span>A full-service <br> creative agency.</span></h3>
-                                </div>
-                            </div>
-                        </div>
+                      <h1 class="text-center text-white "  style="position: absolute;bottom: 127px;text-align: center;left: 0;right: 0">
+
+                       <span v-html="banner.title[$i18n.locale]"></span>
+
+                      </h1>
+
                     </div>
                     <div class="hero-bottom-content">
+
                         <a href="javascript:void(0)" class="scroll-more">
                             <h6>Scroll for more</h6>
                             <img src="/img/slider/mouse-icon.png" alt="icon">
                         </a>
+
                         <!-- <div class="video-btn">
                             Watch video
                             <a class="play__btn" href="https://www.youtube.com/watch?v=9No-FiEInLA" target="_blank">
@@ -24,7 +25,7 @@
                             </a>
                         </div> -->
 
-                        <client-only>
+<!--                        <client-only>
                             <silent-box :image="videos[0]">
                                 <template v-slot:silentbox-item>
                                     <div class="video-btn">
@@ -34,100 +35,35 @@
                                     </div>
                                 </template>
                             </silent-box>
-                        </client-only>
+                        </client-only>-->
+
+
                     </div>
                 </div>
 
-                <div class="hero-item bg-image swiper-slide" :style="{ backgroundImage: `url('/img/slider/business-slide-02.jpg')` }">
-                    <div class="container">
-                        <div class="row">
-                          <div class="col-5">
-                                <div class="hero-content-2">
-                                    <h3>This is Brook <span>A full-service <br> creative agency.</span></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-bottom-content">
-                        <a href="#service" class="scroll-more">
-                            <h6>Scroll for more</h6>
-                            <img src="/img/slider/mouse-icon.png" alt="icon">
-                        </a>
-                        <!-- <div class="video-btn">
-                            Watch video
-                            <a class="play__btn" href="https://www.youtube.com/watch?v=9No-FiEInLA" target="_blank">
-                                <div class="video-icon third-icon secondary-color"></div>
-                            </a>
-                        </div> -->
-                        <client-only>
-                            <silent-box :image="videos[0]">
-                                <template v-slot:silentbox-item>
-                                    <div class="video-btn">
-                                        <div class="play__btn">
-                                            <div class="video-icon second-icon"></div>
-                                        </div>
-                                    </div>
-                                </template>
-                            </silent-box>
-                        </client-only>
-                    </div>
-                </div>
-
-                <div class="hero-item bg-image swiper-slide" :style="{ backgroundImage: `url('/img/slider/business-slide-03.jpg')` }">
 
 
-                    <div class="container">
-                        <div class="row">
-                          <div class="col-5">
-                                <div class="hero-content-2">
-                                    <h3>This is Brook <span>A full-service <br> creative agency.</span></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-
-                    <div class="hero-bottom-content">
-                        <a href="#service" class="scroll-more">
-                            <h6>Scroll for more</h6>
-                            <img src="/img/slider/mouse-icon.png" alt="icon">
-                        </a>
-                        <!-- <div class="video-btn">
-                            Watch video
-                            <a class="play__btn" href="https://www.youtube.com/watch?v=9No-FiEInLA" target="_blank">
-                                <div class="video-icon third-icon secondary-color"></div>
-                            </a>
-                        </div> -->
-
-                        <client-only>
-                            <silent-box :image="videos[0]">
-                                <template v-slot:silentbox-item>
-                                    <div class="video-btn">
-                                        <div class="play__btn">
-                                            <div class="video-icon second-icon"></div>
-                                        </div>
-                                    </div>
-                                </template>
-                            </silent-box>
-                        </client-only>
-                    </div>
-                </div>
             </swiper>
             <!-- Add Pagination -->
+<!--
             <div class="swiper-pagination-2"></div>
+-->
 
         </div>
     </div>
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
+
     export default {
         data (){
             return {
                 videos: [
                     {
-                        src: 'https://www.youtube.com/watch?v=9No-FiEInLA',
-                        thumbnail: ""
+                        src: 'https://youtu.be/8Gu4RWwsIns',
+                        thumbnail: "/img/home/bg_3.jpg"
                     }
                 ],
                 swiperOption: {
@@ -148,7 +84,25 @@
                     },
                 },
             }
+        },
+
+      computed:{
+        ...mapGetters({
+          banners: 'banners/banners'
+        })
+      },
+      async fetch() {
+
+        try {
+
+          await this.$store.dispatch('banners/lastBanners')
+
+        } catch (errors) {
+          // Set validation errors on a form
+
         }
+
+      },
     };
 </script>
 
@@ -324,3 +278,4 @@
         }
     }
 </style>
+

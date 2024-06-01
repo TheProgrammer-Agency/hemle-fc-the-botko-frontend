@@ -69,6 +69,8 @@ export default {
     },
     home: {
         players: 'Our players',
+        hemle_story_description:"Follow our daily life at Hémle FC de Botko! From behind the scenes of matches to moments of " +
+            "relaxation, training sessions, and special events, experience every moment of our journey with us.",
 
         shop:"SHOP",
         title_page: 'Home',
@@ -83,6 +85,7 @@ export default {
 
         shop_title_2:"DISCOVER   <strong class='secondary-color'>OUR PRODUCTS</strong>",
         shop_description:"Discover our official store filled with quality items for passionate people, for true Hèmlèens. Jerseys, caps, polos, tracksuits, and much more, all adorned with our colors and our iconic logo. Express your passion for football with our complete selection of essential items. Browse our collection now and find the perfect accessory to show your support for the club.",
+        home_believe_description :"At Hémlè FC de Botko, we believe that football is much more than a sport. It is a school of life, a source of inspiration and a unifying force."
 
 
     },
@@ -296,5 +299,12 @@ export default {
         referer_error_desc:"Description: \"It seems like you don't have a sponsor in Hemlè yet. Don't worry, you can invite your friends to join us and enjoy this unique experience together. Be the first to sponsor and build your own network in Hemlè. Join us now and don't miss out on this opportunity!\"",
         referer_error_title:"Oops, You Don't Have a Sponsor Yet!"
 
+    },
+
+    store: {
+        title: '<h3> DISCOVER<span>OUR PRODUCTS</span></h3>',
+        btn_see: 'See the store',
+        description: "Discover our official store full of quality items for true Hèmlé fans. Jerseys, caps, polos, tracksuits, and much more, all adorned with our colors and iconic logo. Express your passion for football with our comprehensive selection of must-have items. Browse our collection now and find the perfect accessory to show your support for the club.\n"
     }
+
 }

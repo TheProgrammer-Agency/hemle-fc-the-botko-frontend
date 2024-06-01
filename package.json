@@ -22,6 +22,7 @@
         "aos": "^2.3.4",
         "bootstrap": "^4.6.1",
         "bootstrap-vue": "^2.21.2",
+        "caniuse-lite": "^1.0.30001621",
         "html2pdf.js": "^0.10.1",
         "jspdf": "^2.5.1",
         "mixitup": "^3.3.1",

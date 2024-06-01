@@ -5,6 +5,19 @@
 
 
 
+.blog-wrapper{
+
+    @media #{$sm-layout}{
+
+    margin-top: 90px;
+    }
+
+    @media #{$md-layout}{
+
+    margin-top: 0;
+    }
+}
+
 .blog-grid {
     position: relative;
     display: flex;

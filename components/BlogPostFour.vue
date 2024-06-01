@@ -15,7 +15,9 @@
                 <div class="post-meta">
                     <div class="post-date">{{ blog.date }}</div>
                     <div class="post-category">
+<!--
                         <n-link v-for="(category, i) in blog.categories.slice(0, 1)" :key="i" :to="`/blog/category/${slugify(category)}`">{{ category }}</n-link>
+-->
                     </div>
                 </div>
                 <div class="desc mt--20">

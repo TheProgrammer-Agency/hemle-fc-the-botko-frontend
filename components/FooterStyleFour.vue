@@ -33,7 +33,7 @@
                                         <a class="text-white" href="mailto:contact@myhemle.com">contact@myhemle.com</a>
                                     </p>
                                     <p class="bk_pra line-height-1-63 bk-hover">
-                                        <a class="text-white" href="tel:+237690402737">+237 690 40 27 37</a>
+                                        <a class="text-white" href="tel:+237690402737">+237 698 30 54 11</a>
                                     </p>
                                 </div>
                             </div>
