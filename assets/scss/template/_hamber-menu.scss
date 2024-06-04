@@ -108,7 +108,7 @@
         &.light-version{
             &::before ,
             &::after{
-                background: #fff,
+                background: #fff;
             }
         }
     }
@@ -132,10 +132,14 @@
     overflow-y: auto;
     opacity: 0;
     transform: scale(.3);
+    /*
     padding: 100px 120px;
+    */
     display: flex;
     flex-flow: column;
+    /*
     padding-top: 60px;
+    */
 
     &.is-visiable{
         visibility: visible;

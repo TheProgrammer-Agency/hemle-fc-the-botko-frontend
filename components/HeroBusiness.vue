@@ -2,9 +2,9 @@
     <div class="slider-area hero-business position-relative">
         <div class="number-dot">
             <swiper :options="swiperOption" v-for="(banner,index) in banners.data">
-                <div class="hero-item bg-image swiper-slide" :style="{ background: `url(${banner.image}) center center /cover` }">
+                <div class="hero-item bg-image swiper-slide" :style="{ background: `url(${banner.image}) center center /cover no-repeat` }">
                     <div class="container">
-                      <h1 class="text-center text-white "  style="position: absolute;bottom: 127px;text-align: center;left: 0;right: 0">
+                      <h1 class="text-center text-white "  style="position: absolute;bottom: 100px;text-align: center;left: 0;right: 0">
 
                        <span v-html="banner.title[$i18n.locale]"></span>
 

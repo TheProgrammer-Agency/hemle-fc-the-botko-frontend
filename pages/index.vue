@@ -3,7 +3,8 @@
 
     <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
 
-    <OffCanvasMobileMenu :class="{'show-mobile-menu' : navOpen}" @togglenav="navOpen = !navOpen"/>
+
+    <OffcanvasMenu :class="{'is-visiable' : fullpageOpen}" @toggleFullpageMenu="fullpageOpen = !fullpageOpen" />
 
     <SearchPopup :class="{'search-popup-open' : searchOpen}" @toggleSearch="searchOpen = !searchOpen"/>
 
@@ -16,6 +17,7 @@
 -->
 
     <BlogOne />
+
 
 
 
@@ -237,9 +239,12 @@ export default {
       data,
       blogs,
       navOpen: false,
-      searchOpen: false
+      searchOpen: false,
+      fullpageOpen: false,
+
     }
   },
+
 
 
   mounted() {

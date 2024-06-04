@@ -2,7 +2,13 @@
     <div class="team team_style--1">
         <!-- Image Wrap -->
         <div class="image-wrap">
-            <div class="thumb" :style="{ background: `url(${teamMember.avatar}) center center / cover`, height: '450px' }">
+            <div class="thumb" :style="{ background: `url(/img/cobail3.jpg) center center / cover`,  height: '550px' }">
+
+<!--
+              background: `url(${teamMember.avatar}) center center / cover`,
+-->
+
+              <img :src="teamMember.avatar"  style="object-fit: cover">
 
                 <div class="overlay"></div>
 
@@ -15,6 +21,7 @@
 
                 </div>
               <div class="info"  >
+
                 <h2 class="name white" >{{ teamMember.first_name }}</h2>
                 <span class="position white">{{ teamMember.last_name }}</span>
               </div>
