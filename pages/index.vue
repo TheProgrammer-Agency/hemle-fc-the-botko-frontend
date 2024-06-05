@@ -103,8 +103,9 @@
 -->
 
 
+<!--
 
-    <!--     <div class="container">
+      <div class="container">
            <div class="row">
              <div class="col-sm-6 move-up wow mt&#45;&#45;30" v-for="blog in blogs.blogs.slice(1, 3)" :key="blog.id">
                <div class="blog-grid">
@@ -130,7 +131,8 @@
              </div>
            </div>
 
-         </div>-->
+         </div>
+-->
 
 
 

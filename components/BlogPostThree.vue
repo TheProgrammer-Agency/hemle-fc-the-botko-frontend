@@ -29,14 +29,28 @@
 
             </div>
         </div>
+
+
+
+
     </div>
 </template>
 
 <script>
     import {slugify} from '~/mixins/slugify';
+    import blogs from "../data/blog.json";
     export default {
         mixins: [slugify],
         
-        props: ["blog", "addClass", "readMoreButton"]
+        props: ["blog", "addClass", "readMoreButton"],
+
+      data() {
+        return {
+          blogs,
+
+        }
+      },
+
+
     };
 </script>

@@ -210,6 +210,7 @@ export default {
         latest_new: 'Latest News\n',
         unavailable_desc: "We are currently updating our database to bring you new exciting articles. Please wait a little or come back later to explore our updated content. Thank you for your understanding and see you soon!",
         unavailable_title: "No Articles Available!",
+        blog_continuous: "Continue reading with...",
     },
 
     payment:{

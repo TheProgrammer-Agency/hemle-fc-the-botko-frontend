@@ -1,4 +1,7 @@
 export default () => ({
 
-    blogs : {}
+    blogs : {},
+    blogsSimilar : {},
+
+
 })

@@ -1,13 +1,24 @@
 <template>
     <div class="flexableimage__wrapper">
         <swiper :options="swiperOption">
-            <div class="swiper-slide" v-for="slide in sliders" :key="slide.id">
-                <div class="flexale-image">
-                    <div class="thumb">
-                        <img :src="slide.image" alt="image">
-                    </div>
+
+          <n-link class="swiper-slide" v-for="(blog,index) in blogs" :key="index" :to="localePath(`/blog/${blog.uuid}`)">
+
+
+              <div class="flexale-image">
+                <div class="thumb">
+                  <img :src="blog.image" alt="image">
                 </div>
-            </div>
+                <h2 class="text-white text-center">{{ blog.title[[$i18n.locale]] }}</h2>
+
+              </div>
+
+
+
+          </n-link>
+
+
+
         </swiper>
 
         <!-- Add Arrows -->
@@ -22,6 +33,8 @@
 
 <script>
     export default {
+
+      props:['blogs'],
         data () {
             return {
                 swiperOption: {

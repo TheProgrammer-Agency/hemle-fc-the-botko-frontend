@@ -155,6 +155,7 @@ export default {
             "nouveaux articles passionnants. Veuillez patienter un peu ou revenir ultérieurement pour découvrir notre contenu mis" +
             " à jour. Merci de votre compréhension et à bientôt !",
         unavailable_title:"Aucun article disponible ! ",
+        blog_continuous:"   Continuez votre lecture avec... ",
 
     },
 

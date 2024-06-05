@@ -4,5 +4,11 @@ export default {
 
 
         state.blogs=blogs
+    },
+
+    SIMILAR_BLOGS(state,blogs){
+
+
+        state.blogsSimilar=blogs
     }
 }
