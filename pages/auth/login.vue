@@ -202,7 +202,16 @@ export default {
   mounted() {
 
     console.log(this.$auth)
+  },
+  head: function() {
+    return this.$seo({
+      name: 'Hémlè FC de Botko',
+      title: 'Connexion',
+      templateTitle: '%name% - %title%',
+      description: 'Connectez-vous à votre compte sur le site officiel du Hémlè FC de Botko pour accéder aux fonctionnalités exclusives et rester informé des dernières nouvelles du club de deuxième division au Cameroun.'
+    })
   }
+
 }
 </script>
 

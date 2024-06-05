@@ -198,9 +198,12 @@ export default {
   },
 
   head() {
-    return {
-      title: 'Blog'
-    }
+    return this.$seo({
+      name: 'Hémlè FC de Botko',
+      title: 'Blog',
+      templateTitle: '%name% - %title%',
+      description: 'Découvrez les dernières actualités, articles et analyses sur le Hémlè FC de Botko. Restez informé des dernières nouvelles de notre club de deuxième division au Cameroun.'
+    })
   },
 };
 </script>

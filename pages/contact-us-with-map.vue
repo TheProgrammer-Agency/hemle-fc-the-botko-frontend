@@ -48,11 +48,19 @@
             document.body.classList.add('template-color-1', 'template-font-1')
         },
 
-        head() {
-            return {
-                title: 'Contactez-nous'
-            }
-        },
+
+
+      head: function() {
+        return this.$seo({
+          name: 'Hémlè FC de Botko',
+          title: 'Inscription',
+          templateTitle: '%name% - %title%',
+          description: 'Inscrivez-vous sur le site officiel du Hémlè FC de Botko pour rejoindre notre communauté et rester informé des dernières nouvelles, matchs et événements du club de deuxième division au Cameroun.'
+        })
+      }
+
+
+
     };
 </script>
 

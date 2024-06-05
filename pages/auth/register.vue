@@ -741,6 +741,16 @@ export default {
 
   },
 
+  head: function() {
+    return this.$seo({
+      name: 'Hémlè FC de Botko',
+      title: 'Inscription',
+      templateTitle: '%name% - %title%',
+      description: 'Inscrivez-vous sur le site officiel du Hémlè FC de Botko pour rejoindre notre communauté et rester informé des dernières nouvelles, matchs et événements du club de deuxième division au Cameroun.'
+    })
+  }
+
+
 
 }
 </script>

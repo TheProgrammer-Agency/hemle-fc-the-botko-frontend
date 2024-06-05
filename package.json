@@ -1,5 +1,5 @@
 {
-    "name": "HEMLE",
+    "name": "HEMLE FC",
     "version": "1.0.0",
     "description": "HEMLE FC The BOTKO",
     "author": "TheProgrammmer",
@@ -8,7 +8,7 @@
         "dev": "nuxt",
         "build": "nuxt build",
         "start": "nuxt start",
-        "generate": "nuxt generate",
+        "generate": "nuxt build && nuxt export",
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
     },
     "dependencies": {

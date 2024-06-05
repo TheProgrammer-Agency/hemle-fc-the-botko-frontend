@@ -18,25 +18,26 @@ export default {
 
         return {
 
-            title: 'Hemlè',
-            titleTemplate: 'Hemlè || %s',
+            title: 'Hémlè',
+            titleTemplate: 'Hémlè || %s',
             htmlAttrs:{
                 ...i18nHead.htmlAttrs
             },
             meta: [
                 {charset: 'utf-8'},
                 {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-                {hid: 'description', name: 'description', content: process.env.npm_package_description || ''}
+                {hid: 'description', name: 'description', content: process.env.npm_package_description || 'Bienvenue sur le site officiel du Hémlè FC de Botko. Suivez toutes les actualités, les matchs et les événements " +\n' +
+                        '            "de notre club de deuxième division au Cameroun'}
             ],
             ...i18nHead.meta,
 
-        link: [
+            link: [
                 { rel: 'icon', type: 'image/x-icon', href: '/img/home/other_logo_1.png' },
-                  /*
-                { rel: 'preload', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap', as: 'style', onload: "this.onload=null;this.rel='stylesheet'" },
-                { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: true },
-                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
-                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap', media: 'print', onload: "this.media='all'" }*/
+                /*
+              { rel: 'preload', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap', as: 'style', onload: "this.onload=null;this.rel='stylesheet'" },
+              { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: true },
+              { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+              { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap', media: 'print', onload: "this.media='all'" }*/
             ],
             ...i18nHead.link,
 
@@ -76,9 +77,9 @@ export default {
 
     router: {
 
-/*
-        middleware: ['auth'],
-*/
+        /*
+                middleware: ['auth'],
+        */
         scrollBehavior(to, from, savedPosition) {
             if (savedPosition) {
                 return savedPosition;
@@ -277,10 +278,27 @@ export default {
 
         // with options
         ['nuxt-clipboard', { autoSetContainer: true }
-            ],
+        ],
+        'nuxt-seo'
+
 
     ],
 
+
+    seo:{
+        "baseUrl": "https://myhemle.com",
+        "name": "Hémlè FC de Botko",
+        "title": "Club de Football - Deuxième Division du Cameroun",
+        "templateTitle": "%name% - %title%",
+        "description": "Bienvenue sur le site officiel du Hémlè FC de Botko. Suivez toutes les actualités, les matchs et les événements " +
+            "de notre club de deuxième division au Cameroun.",
+
+        canonical: 'auto',
+        isForcedTrailingSlash: false,
+
+
+        author: 'Josué Nguimatio',
+    },
     styleResources: {
         scss: [
             'assets/scss/default/_variables.scss'

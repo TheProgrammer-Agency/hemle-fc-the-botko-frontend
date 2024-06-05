@@ -255,10 +255,13 @@ export default {
     document.body.classList.add('template-color-1', 'template-font-2')
   },
 
-  head() {
-    return {
-      title: 'Home Business'
-    }
-  },
+  head: function() {
+    return this.$seo({
+      name: 'Hémlè FC de Botko',
+      title: 'Accueil',
+      templateTitle: '%name% - %title%',
+      description: 'Bienvenue sur la page d\'accueil officielle du Hémlè FC de Botko. Découvrez les dernières actualités, matchs, et événements de notre club de deuxième division au Cameroun.'
+    })
+  }
 };
 </script>
