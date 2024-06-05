@@ -26,7 +26,8 @@ export default {
             meta: [
                 {charset: 'utf-8'},
                 {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-                {hid: 'description', name: 'description', content: process.env.npm_package_description || 'Bienvenue sur le site officiel du Hémlè FC de Botko. Suivez toutes les actualités, les matchs et les événements " +\n' +
+                {hid: 'description', name: 'description', content: process.env.npm_package_description ||
+                        'Bienvenue sur le site officiel du Hémlè FC de Botko. Suivez toutes les actualités, les matchs et les événements " +\n' +
                         '            "de notre club de deuxième division au Cameroun'}
             ],
             ...i18nHead.meta,
@@ -77,9 +78,9 @@ export default {
 
     router: {
 
-        /*
+
                 middleware: ['auth'],
-        */
+
         scrollBehavior(to, from, savedPosition) {
             if (savedPosition) {
                 return savedPosition;
