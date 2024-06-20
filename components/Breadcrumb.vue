@@ -1,5 +1,6 @@
 <template>
-    <div class="breadcrumb-area pt--400 pt_lg--300 pt_md--250 pt_sm--200 pb--100 bg_image--8 breadcrumb-title-bar breadcrumb-title-white" :style="{ backgroundImage: `url('/img/home/joueur1.jpeg')` }">
+    <div class="breadcrumb-area pt--400 pt_lg--300 pt_md--250 pt_sm--200 pb--100 bg_image--8 breadcrumb-title-bar
+     breadcrumb-title-white" :style="{ background: `url('/img/home/blog2.jpg') center center /cover`  }">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

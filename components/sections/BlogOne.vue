@@ -1,5 +1,6 @@
 <template>
-    <div class="bk-blog-area"  style=" transform: translateY(-50px); position: relative;z-index: 9;background: linear-gradient(180deg,#080e1f 0,#080e1f 45%,#461117 46%,#5e1821 49%,#181733)" >
+    <div class="bk-blog-area"  style=" transform: translateY(-50px); position: relative;
+    z-index: 9;background: linear-gradient(180deg,#080e1f 0,#080e1f 45%,#461117 46%,#5e1821 49%,#181733)" >
 
 
 <!--

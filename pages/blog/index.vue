@@ -1,4 +1,5 @@
 <template>
+
   <div class="main-wrapper">
 
     <HeaderElement @togglenav="navOpen = !navOpen" @toggleSearch="searchOpen = !searchOpen"/>
@@ -11,6 +12,8 @@
 
 
     <div class="bk-blog-grid-area pt--70 pb--100 pt_md--80 pb_md--80 pb_sm--80 pt_sm--60 bg_color--5">
+
+
       <div class="container" v-if="hasBlog">
         <div class="row">
           <div class="col-lg-8" >
@@ -28,9 +31,10 @@
                         <n-link :to="localePath(`/blog/${blog.uuid}`)">{{ blog.title[[$i18n.locale]] }}</n-link>
                       </h5>
 
-                      <p v-html="blog.description[[$i18n.locale]]">
+                      <p v-html="blog.summary[[$i18n.locale]]">
 
                       </p>
+                      <br>
                       <div class="post-meta">
                         <div class="post-date">{{ toDate(blog.created_at) }}</div>
 
@@ -112,6 +116,11 @@
 
       </div>
     </div>
+
+
+    <br><br>
+    <br><br>
+    <br><br>
 
     <FooterStyleFour/>
 

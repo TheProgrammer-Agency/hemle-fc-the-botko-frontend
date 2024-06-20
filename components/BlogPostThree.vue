@@ -21,6 +21,7 @@
 
                 </div>
                 <h5 class="heading heading-h5">
+
                   <n-link :to="localePath(`/blog/${blog.uuid}`)">{{ blog.title[$i18n.locale] }}</n-link>
 
                 </h5>
@@ -28,6 +29,7 @@
                 <n-link class="post-read-more" :to="`/blog/${blog.slug}`" v-show="readMoreButton"></n-link>
 
             </div>
+
         </div>
 
 
